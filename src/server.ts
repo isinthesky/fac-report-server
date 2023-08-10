@@ -6,14 +6,11 @@ import { fileURLToPath } from "url";
 import { routersLoader } from "./loaders/routers.js";
 import { utilsLoader } from "./loaders/utils.js";
 import { SERVER_PORT } from "./env.js";
-import { PrismaClient } from "@prisma/client";
+import { object } from "zod";
 
 dotenv.config();
 
 const app = express();
-const prisma = new PrismaClient({
-  log: ["query", "info", "warn", "error"],
-});
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 app.set("views", path.join(__dirname, "../views"));
@@ -27,8 +24,7 @@ utilsLoader(app);
 routersLoader(app);
 
 async function main() {
-  console.log(await prisma.$connect());
-  console.log("main");
+  console.info("main");
 }
 
 main();

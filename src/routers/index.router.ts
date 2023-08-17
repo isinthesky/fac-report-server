@@ -11,7 +11,7 @@ router.get("/report", (req: Request, res: Response): Response => {
 router.post(
   "/report",
   getDateLog,
-  downloadXml,
+  // downloadXml,
   (req: Request, res: Response): Response => {
     return res.status(200).json({ ok: true });
   }

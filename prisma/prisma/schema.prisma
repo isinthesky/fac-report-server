@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output = "./src/generated/clientFac"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("FAC_REPORT11_DATABASE_URL")
+}
+
+model general {
+  id        Int        @id @default(autoincrement())
+  rows      Int
+  columns   Int
+}
+
+model Station {
+  id        Int         @id @default(autoincrement())
+  name      String      @unique
+  Device    Device[]
+}
+
+model Division {
+  id        Int         @id @default(autoincrement())
+  name      String      @unique
+  Device    Device[]
+}
+
+model Device {
+  id                Int           @id @default(autoincrement())
+  majorCategoryId   Int
+  divisionId        Int
+  name              String
+  majorCategory     Station       @relation(fields: [majorCategoryId], references: [id])
+  division          Division      @relation(fields: [divisionId], references: [id])
+}

@@ -127,14 +127,41 @@ exports.Prisma.GeneralScalarFieldEnum = {
   columns: 'columns'
 };
 
+exports.Prisma.StationScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+};
+
+exports.Prisma.DivisionScalarFieldEnum = {
+  id: 'id',
+  stationId: 'stationId',
+  name: 'name'
+};
+
+exports.Prisma.DeviceScalarFieldEnum = {
+  id: 'id',
+  xmlId: 'xmlId',
+  name: 'name',
+  stationId: 'stationId',
+  divisionId: 'divisionId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
 };
 
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
 
 exports.Prisma.ModelName = {
-  general: 'general'
+  general: 'general',
+  Station: 'Station',
+  Division: 'Division',
+  Device: 'Device'
 };
 
 /**

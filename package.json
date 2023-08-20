@@ -30,6 +30,7 @@
     "prisma": "^5.0.0",
     "tsx": "^3.12.7",
     "x2js": "^3.4.4",
+    "xml2js": "^0.6.2",
     "zod": "^3.21.4"
   },
   "devDependencies": {
@@ -39,6 +40,7 @@
     "@types/express-session": "^1.17.7",
     "@types/morgan": "^1.9.4",
     "@types/node": "^20.4.3",
+    "@types/xml2js": "^0.4.11",
     "dotenv": "^16.3.1",
     "eslint": "^8.45.0",
     "nodemon": "^3.0.1",

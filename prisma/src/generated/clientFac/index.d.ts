@@ -18,6 +18,21 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  * 
  */
 export type general = $Result.DefaultSelection<Prisma.$generalPayload>
+/**
+ * Model Station
+ * 
+ */
+export type Station = $Result.DefaultSelection<Prisma.$StationPayload>
+/**
+ * Model Division
+ * 
+ */
+export type Division = $Result.DefaultSelection<Prisma.$DivisionPayload>
+/**
+ * Model Device
+ * 
+ */
+export type Device = $Result.DefaultSelection<Prisma.$DevicePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -150,6 +165,36 @@ export class PrismaClient<
     * ```
     */
   get general(): Prisma.generalDelegate<ExtArgs>;
+
+  /**
+   * `prisma.station`: Exposes CRUD operations for the **Station** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Stations
+    * const stations = await prisma.station.findMany()
+    * ```
+    */
+  get station(): Prisma.StationDelegate<ExtArgs>;
+
+  /**
+   * `prisma.division`: Exposes CRUD operations for the **Division** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Divisions
+    * const divisions = await prisma.division.findMany()
+    * ```
+    */
+  get division(): Prisma.DivisionDelegate<ExtArgs>;
+
+  /**
+   * `prisma.device`: Exposes CRUD operations for the **Device** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Devices
+    * const devices = await prisma.device.findMany()
+    * ```
+    */
+  get device(): Prisma.DeviceDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -620,7 +665,10 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    general: 'general'
+    general: 'general',
+    Station: 'Station',
+    Division: 'Division',
+    Device: 'Device'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -637,7 +685,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'general'
+      modelProps: 'general' | 'station' | 'division' | 'device'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -704,6 +752,204 @@ export namespace Prisma {
           count: {
             args: Prisma.generalCountArgs<ExtArgs>,
             result: $Utils.Optional<GeneralCountAggregateOutputType> | number
+          }
+        }
+      }
+      Station: {
+        payload: Prisma.$StationPayload<ExtArgs>
+        fields: Prisma.StationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.StationFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$StationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.StationFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$StationPayload>
+          }
+          findFirst: {
+            args: Prisma.StationFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$StationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.StationFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$StationPayload>
+          }
+          findMany: {
+            args: Prisma.StationFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$StationPayload>[]
+          }
+          create: {
+            args: Prisma.StationCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$StationPayload>
+          }
+          createMany: {
+            args: Prisma.StationCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.StationDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$StationPayload>
+          }
+          update: {
+            args: Prisma.StationUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$StationPayload>
+          }
+          deleteMany: {
+            args: Prisma.StationDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.StationUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.StationUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$StationPayload>
+          }
+          aggregate: {
+            args: Prisma.StationAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateStation>
+          }
+          groupBy: {
+            args: Prisma.StationGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<StationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.StationCountArgs<ExtArgs>,
+            result: $Utils.Optional<StationCountAggregateOutputType> | number
+          }
+        }
+      }
+      Division: {
+        payload: Prisma.$DivisionPayload<ExtArgs>
+        fields: Prisma.DivisionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DivisionFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DivisionFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>
+          }
+          findFirst: {
+            args: Prisma.DivisionFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DivisionFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>
+          }
+          findMany: {
+            args: Prisma.DivisionFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>[]
+          }
+          create: {
+            args: Prisma.DivisionCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>
+          }
+          createMany: {
+            args: Prisma.DivisionCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.DivisionDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>
+          }
+          update: {
+            args: Prisma.DivisionUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>
+          }
+          deleteMany: {
+            args: Prisma.DivisionDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DivisionUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.DivisionUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionPayload>
+          }
+          aggregate: {
+            args: Prisma.DivisionAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateDivision>
+          }
+          groupBy: {
+            args: Prisma.DivisionGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<DivisionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DivisionCountArgs<ExtArgs>,
+            result: $Utils.Optional<DivisionCountAggregateOutputType> | number
+          }
+        }
+      }
+      Device: {
+        payload: Prisma.$DevicePayload<ExtArgs>
+        fields: Prisma.DeviceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DeviceFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DevicePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DeviceFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DevicePayload>
+          }
+          findFirst: {
+            args: Prisma.DeviceFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DevicePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DeviceFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DevicePayload>
+          }
+          findMany: {
+            args: Prisma.DeviceFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DevicePayload>[]
+          }
+          create: {
+            args: Prisma.DeviceCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DevicePayload>
+          }
+          createMany: {
+            args: Prisma.DeviceCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.DeviceDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DevicePayload>
+          }
+          update: {
+            args: Prisma.DeviceUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DevicePayload>
+          }
+          deleteMany: {
+            args: Prisma.DeviceDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DeviceUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.DeviceUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DevicePayload>
+          }
+          aggregate: {
+            args: Prisma.DeviceAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateDevice>
+          }
+          groupBy: {
+            args: Prisma.DeviceGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<DeviceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DeviceCountArgs<ExtArgs>,
+            result: $Utils.Optional<DeviceCountAggregateOutputType> | number
           }
         }
       }
@@ -848,6 +1094,83 @@ export namespace Prisma {
   /**
    * Count Types
    */
+
+
+  /**
+   * Count Type StationCountOutputType
+   */
+
+  export type StationCountOutputType = {
+    Division: number
+    Device: number
+  }
+
+  export type StationCountOutputTypeSelect<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    Division?: boolean | StationCountOutputTypeCountDivisionArgs
+    Device?: boolean | StationCountOutputTypeCountDeviceArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * StationCountOutputType without action
+   */
+  export type StationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StationCountOutputType
+     */
+    select?: StationCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * StationCountOutputType without action
+   */
+  export type StationCountOutputTypeCountDivisionArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    where?: DivisionWhereInput
+  }
+
+
+  /**
+   * StationCountOutputType without action
+   */
+  export type StationCountOutputTypeCountDeviceArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    where?: DeviceWhereInput
+  }
+
+
+
+  /**
+   * Count Type DivisionCountOutputType
+   */
+
+  export type DivisionCountOutputType = {
+    Device: number
+  }
+
+  export type DivisionCountOutputTypeSelect<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    Device?: boolean | DivisionCountOutputTypeCountDeviceArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * DivisionCountOutputType without action
+   */
+  export type DivisionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionCountOutputType
+     */
+    select?: DivisionCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * DivisionCountOutputType without action
+   */
+  export type DivisionCountOutputTypeCountDeviceArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    where?: DeviceWhereInput
+  }
 
 
 
@@ -1746,6 +2069,2901 @@ export namespace Prisma {
 
 
   /**
+   * Model Station
+   */
+
+  export type AggregateStation = {
+    _count: StationCountAggregateOutputType | null
+    _avg: StationAvgAggregateOutputType | null
+    _sum: StationSumAggregateOutputType | null
+    _min: StationMinAggregateOutputType | null
+    _max: StationMaxAggregateOutputType | null
+  }
+
+  export type StationAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type StationSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type StationMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+  }
+
+  export type StationMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+  }
+
+  export type StationCountAggregateOutputType = {
+    id: number
+    name: number
+    _all: number
+  }
+
+
+  export type StationAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type StationSumAggregateInputType = {
+    id?: true
+  }
+
+  export type StationMinAggregateInputType = {
+    id?: true
+    name?: true
+  }
+
+  export type StationMaxAggregateInputType = {
+    id?: true
+    name?: true
+  }
+
+  export type StationCountAggregateInputType = {
+    id?: true
+    name?: true
+    _all?: true
+  }
+
+  export type StationAggregateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Station to aggregate.
+     */
+    where?: StationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Stations to fetch.
+     */
+    orderBy?: StationOrderByWithRelationInput | StationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: StationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Stations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Stations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Stations
+    **/
+    _count?: true | StationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: StationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: StationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: StationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: StationMaxAggregateInputType
+  }
+
+  export type GetStationAggregateType<T extends StationAggregateArgs> = {
+        [P in keyof T & keyof AggregateStation]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateStation[P]>
+      : GetScalarType<T[P], AggregateStation[P]>
+  }
+
+
+
+
+  export type StationGroupByArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    where?: StationWhereInput
+    orderBy?: StationOrderByWithAggregationInput | StationOrderByWithAggregationInput[]
+    by: StationScalarFieldEnum[] | StationScalarFieldEnum
+    having?: StationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: StationCountAggregateInputType | true
+    _avg?: StationAvgAggregateInputType
+    _sum?: StationSumAggregateInputType
+    _min?: StationMinAggregateInputType
+    _max?: StationMaxAggregateInputType
+  }
+
+  export type StationGroupByOutputType = {
+    id: number
+    name: string
+    _count: StationCountAggregateOutputType | null
+    _avg: StationAvgAggregateOutputType | null
+    _sum: StationSumAggregateOutputType | null
+    _min: StationMinAggregateOutputType | null
+    _max: StationMaxAggregateOutputType | null
+  }
+
+  type GetStationGroupByPayload<T extends StationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<StationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof StationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], StationGroupByOutputType[P]>
+            : GetScalarType<T[P], StationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type StationSelect<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    Division?: boolean | Station$DivisionArgs<ExtArgs>
+    Device?: boolean | Station$DeviceArgs<ExtArgs>
+    _count?: boolean | StationCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["station"]>
+
+  export type StationSelectScalar = {
+    id?: boolean
+    name?: boolean
+  }
+
+  export type StationInclude<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    Division?: boolean | Station$DivisionArgs<ExtArgs>
+    Device?: boolean | Station$DeviceArgs<ExtArgs>
+    _count?: boolean | StationCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $StationPayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    name: "Station"
+    objects: {
+      Division: Prisma.$DivisionPayload<ExtArgs>[]
+      Device: Prisma.$DevicePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetResult<{
+      id: number
+      name: string
+    }, ExtArgs["result"]["station"]>
+    composites: {}
+  }
+
+
+  type StationGetPayload<S extends boolean | null | undefined | StationDefaultArgs> = $Result.GetResult<Prisma.$StationPayload, S>
+
+  type StationCountArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = 
+    Omit<StationFindManyArgs, 'select' | 'include'> & {
+      select?: StationCountAggregateInputType | true
+    }
+
+  export interface StationDelegate<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Station'], meta: { name: 'Station' } }
+    /**
+     * Find zero or one Station that matches the filter.
+     * @param {StationFindUniqueArgs} args - Arguments to find a Station
+     * @example
+     * // Get one Station
+     * const station = await prisma.station.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends StationFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, StationFindUniqueArgs<ExtArgs>>
+    ): Prisma__StationClient<$Result.GetResult<Prisma.$StationPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Station that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {StationFindUniqueOrThrowArgs} args - Arguments to find a Station
+     * @example
+     * // Get one Station
+     * const station = await prisma.station.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends StationFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, StationFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__StationClient<$Result.GetResult<Prisma.$StationPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Station that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StationFindFirstArgs} args - Arguments to find a Station
+     * @example
+     * // Get one Station
+     * const station = await prisma.station.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends StationFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, StationFindFirstArgs<ExtArgs>>
+    ): Prisma__StationClient<$Result.GetResult<Prisma.$StationPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Station that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StationFindFirstOrThrowArgs} args - Arguments to find a Station
+     * @example
+     * // Get one Station
+     * const station = await prisma.station.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends StationFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, StationFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__StationClient<$Result.GetResult<Prisma.$StationPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Stations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StationFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Stations
+     * const stations = await prisma.station.findMany()
+     * 
+     * // Get first 10 Stations
+     * const stations = await prisma.station.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const stationWithIdOnly = await prisma.station.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends StationFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, StationFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StationPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Station.
+     * @param {StationCreateArgs} args - Arguments to create a Station.
+     * @example
+     * // Create one Station
+     * const Station = await prisma.station.create({
+     *   data: {
+     *     // ... data to create a Station
+     *   }
+     * })
+     * 
+    **/
+    create<T extends StationCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, StationCreateArgs<ExtArgs>>
+    ): Prisma__StationClient<$Result.GetResult<Prisma.$StationPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Stations.
+     *     @param {StationCreateManyArgs} args - Arguments to create many Stations.
+     *     @example
+     *     // Create many Stations
+     *     const station = await prisma.station.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends StationCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, StationCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Station.
+     * @param {StationDeleteArgs} args - Arguments to delete one Station.
+     * @example
+     * // Delete one Station
+     * const Station = await prisma.station.delete({
+     *   where: {
+     *     // ... filter to delete one Station
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends StationDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, StationDeleteArgs<ExtArgs>>
+    ): Prisma__StationClient<$Result.GetResult<Prisma.$StationPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Station.
+     * @param {StationUpdateArgs} args - Arguments to update one Station.
+     * @example
+     * // Update one Station
+     * const station = await prisma.station.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends StationUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, StationUpdateArgs<ExtArgs>>
+    ): Prisma__StationClient<$Result.GetResult<Prisma.$StationPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Stations.
+     * @param {StationDeleteManyArgs} args - Arguments to filter Stations to delete.
+     * @example
+     * // Delete a few Stations
+     * const { count } = await prisma.station.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends StationDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, StationDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Stations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Stations
+     * const station = await prisma.station.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends StationUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, StationUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Station.
+     * @param {StationUpsertArgs} args - Arguments to update or create a Station.
+     * @example
+     * // Update or create a Station
+     * const station = await prisma.station.upsert({
+     *   create: {
+     *     // ... data to create a Station
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Station we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends StationUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, StationUpsertArgs<ExtArgs>>
+    ): Prisma__StationClient<$Result.GetResult<Prisma.$StationPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Stations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StationCountArgs} args - Arguments to filter Stations to count.
+     * @example
+     * // Count the number of Stations
+     * const count = await prisma.station.count({
+     *   where: {
+     *     // ... the filter for the Stations we want to count
+     *   }
+     * })
+    **/
+    count<T extends StationCountArgs>(
+      args?: Subset<T, StationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], StationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Station.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends StationAggregateArgs>(args: Subset<T, StationAggregateArgs>): Prisma.PrismaPromise<GetStationAggregateType<T>>
+
+    /**
+     * Group by Station.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends StationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: StationGroupByArgs['orderBy'] }
+        : { orderBy?: StationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, StationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Station model
+   */
+  readonly fields: StationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Station.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__StationClient<T, Null = never, ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    Division<T extends Station$DivisionArgs<ExtArgs> = {}>(args?: Subset<T, Station$DivisionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    Device<T extends Station$DeviceArgs<ExtArgs> = {}>(args?: Subset<T, Station$DeviceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DevicePayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the Station model
+   */ 
+  interface StationFieldRefs {
+    readonly id: FieldRef<"Station", 'Int'>
+    readonly name: FieldRef<"Station", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * Station findUnique
+   */
+  export type StationFindUniqueArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Station
+     */
+    select?: StationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: StationInclude<ExtArgs> | null
+    /**
+     * Filter, which Station to fetch.
+     */
+    where: StationWhereUniqueInput
+  }
+
+
+  /**
+   * Station findUniqueOrThrow
+   */
+  export type StationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Station
+     */
+    select?: StationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: StationInclude<ExtArgs> | null
+    /**
+     * Filter, which Station to fetch.
+     */
+    where: StationWhereUniqueInput
+  }
+
+
+  /**
+   * Station findFirst
+   */
+  export type StationFindFirstArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Station
+     */
+    select?: StationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: StationInclude<ExtArgs> | null
+    /**
+     * Filter, which Station to fetch.
+     */
+    where?: StationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Stations to fetch.
+     */
+    orderBy?: StationOrderByWithRelationInput | StationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Stations.
+     */
+    cursor?: StationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Stations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Stations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Stations.
+     */
+    distinct?: StationScalarFieldEnum | StationScalarFieldEnum[]
+  }
+
+
+  /**
+   * Station findFirstOrThrow
+   */
+  export type StationFindFirstOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Station
+     */
+    select?: StationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: StationInclude<ExtArgs> | null
+    /**
+     * Filter, which Station to fetch.
+     */
+    where?: StationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Stations to fetch.
+     */
+    orderBy?: StationOrderByWithRelationInput | StationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Stations.
+     */
+    cursor?: StationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Stations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Stations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Stations.
+     */
+    distinct?: StationScalarFieldEnum | StationScalarFieldEnum[]
+  }
+
+
+  /**
+   * Station findMany
+   */
+  export type StationFindManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Station
+     */
+    select?: StationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: StationInclude<ExtArgs> | null
+    /**
+     * Filter, which Stations to fetch.
+     */
+    where?: StationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Stations to fetch.
+     */
+    orderBy?: StationOrderByWithRelationInput | StationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Stations.
+     */
+    cursor?: StationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Stations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Stations.
+     */
+    skip?: number
+    distinct?: StationScalarFieldEnum | StationScalarFieldEnum[]
+  }
+
+
+  /**
+   * Station create
+   */
+  export type StationCreateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Station
+     */
+    select?: StationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: StationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Station.
+     */
+    data: XOR<StationCreateInput, StationUncheckedCreateInput>
+  }
+
+
+  /**
+   * Station createMany
+   */
+  export type StationCreateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Stations.
+     */
+    data: StationCreateManyInput | StationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * Station update
+   */
+  export type StationUpdateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Station
+     */
+    select?: StationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: StationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Station.
+     */
+    data: XOR<StationUpdateInput, StationUncheckedUpdateInput>
+    /**
+     * Choose, which Station to update.
+     */
+    where: StationWhereUniqueInput
+  }
+
+
+  /**
+   * Station updateMany
+   */
+  export type StationUpdateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Stations.
+     */
+    data: XOR<StationUpdateManyMutationInput, StationUncheckedUpdateManyInput>
+    /**
+     * Filter which Stations to update
+     */
+    where?: StationWhereInput
+  }
+
+
+  /**
+   * Station upsert
+   */
+  export type StationUpsertArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Station
+     */
+    select?: StationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: StationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Station to update in case it exists.
+     */
+    where: StationWhereUniqueInput
+    /**
+     * In case the Station found by the `where` argument doesn't exist, create a new Station with this data.
+     */
+    create: XOR<StationCreateInput, StationUncheckedCreateInput>
+    /**
+     * In case the Station was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<StationUpdateInput, StationUncheckedUpdateInput>
+  }
+
+
+  /**
+   * Station delete
+   */
+  export type StationDeleteArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Station
+     */
+    select?: StationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: StationInclude<ExtArgs> | null
+    /**
+     * Filter which Station to delete.
+     */
+    where: StationWhereUniqueInput
+  }
+
+
+  /**
+   * Station deleteMany
+   */
+  export type StationDeleteManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Stations to delete
+     */
+    where?: StationWhereInput
+  }
+
+
+  /**
+   * Station.Division
+   */
+  export type Station$DivisionArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    where?: DivisionWhereInput
+    orderBy?: DivisionOrderByWithRelationInput | DivisionOrderByWithRelationInput[]
+    cursor?: DivisionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DivisionScalarFieldEnum | DivisionScalarFieldEnum[]
+  }
+
+
+  /**
+   * Station.Device
+   */
+  export type Station$DeviceArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Device
+     */
+    select?: DeviceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DeviceInclude<ExtArgs> | null
+    where?: DeviceWhereInput
+    orderBy?: DeviceOrderByWithRelationInput | DeviceOrderByWithRelationInput[]
+    cursor?: DeviceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DeviceScalarFieldEnum | DeviceScalarFieldEnum[]
+  }
+
+
+  /**
+   * Station without action
+   */
+  export type StationDefaultArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Station
+     */
+    select?: StationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: StationInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model Division
+   */
+
+  export type AggregateDivision = {
+    _count: DivisionCountAggregateOutputType | null
+    _avg: DivisionAvgAggregateOutputType | null
+    _sum: DivisionSumAggregateOutputType | null
+    _min: DivisionMinAggregateOutputType | null
+    _max: DivisionMaxAggregateOutputType | null
+  }
+
+  export type DivisionAvgAggregateOutputType = {
+    id: number | null
+    stationId: number | null
+  }
+
+  export type DivisionSumAggregateOutputType = {
+    id: number | null
+    stationId: number | null
+  }
+
+  export type DivisionMinAggregateOutputType = {
+    id: number | null
+    stationId: number | null
+    name: string | null
+  }
+
+  export type DivisionMaxAggregateOutputType = {
+    id: number | null
+    stationId: number | null
+    name: string | null
+  }
+
+  export type DivisionCountAggregateOutputType = {
+    id: number
+    stationId: number
+    name: number
+    _all: number
+  }
+
+
+  export type DivisionAvgAggregateInputType = {
+    id?: true
+    stationId?: true
+  }
+
+  export type DivisionSumAggregateInputType = {
+    id?: true
+    stationId?: true
+  }
+
+  export type DivisionMinAggregateInputType = {
+    id?: true
+    stationId?: true
+    name?: true
+  }
+
+  export type DivisionMaxAggregateInputType = {
+    id?: true
+    stationId?: true
+    name?: true
+  }
+
+  export type DivisionCountAggregateInputType = {
+    id?: true
+    stationId?: true
+    name?: true
+    _all?: true
+  }
+
+  export type DivisionAggregateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Division to aggregate.
+     */
+    where?: DivisionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Divisions to fetch.
+     */
+    orderBy?: DivisionOrderByWithRelationInput | DivisionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DivisionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Divisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Divisions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Divisions
+    **/
+    _count?: true | DivisionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DivisionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DivisionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DivisionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DivisionMaxAggregateInputType
+  }
+
+  export type GetDivisionAggregateType<T extends DivisionAggregateArgs> = {
+        [P in keyof T & keyof AggregateDivision]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDivision[P]>
+      : GetScalarType<T[P], AggregateDivision[P]>
+  }
+
+
+
+
+  export type DivisionGroupByArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    where?: DivisionWhereInput
+    orderBy?: DivisionOrderByWithAggregationInput | DivisionOrderByWithAggregationInput[]
+    by: DivisionScalarFieldEnum[] | DivisionScalarFieldEnum
+    having?: DivisionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DivisionCountAggregateInputType | true
+    _avg?: DivisionAvgAggregateInputType
+    _sum?: DivisionSumAggregateInputType
+    _min?: DivisionMinAggregateInputType
+    _max?: DivisionMaxAggregateInputType
+  }
+
+  export type DivisionGroupByOutputType = {
+    id: number
+    stationId: number
+    name: string
+    _count: DivisionCountAggregateOutputType | null
+    _avg: DivisionAvgAggregateOutputType | null
+    _sum: DivisionSumAggregateOutputType | null
+    _min: DivisionMinAggregateOutputType | null
+    _max: DivisionMaxAggregateOutputType | null
+  }
+
+  type GetDivisionGroupByPayload<T extends DivisionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DivisionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DivisionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DivisionGroupByOutputType[P]>
+            : GetScalarType<T[P], DivisionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DivisionSelect<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    stationId?: boolean
+    name?: boolean
+    Station?: boolean | StationDefaultArgs<ExtArgs>
+    Device?: boolean | Division$DeviceArgs<ExtArgs>
+    _count?: boolean | DivisionCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["division"]>
+
+  export type DivisionSelectScalar = {
+    id?: boolean
+    stationId?: boolean
+    name?: boolean
+  }
+
+  export type DivisionInclude<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    Station?: boolean | StationDefaultArgs<ExtArgs>
+    Device?: boolean | Division$DeviceArgs<ExtArgs>
+    _count?: boolean | DivisionCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $DivisionPayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    name: "Division"
+    objects: {
+      Station: Prisma.$StationPayload<ExtArgs>
+      Device: Prisma.$DevicePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetResult<{
+      id: number
+      stationId: number
+      name: string
+    }, ExtArgs["result"]["division"]>
+    composites: {}
+  }
+
+
+  type DivisionGetPayload<S extends boolean | null | undefined | DivisionDefaultArgs> = $Result.GetResult<Prisma.$DivisionPayload, S>
+
+  type DivisionCountArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = 
+    Omit<DivisionFindManyArgs, 'select' | 'include'> & {
+      select?: DivisionCountAggregateInputType | true
+    }
+
+  export interface DivisionDelegate<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Division'], meta: { name: 'Division' } }
+    /**
+     * Find zero or one Division that matches the filter.
+     * @param {DivisionFindUniqueArgs} args - Arguments to find a Division
+     * @example
+     * // Get one Division
+     * const division = await prisma.division.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends DivisionFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionFindUniqueArgs<ExtArgs>>
+    ): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Division that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {DivisionFindUniqueOrThrowArgs} args - Arguments to find a Division
+     * @example
+     * // Get one Division
+     * const division = await prisma.division.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends DivisionFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Division that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionFindFirstArgs} args - Arguments to find a Division
+     * @example
+     * // Get one Division
+     * const division = await prisma.division.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends DivisionFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionFindFirstArgs<ExtArgs>>
+    ): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Division that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionFindFirstOrThrowArgs} args - Arguments to find a Division
+     * @example
+     * // Get one Division
+     * const division = await prisma.division.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends DivisionFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Divisions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Divisions
+     * const divisions = await prisma.division.findMany()
+     * 
+     * // Get first 10 Divisions
+     * const divisions = await prisma.division.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const divisionWithIdOnly = await prisma.division.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends DivisionFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Division.
+     * @param {DivisionCreateArgs} args - Arguments to create a Division.
+     * @example
+     * // Create one Division
+     * const Division = await prisma.division.create({
+     *   data: {
+     *     // ... data to create a Division
+     *   }
+     * })
+     * 
+    **/
+    create<T extends DivisionCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionCreateArgs<ExtArgs>>
+    ): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Divisions.
+     *     @param {DivisionCreateManyArgs} args - Arguments to create many Divisions.
+     *     @example
+     *     // Create many Divisions
+     *     const division = await prisma.division.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends DivisionCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Division.
+     * @param {DivisionDeleteArgs} args - Arguments to delete one Division.
+     * @example
+     * // Delete one Division
+     * const Division = await prisma.division.delete({
+     *   where: {
+     *     // ... filter to delete one Division
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends DivisionDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionDeleteArgs<ExtArgs>>
+    ): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Division.
+     * @param {DivisionUpdateArgs} args - Arguments to update one Division.
+     * @example
+     * // Update one Division
+     * const division = await prisma.division.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends DivisionUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionUpdateArgs<ExtArgs>>
+    ): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Divisions.
+     * @param {DivisionDeleteManyArgs} args - Arguments to filter Divisions to delete.
+     * @example
+     * // Delete a few Divisions
+     * const { count } = await prisma.division.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends DivisionDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Divisions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Divisions
+     * const division = await prisma.division.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends DivisionUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Division.
+     * @param {DivisionUpsertArgs} args - Arguments to update or create a Division.
+     * @example
+     * // Update or create a Division
+     * const division = await prisma.division.upsert({
+     *   create: {
+     *     // ... data to create a Division
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Division we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends DivisionUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionUpsertArgs<ExtArgs>>
+    ): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Divisions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionCountArgs} args - Arguments to filter Divisions to count.
+     * @example
+     * // Count the number of Divisions
+     * const count = await prisma.division.count({
+     *   where: {
+     *     // ... the filter for the Divisions we want to count
+     *   }
+     * })
+    **/
+    count<T extends DivisionCountArgs>(
+      args?: Subset<T, DivisionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DivisionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Division.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DivisionAggregateArgs>(args: Subset<T, DivisionAggregateArgs>): Prisma.PrismaPromise<GetDivisionAggregateType<T>>
+
+    /**
+     * Group by Division.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DivisionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DivisionGroupByArgs['orderBy'] }
+        : { orderBy?: DivisionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DivisionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDivisionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Division model
+   */
+  readonly fields: DivisionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Division.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DivisionClient<T, Null = never, ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    Station<T extends StationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StationDefaultArgs<ExtArgs>>): Prisma__StationClient<$Result.GetResult<Prisma.$StationPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    Device<T extends Division$DeviceArgs<ExtArgs> = {}>(args?: Subset<T, Division$DeviceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DevicePayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the Division model
+   */ 
+  interface DivisionFieldRefs {
+    readonly id: FieldRef<"Division", 'Int'>
+    readonly stationId: FieldRef<"Division", 'Int'>
+    readonly name: FieldRef<"Division", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * Division findUnique
+   */
+  export type DivisionFindUniqueArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * Filter, which Division to fetch.
+     */
+    where: DivisionWhereUniqueInput
+  }
+
+
+  /**
+   * Division findUniqueOrThrow
+   */
+  export type DivisionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * Filter, which Division to fetch.
+     */
+    where: DivisionWhereUniqueInput
+  }
+
+
+  /**
+   * Division findFirst
+   */
+  export type DivisionFindFirstArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * Filter, which Division to fetch.
+     */
+    where?: DivisionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Divisions to fetch.
+     */
+    orderBy?: DivisionOrderByWithRelationInput | DivisionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Divisions.
+     */
+    cursor?: DivisionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Divisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Divisions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Divisions.
+     */
+    distinct?: DivisionScalarFieldEnum | DivisionScalarFieldEnum[]
+  }
+
+
+  /**
+   * Division findFirstOrThrow
+   */
+  export type DivisionFindFirstOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * Filter, which Division to fetch.
+     */
+    where?: DivisionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Divisions to fetch.
+     */
+    orderBy?: DivisionOrderByWithRelationInput | DivisionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Divisions.
+     */
+    cursor?: DivisionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Divisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Divisions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Divisions.
+     */
+    distinct?: DivisionScalarFieldEnum | DivisionScalarFieldEnum[]
+  }
+
+
+  /**
+   * Division findMany
+   */
+  export type DivisionFindManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * Filter, which Divisions to fetch.
+     */
+    where?: DivisionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Divisions to fetch.
+     */
+    orderBy?: DivisionOrderByWithRelationInput | DivisionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Divisions.
+     */
+    cursor?: DivisionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Divisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Divisions.
+     */
+    skip?: number
+    distinct?: DivisionScalarFieldEnum | DivisionScalarFieldEnum[]
+  }
+
+
+  /**
+   * Division create
+   */
+  export type DivisionCreateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Division.
+     */
+    data: XOR<DivisionCreateInput, DivisionUncheckedCreateInput>
+  }
+
+
+  /**
+   * Division createMany
+   */
+  export type DivisionCreateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Divisions.
+     */
+    data: DivisionCreateManyInput | DivisionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * Division update
+   */
+  export type DivisionUpdateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Division.
+     */
+    data: XOR<DivisionUpdateInput, DivisionUncheckedUpdateInput>
+    /**
+     * Choose, which Division to update.
+     */
+    where: DivisionWhereUniqueInput
+  }
+
+
+  /**
+   * Division updateMany
+   */
+  export type DivisionUpdateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Divisions.
+     */
+    data: XOR<DivisionUpdateManyMutationInput, DivisionUncheckedUpdateManyInput>
+    /**
+     * Filter which Divisions to update
+     */
+    where?: DivisionWhereInput
+  }
+
+
+  /**
+   * Division upsert
+   */
+  export type DivisionUpsertArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Division to update in case it exists.
+     */
+    where: DivisionWhereUniqueInput
+    /**
+     * In case the Division found by the `where` argument doesn't exist, create a new Division with this data.
+     */
+    create: XOR<DivisionCreateInput, DivisionUncheckedCreateInput>
+    /**
+     * In case the Division was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DivisionUpdateInput, DivisionUncheckedUpdateInput>
+  }
+
+
+  /**
+   * Division delete
+   */
+  export type DivisionDeleteArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionInclude<ExtArgs> | null
+    /**
+     * Filter which Division to delete.
+     */
+    where: DivisionWhereUniqueInput
+  }
+
+
+  /**
+   * Division deleteMany
+   */
+  export type DivisionDeleteManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Divisions to delete
+     */
+    where?: DivisionWhereInput
+  }
+
+
+  /**
+   * Division.Device
+   */
+  export type Division$DeviceArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Device
+     */
+    select?: DeviceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DeviceInclude<ExtArgs> | null
+    where?: DeviceWhereInput
+    orderBy?: DeviceOrderByWithRelationInput | DeviceOrderByWithRelationInput[]
+    cursor?: DeviceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DeviceScalarFieldEnum | DeviceScalarFieldEnum[]
+  }
+
+
+  /**
+   * Division without action
+   */
+  export type DivisionDefaultArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Division
+     */
+    select?: DivisionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model Device
+   */
+
+  export type AggregateDevice = {
+    _count: DeviceCountAggregateOutputType | null
+    _avg: DeviceAvgAggregateOutputType | null
+    _sum: DeviceSumAggregateOutputType | null
+    _min: DeviceMinAggregateOutputType | null
+    _max: DeviceMaxAggregateOutputType | null
+  }
+
+  export type DeviceAvgAggregateOutputType = {
+    id: number | null
+    stationId: number | null
+    divisionId: number | null
+  }
+
+  export type DeviceSumAggregateOutputType = {
+    id: number | null
+    stationId: number | null
+    divisionId: number | null
+  }
+
+  export type DeviceMinAggregateOutputType = {
+    id: number | null
+    xmlId: string | null
+    name: string | null
+    stationId: number | null
+    divisionId: number | null
+  }
+
+  export type DeviceMaxAggregateOutputType = {
+    id: number | null
+    xmlId: string | null
+    name: string | null
+    stationId: number | null
+    divisionId: number | null
+  }
+
+  export type DeviceCountAggregateOutputType = {
+    id: number
+    xmlId: number
+    name: number
+    stationId: number
+    divisionId: number
+    _all: number
+  }
+
+
+  export type DeviceAvgAggregateInputType = {
+    id?: true
+    stationId?: true
+    divisionId?: true
+  }
+
+  export type DeviceSumAggregateInputType = {
+    id?: true
+    stationId?: true
+    divisionId?: true
+  }
+
+  export type DeviceMinAggregateInputType = {
+    id?: true
+    xmlId?: true
+    name?: true
+    stationId?: true
+    divisionId?: true
+  }
+
+  export type DeviceMaxAggregateInputType = {
+    id?: true
+    xmlId?: true
+    name?: true
+    stationId?: true
+    divisionId?: true
+  }
+
+  export type DeviceCountAggregateInputType = {
+    id?: true
+    xmlId?: true
+    name?: true
+    stationId?: true
+    divisionId?: true
+    _all?: true
+  }
+
+  export type DeviceAggregateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Device to aggregate.
+     */
+    where?: DeviceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Devices to fetch.
+     */
+    orderBy?: DeviceOrderByWithRelationInput | DeviceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DeviceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Devices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Devices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Devices
+    **/
+    _count?: true | DeviceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DeviceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DeviceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DeviceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DeviceMaxAggregateInputType
+  }
+
+  export type GetDeviceAggregateType<T extends DeviceAggregateArgs> = {
+        [P in keyof T & keyof AggregateDevice]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDevice[P]>
+      : GetScalarType<T[P], AggregateDevice[P]>
+  }
+
+
+
+
+  export type DeviceGroupByArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    where?: DeviceWhereInput
+    orderBy?: DeviceOrderByWithAggregationInput | DeviceOrderByWithAggregationInput[]
+    by: DeviceScalarFieldEnum[] | DeviceScalarFieldEnum
+    having?: DeviceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DeviceCountAggregateInputType | true
+    _avg?: DeviceAvgAggregateInputType
+    _sum?: DeviceSumAggregateInputType
+    _min?: DeviceMinAggregateInputType
+    _max?: DeviceMaxAggregateInputType
+  }
+
+  export type DeviceGroupByOutputType = {
+    id: number
+    xmlId: string
+    name: string
+    stationId: number
+    divisionId: number
+    _count: DeviceCountAggregateOutputType | null
+    _avg: DeviceAvgAggregateOutputType | null
+    _sum: DeviceSumAggregateOutputType | null
+    _min: DeviceMinAggregateOutputType | null
+    _max: DeviceMaxAggregateOutputType | null
+  }
+
+  type GetDeviceGroupByPayload<T extends DeviceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DeviceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DeviceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DeviceGroupByOutputType[P]>
+            : GetScalarType<T[P], DeviceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DeviceSelect<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    xmlId?: boolean
+    name?: boolean
+    stationId?: boolean
+    divisionId?: boolean
+    Station?: boolean | StationDefaultArgs<ExtArgs>
+    division?: boolean | DivisionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["device"]>
+
+  export type DeviceSelectScalar = {
+    id?: boolean
+    xmlId?: boolean
+    name?: boolean
+    stationId?: boolean
+    divisionId?: boolean
+  }
+
+  export type DeviceInclude<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    Station?: boolean | StationDefaultArgs<ExtArgs>
+    division?: boolean | DivisionDefaultArgs<ExtArgs>
+  }
+
+
+  export type $DevicePayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    name: "Device"
+    objects: {
+      Station: Prisma.$StationPayload<ExtArgs>
+      division: Prisma.$DivisionPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetResult<{
+      id: number
+      xmlId: string
+      name: string
+      stationId: number
+      divisionId: number
+    }, ExtArgs["result"]["device"]>
+    composites: {}
+  }
+
+
+  type DeviceGetPayload<S extends boolean | null | undefined | DeviceDefaultArgs> = $Result.GetResult<Prisma.$DevicePayload, S>
+
+  type DeviceCountArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = 
+    Omit<DeviceFindManyArgs, 'select' | 'include'> & {
+      select?: DeviceCountAggregateInputType | true
+    }
+
+  export interface DeviceDelegate<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Device'], meta: { name: 'Device' } }
+    /**
+     * Find zero or one Device that matches the filter.
+     * @param {DeviceFindUniqueArgs} args - Arguments to find a Device
+     * @example
+     * // Get one Device
+     * const device = await prisma.device.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends DeviceFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, DeviceFindUniqueArgs<ExtArgs>>
+    ): Prisma__DeviceClient<$Result.GetResult<Prisma.$DevicePayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Device that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {DeviceFindUniqueOrThrowArgs} args - Arguments to find a Device
+     * @example
+     * // Get one Device
+     * const device = await prisma.device.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends DeviceFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, DeviceFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__DeviceClient<$Result.GetResult<Prisma.$DevicePayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Device that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceFindFirstArgs} args - Arguments to find a Device
+     * @example
+     * // Get one Device
+     * const device = await prisma.device.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends DeviceFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, DeviceFindFirstArgs<ExtArgs>>
+    ): Prisma__DeviceClient<$Result.GetResult<Prisma.$DevicePayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Device that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceFindFirstOrThrowArgs} args - Arguments to find a Device
+     * @example
+     * // Get one Device
+     * const device = await prisma.device.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends DeviceFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, DeviceFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__DeviceClient<$Result.GetResult<Prisma.$DevicePayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Devices that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Devices
+     * const devices = await prisma.device.findMany()
+     * 
+     * // Get first 10 Devices
+     * const devices = await prisma.device.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const deviceWithIdOnly = await prisma.device.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends DeviceFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DeviceFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DevicePayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Device.
+     * @param {DeviceCreateArgs} args - Arguments to create a Device.
+     * @example
+     * // Create one Device
+     * const Device = await prisma.device.create({
+     *   data: {
+     *     // ... data to create a Device
+     *   }
+     * })
+     * 
+    **/
+    create<T extends DeviceCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, DeviceCreateArgs<ExtArgs>>
+    ): Prisma__DeviceClient<$Result.GetResult<Prisma.$DevicePayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Devices.
+     *     @param {DeviceCreateManyArgs} args - Arguments to create many Devices.
+     *     @example
+     *     // Create many Devices
+     *     const device = await prisma.device.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends DeviceCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DeviceCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Device.
+     * @param {DeviceDeleteArgs} args - Arguments to delete one Device.
+     * @example
+     * // Delete one Device
+     * const Device = await prisma.device.delete({
+     *   where: {
+     *     // ... filter to delete one Device
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends DeviceDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, DeviceDeleteArgs<ExtArgs>>
+    ): Prisma__DeviceClient<$Result.GetResult<Prisma.$DevicePayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Device.
+     * @param {DeviceUpdateArgs} args - Arguments to update one Device.
+     * @example
+     * // Update one Device
+     * const device = await prisma.device.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends DeviceUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, DeviceUpdateArgs<ExtArgs>>
+    ): Prisma__DeviceClient<$Result.GetResult<Prisma.$DevicePayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Devices.
+     * @param {DeviceDeleteManyArgs} args - Arguments to filter Devices to delete.
+     * @example
+     * // Delete a few Devices
+     * const { count } = await prisma.device.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends DeviceDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DeviceDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Devices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Devices
+     * const device = await prisma.device.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends DeviceUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, DeviceUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Device.
+     * @param {DeviceUpsertArgs} args - Arguments to update or create a Device.
+     * @example
+     * // Update or create a Device
+     * const device = await prisma.device.upsert({
+     *   create: {
+     *     // ... data to create a Device
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Device we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends DeviceUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, DeviceUpsertArgs<ExtArgs>>
+    ): Prisma__DeviceClient<$Result.GetResult<Prisma.$DevicePayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Devices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceCountArgs} args - Arguments to filter Devices to count.
+     * @example
+     * // Count the number of Devices
+     * const count = await prisma.device.count({
+     *   where: {
+     *     // ... the filter for the Devices we want to count
+     *   }
+     * })
+    **/
+    count<T extends DeviceCountArgs>(
+      args?: Subset<T, DeviceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DeviceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Device.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DeviceAggregateArgs>(args: Subset<T, DeviceAggregateArgs>): Prisma.PrismaPromise<GetDeviceAggregateType<T>>
+
+    /**
+     * Group by Device.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DeviceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DeviceGroupByArgs['orderBy'] }
+        : { orderBy?: DeviceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DeviceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDeviceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Device model
+   */
+  readonly fields: DeviceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Device.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DeviceClient<T, Null = never, ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    Station<T extends StationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StationDefaultArgs<ExtArgs>>): Prisma__StationClient<$Result.GetResult<Prisma.$StationPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    division<T extends DivisionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DivisionDefaultArgs<ExtArgs>>): Prisma__DivisionClient<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the Device model
+   */ 
+  interface DeviceFieldRefs {
+    readonly id: FieldRef<"Device", 'Int'>
+    readonly xmlId: FieldRef<"Device", 'String'>
+    readonly name: FieldRef<"Device", 'String'>
+    readonly stationId: FieldRef<"Device", 'Int'>
+    readonly divisionId: FieldRef<"Device", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * Device findUnique
+   */
+  export type DeviceFindUniqueArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Device
+     */
+    select?: DeviceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DeviceInclude<ExtArgs> | null
+    /**
+     * Filter, which Device to fetch.
+     */
+    where: DeviceWhereUniqueInput
+  }
+
+
+  /**
+   * Device findUniqueOrThrow
+   */
+  export type DeviceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Device
+     */
+    select?: DeviceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DeviceInclude<ExtArgs> | null
+    /**
+     * Filter, which Device to fetch.
+     */
+    where: DeviceWhereUniqueInput
+  }
+
+
+  /**
+   * Device findFirst
+   */
+  export type DeviceFindFirstArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Device
+     */
+    select?: DeviceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DeviceInclude<ExtArgs> | null
+    /**
+     * Filter, which Device to fetch.
+     */
+    where?: DeviceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Devices to fetch.
+     */
+    orderBy?: DeviceOrderByWithRelationInput | DeviceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Devices.
+     */
+    cursor?: DeviceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Devices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Devices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Devices.
+     */
+    distinct?: DeviceScalarFieldEnum | DeviceScalarFieldEnum[]
+  }
+
+
+  /**
+   * Device findFirstOrThrow
+   */
+  export type DeviceFindFirstOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Device
+     */
+    select?: DeviceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DeviceInclude<ExtArgs> | null
+    /**
+     * Filter, which Device to fetch.
+     */
+    where?: DeviceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Devices to fetch.
+     */
+    orderBy?: DeviceOrderByWithRelationInput | DeviceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Devices.
+     */
+    cursor?: DeviceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Devices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Devices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Devices.
+     */
+    distinct?: DeviceScalarFieldEnum | DeviceScalarFieldEnum[]
+  }
+
+
+  /**
+   * Device findMany
+   */
+  export type DeviceFindManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Device
+     */
+    select?: DeviceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DeviceInclude<ExtArgs> | null
+    /**
+     * Filter, which Devices to fetch.
+     */
+    where?: DeviceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Devices to fetch.
+     */
+    orderBy?: DeviceOrderByWithRelationInput | DeviceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Devices.
+     */
+    cursor?: DeviceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Devices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Devices.
+     */
+    skip?: number
+    distinct?: DeviceScalarFieldEnum | DeviceScalarFieldEnum[]
+  }
+
+
+  /**
+   * Device create
+   */
+  export type DeviceCreateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Device
+     */
+    select?: DeviceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DeviceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Device.
+     */
+    data: XOR<DeviceCreateInput, DeviceUncheckedCreateInput>
+  }
+
+
+  /**
+   * Device createMany
+   */
+  export type DeviceCreateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Devices.
+     */
+    data: DeviceCreateManyInput | DeviceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * Device update
+   */
+  export type DeviceUpdateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Device
+     */
+    select?: DeviceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DeviceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Device.
+     */
+    data: XOR<DeviceUpdateInput, DeviceUncheckedUpdateInput>
+    /**
+     * Choose, which Device to update.
+     */
+    where: DeviceWhereUniqueInput
+  }
+
+
+  /**
+   * Device updateMany
+   */
+  export type DeviceUpdateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Devices.
+     */
+    data: XOR<DeviceUpdateManyMutationInput, DeviceUncheckedUpdateManyInput>
+    /**
+     * Filter which Devices to update
+     */
+    where?: DeviceWhereInput
+  }
+
+
+  /**
+   * Device upsert
+   */
+  export type DeviceUpsertArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Device
+     */
+    select?: DeviceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DeviceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Device to update in case it exists.
+     */
+    where: DeviceWhereUniqueInput
+    /**
+     * In case the Device found by the `where` argument doesn't exist, create a new Device with this data.
+     */
+    create: XOR<DeviceCreateInput, DeviceUncheckedCreateInput>
+    /**
+     * In case the Device was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DeviceUpdateInput, DeviceUncheckedUpdateInput>
+  }
+
+
+  /**
+   * Device delete
+   */
+  export type DeviceDeleteArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Device
+     */
+    select?: DeviceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DeviceInclude<ExtArgs> | null
+    /**
+     * Filter which Device to delete.
+     */
+    where: DeviceWhereUniqueInput
+  }
+
+
+  /**
+   * Device deleteMany
+   */
+  export type DeviceDeleteManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Devices to delete
+     */
+    where?: DeviceWhereInput
+  }
+
+
+  /**
+   * Device without action
+   */
+  export type DeviceDefaultArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Device
+     */
+    select?: DeviceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DeviceInclude<ExtArgs> | null
+  }
+
+
+
+  /**
    * Enums
    */
 
@@ -1768,12 +4986,48 @@ export namespace Prisma {
   export type GeneralScalarFieldEnum = (typeof GeneralScalarFieldEnum)[keyof typeof GeneralScalarFieldEnum]
 
 
+  export const StationScalarFieldEnum: {
+    id: 'id',
+    name: 'name'
+  };
+
+  export type StationScalarFieldEnum = (typeof StationScalarFieldEnum)[keyof typeof StationScalarFieldEnum]
+
+
+  export const DivisionScalarFieldEnum: {
+    id: 'id',
+    stationId: 'stationId',
+    name: 'name'
+  };
+
+  export type DivisionScalarFieldEnum = (typeof DivisionScalarFieldEnum)[keyof typeof DivisionScalarFieldEnum]
+
+
+  export const DeviceScalarFieldEnum: {
+    id: 'id',
+    xmlId: 'xmlId',
+    name: 'name',
+    stationId: 'stationId',
+    divisionId: 'divisionId'
+  };
+
+  export type DeviceScalarFieldEnum = (typeof DeviceScalarFieldEnum)[keyof typeof DeviceScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const QueryMode: {
+    default: 'default',
+    insensitive: 'insensitive'
+  };
+
+  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
   /**
@@ -1792,6 +5046,20 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'String'
+   */
+  export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+  /**
+   * Reference to a field of type 'String[]'
+   */
+  export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
     
 
 
@@ -1856,6 +5124,161 @@ export namespace Prisma {
     columns?: IntWithAggregatesFilter<"general"> | number
   }
 
+  export type StationWhereInput = {
+    AND?: StationWhereInput | StationWhereInput[]
+    OR?: StationWhereInput[]
+    NOT?: StationWhereInput | StationWhereInput[]
+    id?: IntFilter<"Station"> | number
+    name?: StringFilter<"Station"> | string
+    Division?: DivisionListRelationFilter
+    Device?: DeviceListRelationFilter
+  }
+
+  export type StationOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    Division?: DivisionOrderByRelationAggregateInput
+    Device?: DeviceOrderByRelationAggregateInput
+  }
+
+  export type StationWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    name?: string
+    AND?: StationWhereInput | StationWhereInput[]
+    OR?: StationWhereInput[]
+    NOT?: StationWhereInput | StationWhereInput[]
+    Division?: DivisionListRelationFilter
+    Device?: DeviceListRelationFilter
+  }, "id" | "name">
+
+  export type StationOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    _count?: StationCountOrderByAggregateInput
+    _avg?: StationAvgOrderByAggregateInput
+    _max?: StationMaxOrderByAggregateInput
+    _min?: StationMinOrderByAggregateInput
+    _sum?: StationSumOrderByAggregateInput
+  }
+
+  export type StationScalarWhereWithAggregatesInput = {
+    AND?: StationScalarWhereWithAggregatesInput | StationScalarWhereWithAggregatesInput[]
+    OR?: StationScalarWhereWithAggregatesInput[]
+    NOT?: StationScalarWhereWithAggregatesInput | StationScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Station"> | number
+    name?: StringWithAggregatesFilter<"Station"> | string
+  }
+
+  export type DivisionWhereInput = {
+    AND?: DivisionWhereInput | DivisionWhereInput[]
+    OR?: DivisionWhereInput[]
+    NOT?: DivisionWhereInput | DivisionWhereInput[]
+    id?: IntFilter<"Division"> | number
+    stationId?: IntFilter<"Division"> | number
+    name?: StringFilter<"Division"> | string
+    Station?: XOR<StationRelationFilter, StationWhereInput>
+    Device?: DeviceListRelationFilter
+  }
+
+  export type DivisionOrderByWithRelationInput = {
+    id?: SortOrder
+    stationId?: SortOrder
+    name?: SortOrder
+    Station?: StationOrderByWithRelationInput
+    Device?: DeviceOrderByRelationAggregateInput
+  }
+
+  export type DivisionWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: DivisionWhereInput | DivisionWhereInput[]
+    OR?: DivisionWhereInput[]
+    NOT?: DivisionWhereInput | DivisionWhereInput[]
+    stationId?: IntFilter<"Division"> | number
+    name?: StringFilter<"Division"> | string
+    Station?: XOR<StationRelationFilter, StationWhereInput>
+    Device?: DeviceListRelationFilter
+  }, "id">
+
+  export type DivisionOrderByWithAggregationInput = {
+    id?: SortOrder
+    stationId?: SortOrder
+    name?: SortOrder
+    _count?: DivisionCountOrderByAggregateInput
+    _avg?: DivisionAvgOrderByAggregateInput
+    _max?: DivisionMaxOrderByAggregateInput
+    _min?: DivisionMinOrderByAggregateInput
+    _sum?: DivisionSumOrderByAggregateInput
+  }
+
+  export type DivisionScalarWhereWithAggregatesInput = {
+    AND?: DivisionScalarWhereWithAggregatesInput | DivisionScalarWhereWithAggregatesInput[]
+    OR?: DivisionScalarWhereWithAggregatesInput[]
+    NOT?: DivisionScalarWhereWithAggregatesInput | DivisionScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Division"> | number
+    stationId?: IntWithAggregatesFilter<"Division"> | number
+    name?: StringWithAggregatesFilter<"Division"> | string
+  }
+
+  export type DeviceWhereInput = {
+    AND?: DeviceWhereInput | DeviceWhereInput[]
+    OR?: DeviceWhereInput[]
+    NOT?: DeviceWhereInput | DeviceWhereInput[]
+    id?: IntFilter<"Device"> | number
+    xmlId?: StringFilter<"Device"> | string
+    name?: StringFilter<"Device"> | string
+    stationId?: IntFilter<"Device"> | number
+    divisionId?: IntFilter<"Device"> | number
+    Station?: XOR<StationRelationFilter, StationWhereInput>
+    division?: XOR<DivisionRelationFilter, DivisionWhereInput>
+  }
+
+  export type DeviceOrderByWithRelationInput = {
+    id?: SortOrder
+    xmlId?: SortOrder
+    name?: SortOrder
+    stationId?: SortOrder
+    divisionId?: SortOrder
+    Station?: StationOrderByWithRelationInput
+    division?: DivisionOrderByWithRelationInput
+  }
+
+  export type DeviceWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    xmlId?: string
+    AND?: DeviceWhereInput | DeviceWhereInput[]
+    OR?: DeviceWhereInput[]
+    NOT?: DeviceWhereInput | DeviceWhereInput[]
+    name?: StringFilter<"Device"> | string
+    stationId?: IntFilter<"Device"> | number
+    divisionId?: IntFilter<"Device"> | number
+    Station?: XOR<StationRelationFilter, StationWhereInput>
+    division?: XOR<DivisionRelationFilter, DivisionWhereInput>
+  }, "id" | "xmlId">
+
+  export type DeviceOrderByWithAggregationInput = {
+    id?: SortOrder
+    xmlId?: SortOrder
+    name?: SortOrder
+    stationId?: SortOrder
+    divisionId?: SortOrder
+    _count?: DeviceCountOrderByAggregateInput
+    _avg?: DeviceAvgOrderByAggregateInput
+    _max?: DeviceMaxOrderByAggregateInput
+    _min?: DeviceMinOrderByAggregateInput
+    _sum?: DeviceSumOrderByAggregateInput
+  }
+
+  export type DeviceScalarWhereWithAggregatesInput = {
+    AND?: DeviceScalarWhereWithAggregatesInput | DeviceScalarWhereWithAggregatesInput[]
+    OR?: DeviceScalarWhereWithAggregatesInput[]
+    NOT?: DeviceScalarWhereWithAggregatesInput | DeviceScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Device"> | number
+    xmlId?: StringWithAggregatesFilter<"Device"> | string
+    name?: StringWithAggregatesFilter<"Device"> | string
+    stationId?: IntWithAggregatesFilter<"Device"> | number
+    divisionId?: IntWithAggregatesFilter<"Device"> | number
+  }
+
   export type generalCreateInput = {
     rows: number
     columns: number
@@ -1893,6 +5316,139 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     rows?: IntFieldUpdateOperationsInput | number
     columns?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type StationCreateInput = {
+    name: string
+    Division?: DivisionCreateNestedManyWithoutStationInput
+    Device?: DeviceCreateNestedManyWithoutStationInput
+  }
+
+  export type StationUncheckedCreateInput = {
+    id?: number
+    name: string
+    Division?: DivisionUncheckedCreateNestedManyWithoutStationInput
+    Device?: DeviceUncheckedCreateNestedManyWithoutStationInput
+  }
+
+  export type StationUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    Division?: DivisionUpdateManyWithoutStationNestedInput
+    Device?: DeviceUpdateManyWithoutStationNestedInput
+  }
+
+  export type StationUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    Division?: DivisionUncheckedUpdateManyWithoutStationNestedInput
+    Device?: DeviceUncheckedUpdateManyWithoutStationNestedInput
+  }
+
+  export type StationCreateManyInput = {
+    id?: number
+    name: string
+  }
+
+  export type StationUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type StationUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DivisionCreateInput = {
+    name: string
+    Station: StationCreateNestedOneWithoutDivisionInput
+    Device?: DeviceCreateNestedManyWithoutDivisionInput
+  }
+
+  export type DivisionUncheckedCreateInput = {
+    id?: number
+    stationId: number
+    name: string
+    Device?: DeviceUncheckedCreateNestedManyWithoutDivisionInput
+  }
+
+  export type DivisionUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    Station?: StationUpdateOneRequiredWithoutDivisionNestedInput
+    Device?: DeviceUpdateManyWithoutDivisionNestedInput
+  }
+
+  export type DivisionUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    stationId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    Device?: DeviceUncheckedUpdateManyWithoutDivisionNestedInput
+  }
+
+  export type DivisionCreateManyInput = {
+    id?: number
+    stationId: number
+    name: string
+  }
+
+  export type DivisionUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DivisionUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    stationId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeviceCreateInput = {
+    xmlId: string
+    name: string
+    Station: StationCreateNestedOneWithoutDeviceInput
+    division: DivisionCreateNestedOneWithoutDeviceInput
+  }
+
+  export type DeviceUncheckedCreateInput = {
+    id?: number
+    xmlId: string
+    name: string
+    stationId: number
+    divisionId: number
+  }
+
+  export type DeviceUpdateInput = {
+    xmlId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    Station?: StationUpdateOneRequiredWithoutDeviceNestedInput
+    division?: DivisionUpdateOneRequiredWithoutDeviceNestedInput
+  }
+
+  export type DeviceUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    xmlId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    stationId?: IntFieldUpdateOperationsInput | number
+    divisionId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type DeviceCreateManyInput = {
+    id?: number
+    xmlId: string
+    name: string
+    stationId: number
+    divisionId: number
+  }
+
+  export type DeviceUpdateManyMutationInput = {
+    xmlId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeviceUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    xmlId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    stationId?: IntFieldUpdateOperationsInput | number
+    divisionId?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -1952,12 +5508,334 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type StringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type DivisionListRelationFilter = {
+    every?: DivisionWhereInput
+    some?: DivisionWhereInput
+    none?: DivisionWhereInput
+  }
+
+  export type DeviceListRelationFilter = {
+    every?: DeviceWhereInput
+    some?: DeviceWhereInput
+    none?: DeviceWhereInput
+  }
+
+  export type DivisionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DeviceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type StationCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type StationAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type StationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type StationMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type StationSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type StationRelationFilter = {
+    is?: StationWhereInput
+    isNot?: StationWhereInput
+  }
+
+  export type DivisionCountOrderByAggregateInput = {
+    id?: SortOrder
+    stationId?: SortOrder
+    name?: SortOrder
+  }
+
+  export type DivisionAvgOrderByAggregateInput = {
+    id?: SortOrder
+    stationId?: SortOrder
+  }
+
+  export type DivisionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    stationId?: SortOrder
+    name?: SortOrder
+  }
+
+  export type DivisionMinOrderByAggregateInput = {
+    id?: SortOrder
+    stationId?: SortOrder
+    name?: SortOrder
+  }
+
+  export type DivisionSumOrderByAggregateInput = {
+    id?: SortOrder
+    stationId?: SortOrder
+  }
+
+  export type DivisionRelationFilter = {
+    is?: DivisionWhereInput
+    isNot?: DivisionWhereInput
+  }
+
+  export type DeviceCountOrderByAggregateInput = {
+    id?: SortOrder
+    xmlId?: SortOrder
+    name?: SortOrder
+    stationId?: SortOrder
+    divisionId?: SortOrder
+  }
+
+  export type DeviceAvgOrderByAggregateInput = {
+    id?: SortOrder
+    stationId?: SortOrder
+    divisionId?: SortOrder
+  }
+
+  export type DeviceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    xmlId?: SortOrder
+    name?: SortOrder
+    stationId?: SortOrder
+    divisionId?: SortOrder
+  }
+
+  export type DeviceMinOrderByAggregateInput = {
+    id?: SortOrder
+    xmlId?: SortOrder
+    name?: SortOrder
+    stationId?: SortOrder
+    divisionId?: SortOrder
+  }
+
+  export type DeviceSumOrderByAggregateInput = {
+    id?: SortOrder
+    stationId?: SortOrder
+    divisionId?: SortOrder
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type DivisionCreateNestedManyWithoutStationInput = {
+    create?: XOR<DivisionCreateWithoutStationInput, DivisionUncheckedCreateWithoutStationInput> | DivisionCreateWithoutStationInput[] | DivisionUncheckedCreateWithoutStationInput[]
+    connectOrCreate?: DivisionCreateOrConnectWithoutStationInput | DivisionCreateOrConnectWithoutStationInput[]
+    createMany?: DivisionCreateManyStationInputEnvelope
+    connect?: DivisionWhereUniqueInput | DivisionWhereUniqueInput[]
+  }
+
+  export type DeviceCreateNestedManyWithoutStationInput = {
+    create?: XOR<DeviceCreateWithoutStationInput, DeviceUncheckedCreateWithoutStationInput> | DeviceCreateWithoutStationInput[] | DeviceUncheckedCreateWithoutStationInput[]
+    connectOrCreate?: DeviceCreateOrConnectWithoutStationInput | DeviceCreateOrConnectWithoutStationInput[]
+    createMany?: DeviceCreateManyStationInputEnvelope
+    connect?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+  }
+
+  export type DivisionUncheckedCreateNestedManyWithoutStationInput = {
+    create?: XOR<DivisionCreateWithoutStationInput, DivisionUncheckedCreateWithoutStationInput> | DivisionCreateWithoutStationInput[] | DivisionUncheckedCreateWithoutStationInput[]
+    connectOrCreate?: DivisionCreateOrConnectWithoutStationInput | DivisionCreateOrConnectWithoutStationInput[]
+    createMany?: DivisionCreateManyStationInputEnvelope
+    connect?: DivisionWhereUniqueInput | DivisionWhereUniqueInput[]
+  }
+
+  export type DeviceUncheckedCreateNestedManyWithoutStationInput = {
+    create?: XOR<DeviceCreateWithoutStationInput, DeviceUncheckedCreateWithoutStationInput> | DeviceCreateWithoutStationInput[] | DeviceUncheckedCreateWithoutStationInput[]
+    connectOrCreate?: DeviceCreateOrConnectWithoutStationInput | DeviceCreateOrConnectWithoutStationInput[]
+    createMany?: DeviceCreateManyStationInputEnvelope
+    connect?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
+  export type DivisionUpdateManyWithoutStationNestedInput = {
+    create?: XOR<DivisionCreateWithoutStationInput, DivisionUncheckedCreateWithoutStationInput> | DivisionCreateWithoutStationInput[] | DivisionUncheckedCreateWithoutStationInput[]
+    connectOrCreate?: DivisionCreateOrConnectWithoutStationInput | DivisionCreateOrConnectWithoutStationInput[]
+    upsert?: DivisionUpsertWithWhereUniqueWithoutStationInput | DivisionUpsertWithWhereUniqueWithoutStationInput[]
+    createMany?: DivisionCreateManyStationInputEnvelope
+    set?: DivisionWhereUniqueInput | DivisionWhereUniqueInput[]
+    disconnect?: DivisionWhereUniqueInput | DivisionWhereUniqueInput[]
+    delete?: DivisionWhereUniqueInput | DivisionWhereUniqueInput[]
+    connect?: DivisionWhereUniqueInput | DivisionWhereUniqueInput[]
+    update?: DivisionUpdateWithWhereUniqueWithoutStationInput | DivisionUpdateWithWhereUniqueWithoutStationInput[]
+    updateMany?: DivisionUpdateManyWithWhereWithoutStationInput | DivisionUpdateManyWithWhereWithoutStationInput[]
+    deleteMany?: DivisionScalarWhereInput | DivisionScalarWhereInput[]
+  }
+
+  export type DeviceUpdateManyWithoutStationNestedInput = {
+    create?: XOR<DeviceCreateWithoutStationInput, DeviceUncheckedCreateWithoutStationInput> | DeviceCreateWithoutStationInput[] | DeviceUncheckedCreateWithoutStationInput[]
+    connectOrCreate?: DeviceCreateOrConnectWithoutStationInput | DeviceCreateOrConnectWithoutStationInput[]
+    upsert?: DeviceUpsertWithWhereUniqueWithoutStationInput | DeviceUpsertWithWhereUniqueWithoutStationInput[]
+    createMany?: DeviceCreateManyStationInputEnvelope
+    set?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    disconnect?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    delete?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    connect?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    update?: DeviceUpdateWithWhereUniqueWithoutStationInput | DeviceUpdateWithWhereUniqueWithoutStationInput[]
+    updateMany?: DeviceUpdateManyWithWhereWithoutStationInput | DeviceUpdateManyWithWhereWithoutStationInput[]
+    deleteMany?: DeviceScalarWhereInput | DeviceScalarWhereInput[]
+  }
+
+  export type DivisionUncheckedUpdateManyWithoutStationNestedInput = {
+    create?: XOR<DivisionCreateWithoutStationInput, DivisionUncheckedCreateWithoutStationInput> | DivisionCreateWithoutStationInput[] | DivisionUncheckedCreateWithoutStationInput[]
+    connectOrCreate?: DivisionCreateOrConnectWithoutStationInput | DivisionCreateOrConnectWithoutStationInput[]
+    upsert?: DivisionUpsertWithWhereUniqueWithoutStationInput | DivisionUpsertWithWhereUniqueWithoutStationInput[]
+    createMany?: DivisionCreateManyStationInputEnvelope
+    set?: DivisionWhereUniqueInput | DivisionWhereUniqueInput[]
+    disconnect?: DivisionWhereUniqueInput | DivisionWhereUniqueInput[]
+    delete?: DivisionWhereUniqueInput | DivisionWhereUniqueInput[]
+    connect?: DivisionWhereUniqueInput | DivisionWhereUniqueInput[]
+    update?: DivisionUpdateWithWhereUniqueWithoutStationInput | DivisionUpdateWithWhereUniqueWithoutStationInput[]
+    updateMany?: DivisionUpdateManyWithWhereWithoutStationInput | DivisionUpdateManyWithWhereWithoutStationInput[]
+    deleteMany?: DivisionScalarWhereInput | DivisionScalarWhereInput[]
+  }
+
+  export type DeviceUncheckedUpdateManyWithoutStationNestedInput = {
+    create?: XOR<DeviceCreateWithoutStationInput, DeviceUncheckedCreateWithoutStationInput> | DeviceCreateWithoutStationInput[] | DeviceUncheckedCreateWithoutStationInput[]
+    connectOrCreate?: DeviceCreateOrConnectWithoutStationInput | DeviceCreateOrConnectWithoutStationInput[]
+    upsert?: DeviceUpsertWithWhereUniqueWithoutStationInput | DeviceUpsertWithWhereUniqueWithoutStationInput[]
+    createMany?: DeviceCreateManyStationInputEnvelope
+    set?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    disconnect?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    delete?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    connect?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    update?: DeviceUpdateWithWhereUniqueWithoutStationInput | DeviceUpdateWithWhereUniqueWithoutStationInput[]
+    updateMany?: DeviceUpdateManyWithWhereWithoutStationInput | DeviceUpdateManyWithWhereWithoutStationInput[]
+    deleteMany?: DeviceScalarWhereInput | DeviceScalarWhereInput[]
+  }
+
+  export type StationCreateNestedOneWithoutDivisionInput = {
+    create?: XOR<StationCreateWithoutDivisionInput, StationUncheckedCreateWithoutDivisionInput>
+    connectOrCreate?: StationCreateOrConnectWithoutDivisionInput
+    connect?: StationWhereUniqueInput
+  }
+
+  export type DeviceCreateNestedManyWithoutDivisionInput = {
+    create?: XOR<DeviceCreateWithoutDivisionInput, DeviceUncheckedCreateWithoutDivisionInput> | DeviceCreateWithoutDivisionInput[] | DeviceUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: DeviceCreateOrConnectWithoutDivisionInput | DeviceCreateOrConnectWithoutDivisionInput[]
+    createMany?: DeviceCreateManyDivisionInputEnvelope
+    connect?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+  }
+
+  export type DeviceUncheckedCreateNestedManyWithoutDivisionInput = {
+    create?: XOR<DeviceCreateWithoutDivisionInput, DeviceUncheckedCreateWithoutDivisionInput> | DeviceCreateWithoutDivisionInput[] | DeviceUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: DeviceCreateOrConnectWithoutDivisionInput | DeviceCreateOrConnectWithoutDivisionInput[]
+    createMany?: DeviceCreateManyDivisionInputEnvelope
+    connect?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+  }
+
+  export type StationUpdateOneRequiredWithoutDivisionNestedInput = {
+    create?: XOR<StationCreateWithoutDivisionInput, StationUncheckedCreateWithoutDivisionInput>
+    connectOrCreate?: StationCreateOrConnectWithoutDivisionInput
+    upsert?: StationUpsertWithoutDivisionInput
+    connect?: StationWhereUniqueInput
+    update?: XOR<XOR<StationUpdateToOneWithWhereWithoutDivisionInput, StationUpdateWithoutDivisionInput>, StationUncheckedUpdateWithoutDivisionInput>
+  }
+
+  export type DeviceUpdateManyWithoutDivisionNestedInput = {
+    create?: XOR<DeviceCreateWithoutDivisionInput, DeviceUncheckedCreateWithoutDivisionInput> | DeviceCreateWithoutDivisionInput[] | DeviceUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: DeviceCreateOrConnectWithoutDivisionInput | DeviceCreateOrConnectWithoutDivisionInput[]
+    upsert?: DeviceUpsertWithWhereUniqueWithoutDivisionInput | DeviceUpsertWithWhereUniqueWithoutDivisionInput[]
+    createMany?: DeviceCreateManyDivisionInputEnvelope
+    set?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    disconnect?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    delete?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    connect?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    update?: DeviceUpdateWithWhereUniqueWithoutDivisionInput | DeviceUpdateWithWhereUniqueWithoutDivisionInput[]
+    updateMany?: DeviceUpdateManyWithWhereWithoutDivisionInput | DeviceUpdateManyWithWhereWithoutDivisionInput[]
+    deleteMany?: DeviceScalarWhereInput | DeviceScalarWhereInput[]
+  }
+
+  export type DeviceUncheckedUpdateManyWithoutDivisionNestedInput = {
+    create?: XOR<DeviceCreateWithoutDivisionInput, DeviceUncheckedCreateWithoutDivisionInput> | DeviceCreateWithoutDivisionInput[] | DeviceUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: DeviceCreateOrConnectWithoutDivisionInput | DeviceCreateOrConnectWithoutDivisionInput[]
+    upsert?: DeviceUpsertWithWhereUniqueWithoutDivisionInput | DeviceUpsertWithWhereUniqueWithoutDivisionInput[]
+    createMany?: DeviceCreateManyDivisionInputEnvelope
+    set?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    disconnect?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    delete?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    connect?: DeviceWhereUniqueInput | DeviceWhereUniqueInput[]
+    update?: DeviceUpdateWithWhereUniqueWithoutDivisionInput | DeviceUpdateWithWhereUniqueWithoutDivisionInput[]
+    updateMany?: DeviceUpdateManyWithWhereWithoutDivisionInput | DeviceUpdateManyWithWhereWithoutDivisionInput[]
+    deleteMany?: DeviceScalarWhereInput | DeviceScalarWhereInput[]
+  }
+
+  export type StationCreateNestedOneWithoutDeviceInput = {
+    create?: XOR<StationCreateWithoutDeviceInput, StationUncheckedCreateWithoutDeviceInput>
+    connectOrCreate?: StationCreateOrConnectWithoutDeviceInput
+    connect?: StationWhereUniqueInput
+  }
+
+  export type DivisionCreateNestedOneWithoutDeviceInput = {
+    create?: XOR<DivisionCreateWithoutDeviceInput, DivisionUncheckedCreateWithoutDeviceInput>
+    connectOrCreate?: DivisionCreateOrConnectWithoutDeviceInput
+    connect?: DivisionWhereUniqueInput
+  }
+
+  export type StationUpdateOneRequiredWithoutDeviceNestedInput = {
+    create?: XOR<StationCreateWithoutDeviceInput, StationUncheckedCreateWithoutDeviceInput>
+    connectOrCreate?: StationCreateOrConnectWithoutDeviceInput
+    upsert?: StationUpsertWithoutDeviceInput
+    connect?: StationWhereUniqueInput
+    update?: XOR<XOR<StationUpdateToOneWithWhereWithoutDeviceInput, StationUpdateWithoutDeviceInput>, StationUncheckedUpdateWithoutDeviceInput>
+  }
+
+  export type DivisionUpdateOneRequiredWithoutDeviceNestedInput = {
+    create?: XOR<DivisionCreateWithoutDeviceInput, DivisionUncheckedCreateWithoutDeviceInput>
+    connectOrCreate?: DivisionCreateOrConnectWithoutDeviceInput
+    upsert?: DivisionUpsertWithoutDeviceInput
+    connect?: DivisionWhereUniqueInput
+    update?: XOR<XOR<DivisionUpdateToOneWithWhereWithoutDeviceInput, DivisionUpdateWithoutDeviceInput>, DivisionUncheckedUpdateWithoutDeviceInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -1998,6 +5876,361 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedStringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type DivisionCreateWithoutStationInput = {
+    name: string
+    Device?: DeviceCreateNestedManyWithoutDivisionInput
+  }
+
+  export type DivisionUncheckedCreateWithoutStationInput = {
+    id?: number
+    name: string
+    Device?: DeviceUncheckedCreateNestedManyWithoutDivisionInput
+  }
+
+  export type DivisionCreateOrConnectWithoutStationInput = {
+    where: DivisionWhereUniqueInput
+    create: XOR<DivisionCreateWithoutStationInput, DivisionUncheckedCreateWithoutStationInput>
+  }
+
+  export type DivisionCreateManyStationInputEnvelope = {
+    data: DivisionCreateManyStationInput | DivisionCreateManyStationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DeviceCreateWithoutStationInput = {
+    xmlId: string
+    name: string
+    division: DivisionCreateNestedOneWithoutDeviceInput
+  }
+
+  export type DeviceUncheckedCreateWithoutStationInput = {
+    id?: number
+    xmlId: string
+    name: string
+    divisionId: number
+  }
+
+  export type DeviceCreateOrConnectWithoutStationInput = {
+    where: DeviceWhereUniqueInput
+    create: XOR<DeviceCreateWithoutStationInput, DeviceUncheckedCreateWithoutStationInput>
+  }
+
+  export type DeviceCreateManyStationInputEnvelope = {
+    data: DeviceCreateManyStationInput | DeviceCreateManyStationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DivisionUpsertWithWhereUniqueWithoutStationInput = {
+    where: DivisionWhereUniqueInput
+    update: XOR<DivisionUpdateWithoutStationInput, DivisionUncheckedUpdateWithoutStationInput>
+    create: XOR<DivisionCreateWithoutStationInput, DivisionUncheckedCreateWithoutStationInput>
+  }
+
+  export type DivisionUpdateWithWhereUniqueWithoutStationInput = {
+    where: DivisionWhereUniqueInput
+    data: XOR<DivisionUpdateWithoutStationInput, DivisionUncheckedUpdateWithoutStationInput>
+  }
+
+  export type DivisionUpdateManyWithWhereWithoutStationInput = {
+    where: DivisionScalarWhereInput
+    data: XOR<DivisionUpdateManyMutationInput, DivisionUncheckedUpdateManyWithoutStationInput>
+  }
+
+  export type DivisionScalarWhereInput = {
+    AND?: DivisionScalarWhereInput | DivisionScalarWhereInput[]
+    OR?: DivisionScalarWhereInput[]
+    NOT?: DivisionScalarWhereInput | DivisionScalarWhereInput[]
+    id?: IntFilter<"Division"> | number
+    stationId?: IntFilter<"Division"> | number
+    name?: StringFilter<"Division"> | string
+  }
+
+  export type DeviceUpsertWithWhereUniqueWithoutStationInput = {
+    where: DeviceWhereUniqueInput
+    update: XOR<DeviceUpdateWithoutStationInput, DeviceUncheckedUpdateWithoutStationInput>
+    create: XOR<DeviceCreateWithoutStationInput, DeviceUncheckedCreateWithoutStationInput>
+  }
+
+  export type DeviceUpdateWithWhereUniqueWithoutStationInput = {
+    where: DeviceWhereUniqueInput
+    data: XOR<DeviceUpdateWithoutStationInput, DeviceUncheckedUpdateWithoutStationInput>
+  }
+
+  export type DeviceUpdateManyWithWhereWithoutStationInput = {
+    where: DeviceScalarWhereInput
+    data: XOR<DeviceUpdateManyMutationInput, DeviceUncheckedUpdateManyWithoutStationInput>
+  }
+
+  export type DeviceScalarWhereInput = {
+    AND?: DeviceScalarWhereInput | DeviceScalarWhereInput[]
+    OR?: DeviceScalarWhereInput[]
+    NOT?: DeviceScalarWhereInput | DeviceScalarWhereInput[]
+    id?: IntFilter<"Device"> | number
+    xmlId?: StringFilter<"Device"> | string
+    name?: StringFilter<"Device"> | string
+    stationId?: IntFilter<"Device"> | number
+    divisionId?: IntFilter<"Device"> | number
+  }
+
+  export type StationCreateWithoutDivisionInput = {
+    name: string
+    Device?: DeviceCreateNestedManyWithoutStationInput
+  }
+
+  export type StationUncheckedCreateWithoutDivisionInput = {
+    id?: number
+    name: string
+    Device?: DeviceUncheckedCreateNestedManyWithoutStationInput
+  }
+
+  export type StationCreateOrConnectWithoutDivisionInput = {
+    where: StationWhereUniqueInput
+    create: XOR<StationCreateWithoutDivisionInput, StationUncheckedCreateWithoutDivisionInput>
+  }
+
+  export type DeviceCreateWithoutDivisionInput = {
+    xmlId: string
+    name: string
+    Station: StationCreateNestedOneWithoutDeviceInput
+  }
+
+  export type DeviceUncheckedCreateWithoutDivisionInput = {
+    id?: number
+    xmlId: string
+    name: string
+    stationId: number
+  }
+
+  export type DeviceCreateOrConnectWithoutDivisionInput = {
+    where: DeviceWhereUniqueInput
+    create: XOR<DeviceCreateWithoutDivisionInput, DeviceUncheckedCreateWithoutDivisionInput>
+  }
+
+  export type DeviceCreateManyDivisionInputEnvelope = {
+    data: DeviceCreateManyDivisionInput | DeviceCreateManyDivisionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type StationUpsertWithoutDivisionInput = {
+    update: XOR<StationUpdateWithoutDivisionInput, StationUncheckedUpdateWithoutDivisionInput>
+    create: XOR<StationCreateWithoutDivisionInput, StationUncheckedCreateWithoutDivisionInput>
+    where?: StationWhereInput
+  }
+
+  export type StationUpdateToOneWithWhereWithoutDivisionInput = {
+    where?: StationWhereInput
+    data: XOR<StationUpdateWithoutDivisionInput, StationUncheckedUpdateWithoutDivisionInput>
+  }
+
+  export type StationUpdateWithoutDivisionInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    Device?: DeviceUpdateManyWithoutStationNestedInput
+  }
+
+  export type StationUncheckedUpdateWithoutDivisionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    Device?: DeviceUncheckedUpdateManyWithoutStationNestedInput
+  }
+
+  export type DeviceUpsertWithWhereUniqueWithoutDivisionInput = {
+    where: DeviceWhereUniqueInput
+    update: XOR<DeviceUpdateWithoutDivisionInput, DeviceUncheckedUpdateWithoutDivisionInput>
+    create: XOR<DeviceCreateWithoutDivisionInput, DeviceUncheckedCreateWithoutDivisionInput>
+  }
+
+  export type DeviceUpdateWithWhereUniqueWithoutDivisionInput = {
+    where: DeviceWhereUniqueInput
+    data: XOR<DeviceUpdateWithoutDivisionInput, DeviceUncheckedUpdateWithoutDivisionInput>
+  }
+
+  export type DeviceUpdateManyWithWhereWithoutDivisionInput = {
+    where: DeviceScalarWhereInput
+    data: XOR<DeviceUpdateManyMutationInput, DeviceUncheckedUpdateManyWithoutDivisionInput>
+  }
+
+  export type StationCreateWithoutDeviceInput = {
+    name: string
+    Division?: DivisionCreateNestedManyWithoutStationInput
+  }
+
+  export type StationUncheckedCreateWithoutDeviceInput = {
+    id?: number
+    name: string
+    Division?: DivisionUncheckedCreateNestedManyWithoutStationInput
+  }
+
+  export type StationCreateOrConnectWithoutDeviceInput = {
+    where: StationWhereUniqueInput
+    create: XOR<StationCreateWithoutDeviceInput, StationUncheckedCreateWithoutDeviceInput>
+  }
+
+  export type DivisionCreateWithoutDeviceInput = {
+    name: string
+    Station: StationCreateNestedOneWithoutDivisionInput
+  }
+
+  export type DivisionUncheckedCreateWithoutDeviceInput = {
+    id?: number
+    stationId: number
+    name: string
+  }
+
+  export type DivisionCreateOrConnectWithoutDeviceInput = {
+    where: DivisionWhereUniqueInput
+    create: XOR<DivisionCreateWithoutDeviceInput, DivisionUncheckedCreateWithoutDeviceInput>
+  }
+
+  export type StationUpsertWithoutDeviceInput = {
+    update: XOR<StationUpdateWithoutDeviceInput, StationUncheckedUpdateWithoutDeviceInput>
+    create: XOR<StationCreateWithoutDeviceInput, StationUncheckedCreateWithoutDeviceInput>
+    where?: StationWhereInput
+  }
+
+  export type StationUpdateToOneWithWhereWithoutDeviceInput = {
+    where?: StationWhereInput
+    data: XOR<StationUpdateWithoutDeviceInput, StationUncheckedUpdateWithoutDeviceInput>
+  }
+
+  export type StationUpdateWithoutDeviceInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    Division?: DivisionUpdateManyWithoutStationNestedInput
+  }
+
+  export type StationUncheckedUpdateWithoutDeviceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    Division?: DivisionUncheckedUpdateManyWithoutStationNestedInput
+  }
+
+  export type DivisionUpsertWithoutDeviceInput = {
+    update: XOR<DivisionUpdateWithoutDeviceInput, DivisionUncheckedUpdateWithoutDeviceInput>
+    create: XOR<DivisionCreateWithoutDeviceInput, DivisionUncheckedCreateWithoutDeviceInput>
+    where?: DivisionWhereInput
+  }
+
+  export type DivisionUpdateToOneWithWhereWithoutDeviceInput = {
+    where?: DivisionWhereInput
+    data: XOR<DivisionUpdateWithoutDeviceInput, DivisionUncheckedUpdateWithoutDeviceInput>
+  }
+
+  export type DivisionUpdateWithoutDeviceInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    Station?: StationUpdateOneRequiredWithoutDivisionNestedInput
+  }
+
+  export type DivisionUncheckedUpdateWithoutDeviceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    stationId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DivisionCreateManyStationInput = {
+    id?: number
+    name: string
+  }
+
+  export type DeviceCreateManyStationInput = {
+    id?: number
+    xmlId: string
+    name: string
+    divisionId: number
+  }
+
+  export type DivisionUpdateWithoutStationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    Device?: DeviceUpdateManyWithoutDivisionNestedInput
+  }
+
+  export type DivisionUncheckedUpdateWithoutStationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    Device?: DeviceUncheckedUpdateManyWithoutDivisionNestedInput
+  }
+
+  export type DivisionUncheckedUpdateManyWithoutStationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeviceUpdateWithoutStationInput = {
+    xmlId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    division?: DivisionUpdateOneRequiredWithoutDeviceNestedInput
+  }
+
+  export type DeviceUncheckedUpdateWithoutStationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    xmlId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    divisionId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type DeviceUncheckedUpdateManyWithoutStationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    xmlId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    divisionId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type DeviceCreateManyDivisionInput = {
+    id?: number
+    xmlId: string
+    name: string
+    stationId: number
+  }
+
+  export type DeviceUpdateWithoutDivisionInput = {
+    xmlId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    Station?: StationUpdateOneRequiredWithoutDeviceNestedInput
+  }
+
+  export type DeviceUncheckedUpdateWithoutDivisionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    xmlId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    stationId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type DeviceUncheckedUpdateManyWithoutDivisionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    xmlId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    stationId?: IntFieldUpdateOperationsInput | number
+  }
+
 
 
   /**
@@ -2007,6 +6240,18 @@ export namespace Prisma {
      * @deprecated Use generalDefaultArgs instead
      */
     export type generalArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = generalDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use StationDefaultArgs instead
+     */
+    export type StationArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = StationDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use DivisionDefaultArgs instead
+     */
+    export type DivisionArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = DivisionDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use DeviceDefaultArgs instead
+     */
+    export type DeviceArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = DeviceDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

@@ -1,6 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import { PrismaClient as PrismaClientFac } from "../../prisma/src/generated/clientFac";
 import { Device, Division, Station } from "../../prisma/src/generated/clientFac/index.js";
+import { general } from "../../prisma/src/generated/clientBMS/index";
+import { Prisma } from "@prisma/client";
+import { logFindUniqueArgs } from "../../prisma/src/generated/client/index";
 
 const prismaFac = new PrismaClientFac();
 
@@ -89,4 +92,71 @@ const readDeviceDB = async function (req: Request, res: Response, next: NextFunc
   }
 };
 
-export { resetDeviceDB, readDeviceDB };
+const createSettings = async function (req: Request, res: Response, next: NextFunction) {
+  try {
+    await prismaFac.general.create({
+      data: req.body,
+    });
+    next();
+  } catch (error) {
+    next();
+  }
+};
+
+const readSettings = async function (req: Request, res: Response, next: NextFunction) {
+  try {
+    const select = {};
+    const set = await prismaFac.general.findUnique({
+      where: { type: "settings" },
+    });
+
+    select.settings = set.value;
+
+    const device = await prismaFac.general.findUnique({
+      where: { type: "deviceList" },
+    });
+
+    select.deviceList = device.value;
+    req.settings = select;
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+
+const updateSettings = async function (req: Request, res: Response, next: NextFunction) {
+  try {
+    const updated = await prismaFac.general.update({
+      where: { type: "settings" },
+      data: { value: { row: req.body.row, column: req.body.column } },
+    });
+
+    console.log("updateSettings", updated);
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+
+const deleteSettings = async function (req: Request, res: Response, next: NextFunction) {
+  try {
+    const settings = prismaFac.general.deleteMany();
+
+    console.log("deleteSettings", settings);
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+
+export {
+  resetDeviceDB,
+  readDeviceDB,
+  readSettings,
+  createSettings,
+  updateSettings,
+  deleteSettings,
+};

@@ -1,4 +1,4 @@
-import { Application, ErrorRequestHandler } from "express";
+import { Application, ErrorRequestHandler, NextFunction } from "express";
 import { Request, Response } from "express"; // 추가
 
 import authRouter from "../routers/auth.router.js";
@@ -8,13 +8,18 @@ const routersLoader = function (app: Application): void {
   app.use("/", indexRouter);
   app.use("/auth", authRouter);
 
-  app.use(function (err: Error, req: Request, res: Response): void {
+  app.use(function (err: Error, req: Request, res: Response, next: NextFunction) {
+    // res.locals.message = err;
+    // res.locals.error = req.app.get("env") === "development" ? err : {};
+
+    console.log("ERR: ", err);
+
     res.locals.message = err.message;
     res.locals.error = req.app.get("env") === "development" ? err : {};
+    res.status(500);
+    res.render("error", { error: err });
 
-    console.error(err);
-
-    res.render("error");
+    // return res.status(500).json({ ok: false });
   });
 };
 

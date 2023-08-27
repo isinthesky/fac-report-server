@@ -13,8 +13,8 @@ datasource db {
 
 model general {
   id                Int         @id @default(autoincrement())
-  rows              Int
-  columns           Int
+  type              String      @unique
+  value             Json?
 }
 
 model Station {

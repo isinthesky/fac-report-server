@@ -94,6 +94,7 @@ const getXml2DeviceList = async function (
             extractedData.push({
               id: lpt.$.id,
               nm: lpt.$.nm,
+              xmlid: lpt.$.xmlid,
             });
           }
         }

@@ -6,7 +6,6 @@ import { fileURLToPath } from "url";
 import { routersLoader } from "./loaders/routers.js";
 import { utilsLoader } from "./loaders/utils.js";
 import { SERVER_PORT } from "./env.js";
-import { object } from "zod";
 
 dotenv.config();
 

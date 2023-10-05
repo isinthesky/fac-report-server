@@ -92,17 +92,6 @@ const readDeviceDB = async function (req: Request, res: Response, next: NextFunc
   }
 };
 
-const createSettings = async function (req: Request, res: Response, next: NextFunction) {
-  try {
-    await prismaFac.general.create({
-      data: req.body,
-    });
-    next();
-  } catch (error) {
-    next();
-  }
-};
-
 const readSettings = async function (req: Request, res: Response, next: NextFunction) {
   try {
     const select = {};
@@ -125,7 +114,22 @@ const readSettings = async function (req: Request, res: Response, next: NextFunc
   }
 };
 
-const updateSettings = async function (req: Request, res: Response, next: NextFunction) {
+const createSettings = async function (req: Request, res: Response, next: NextFunction) {
+  try {
+    await prismaFac.general.create({
+      data: req.body,
+    });
+    next();
+  } catch (error) {
+    next();
+  }
+};
+
+const updateSettingsColRow = async function (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   try {
     const updated = await prismaFac.general.update({
       where: { type: "settings" },
@@ -140,9 +144,28 @@ const updateSettings = async function (req: Request, res: Response, next: NextFu
   }
 };
 
+const updateSettingsDeviceList = async function (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    const updated = await prismaFac.general.update({
+      where: { type: "deviceList" },
+      data: { value: req.body },
+    });
+
+    console.log("updateSettings", updated);
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+
 const deleteSettings = async function (req: Request, res: Response, next: NextFunction) {
   try {
-    const settings = prismaFac.general.deleteMany();
+    const settings = await prismaFac.general.deleteMany();
 
     console.log("deleteSettings", settings);
 
@@ -157,6 +180,7 @@ export {
   readDeviceDB,
   readSettings,
   createSettings,
-  updateSettings,
+  updateSettingsColRow,
+  updateSettingsDeviceList,
   deleteSettings,
 };

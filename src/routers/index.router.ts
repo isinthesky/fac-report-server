@@ -10,7 +10,8 @@ import {
   resetDeviceDB,
   readSettings,
   createSettings,
-  updateSettings,
+  updateSettingsColRow,
+  updateSettingsDeviceList,
   deleteSettings,
 } from "../controllers/facDB.controller.js";
 
@@ -40,6 +41,8 @@ router.get(
   }
 );
 
+// router.get("/getDivisions",)
+
 router.get("/getSettings", readSettings, (req: Request, res: Response): Response => {
   return res.status(200).json({ ok: true, settings: req.settings });
 });
@@ -47,14 +50,29 @@ router.get("/getSettings", readSettings, (req: Request, res: Response): Response
 router.post(
   "/createSettings",
   createSettings,
-  // deleteSettings,
   (req: Request, res: Response): Response => {
-    return res.status(200).json({ ok: true, settings: req.settings });
+    return res.status(200).json({ ok: true });
   }
 );
 
-router.put("/updateSettings", updateSettings, (req: Request, res: Response): Response => {
+router.delete("/general", deleteSettings, (req: Request, res: Response): Response => {
   return res.status(200).json({ ok: true });
 });
+
+router.put(
+  "/updateSettingsColRow",
+  updateSettingsColRow,
+  (req: Request, res: Response): Response => {
+    return res.status(200).json({ ok: true });
+  }
+);
+
+router.put(
+  "/updateSettingsDeviceList",
+  updateSettingsDeviceList,
+  (req: Request, res: Response): Response => {
+    return res.status(200).json({ ok: true });
+  }
+);
 
 export { router as default };

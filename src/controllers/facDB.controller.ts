@@ -101,11 +101,29 @@ const readSettings = async function (req: Request, res: Response, next: NextFunc
 
     select.settings = set.value;
 
-    const device = await prismaFac.general.findUnique({
-      where: { type: "deviceList" },
+    const device11 = await prismaFac.general.findUnique({
+      where: { type: "deviceList11" },
     });
+    select.deviceList11 = device11.value;
 
-    select.deviceList = device.value;
+
+    const device12 = await prismaFac.general.findUnique({
+      where: { type: "deviceList12" },
+    });
+    select.deviceList12 = device12.value;
+
+
+    const device21 = await prismaFac.general.findUnique({
+      where: { type: "deviceList21" },
+    });
+    select.deviceList21 = device21.value;
+
+
+    const device22 = await prismaFac.general.findUnique({
+      where: { type: "deviceList22" },
+    });
+    select.deviceList22 = device22.value;
+    
     req.settings = select;
 
     next();
@@ -152,7 +170,7 @@ const updateSettingsDeviceList = async function (
   try {
     const updated = await prismaFac.general.update({
       where: { type: "deviceList" },
-      data: { value: req.body },
+      data: { value: req.body.deviceList },
     });
 
     console.log("updateSettings", updated);

@@ -32,9 +32,6 @@ router.post(
 
 router.get(
   "/getDeviceInfo",
-  getXmlFiles,
-  getXml2DeviceList,
-  resetDeviceDB,
   readDeviceDB,
   (req: Request, res: Response): Response => {
     return res.status(200).json({ ok: true, deviceInfo: req.deviceSet });
@@ -50,6 +47,9 @@ router.get("/getSettings", readSettings, (req: Request, res: Response): Response
 router.post(
   "/createSettings",
   createSettings,
+  getXmlFiles,
+  getXml2DeviceList,
+  resetDeviceDB,
   (req: Request, res: Response): Response => {
     return res.status(200).json({ ok: true });
   }

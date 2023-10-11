@@ -51,7 +51,7 @@ export type Device = $Result.DefaultSelection<Prisma.$DevicePayload>
 export class PrismaClient<
   T extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
   U = 'log' extends keyof T ? T['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<T['log']> : never : never,
-  ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs
+  ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs
 > {
   [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['other'] }
 
@@ -252,8 +252,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.1.1
-   * Query Engine version: 6a3747c37ff169c90047725a05a6ef02e32ac97e
+   * Prisma Client JS version: 5.4.1
+   * Query Engine version: 2f302df92bd8945e20ad4595a73def5b96afa54f
    */
   export type PrismaVersion = {
     client: string
@@ -679,11 +679,11 @@ export namespace Prisma {
   }
 
 
-  interface TypeMapCb extends $Utils.Fn<{extArgs: $Extensions.Args}, $Utils.Record<string, any>> {
+  interface TypeMapCb extends $Utils.Fn<{extArgs: $Extensions.InternalArgs}, $Utils.Record<string, any>> {
     returns: Prisma.TypeMap<this['params']['extArgs']>
   }
 
-  export type TypeMap<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
       modelProps: 'general' | 'station' | 'division' | 'device'
       txIsolationLevel: Prisma.TransactionIsolationLevel
@@ -980,18 +980,19 @@ export namespace Prisma {
   export const defineExtension: $Extensions.ExtendsHook<'define', Prisma.TypeMapCb, $Extensions.DefaultArgs>
   export type DefaultPrismaClient = PrismaClient
   export type ErrorFormat = 'pretty' | 'colorless' | 'minimal'
-
   export interface PrismaClientOptions {
     /**
      * Overwrites the datasource url from your schema.prisma file
      */
     datasources?: Datasources
-
+    /**
+     * Overwrites the datasource url from your schema.prisma file
+     */
+    datasourceUrl?: string
     /**
      * @default "colorless"
      */
     errorFormat?: ErrorFormat
-
     /**
      * @example
      * ```
@@ -1000,15 +1001,15 @@ export namespace Prisma {
      * 
      * // Emit as events
      * log: [
-     *  { emit: 'stdout', level: 'query' },
-     *  { emit: 'stdout', level: 'info' },
-     *  { emit: 'stdout', level: 'warn' }
-     *  { emit: 'stdout', level: 'error' }
+     *   { emit: 'stdout', level: 'query' },
+     *   { emit: 'stdout', level: 'info' },
+     *   { emit: 'stdout', level: 'warn' }
+     *   { emit: 'stdout', level: 'error' }
      * ]
      * ```
      * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/logging#the-log-option).
      */
-    log?: Array<LogLevel | LogDefinition>
+    log?: (LogLevel | LogDefinition)[]
   }
 
   /* Types for Logging */
@@ -1105,7 +1106,7 @@ export namespace Prisma {
     Device: number
   }
 
-  export type StationCountOutputTypeSelect<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Division?: boolean | StationCountOutputTypeCountDivisionArgs
     Device?: boolean | StationCountOutputTypeCountDeviceArgs
   }
@@ -1115,7 +1116,7 @@ export namespace Prisma {
   /**
    * StationCountOutputType without action
    */
-  export type StationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the StationCountOutputType
      */
@@ -1126,7 +1127,7 @@ export namespace Prisma {
   /**
    * StationCountOutputType without action
    */
-  export type StationCountOutputTypeCountDivisionArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationCountOutputTypeCountDivisionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DivisionWhereInput
   }
 
@@ -1134,7 +1135,7 @@ export namespace Prisma {
   /**
    * StationCountOutputType without action
    */
-  export type StationCountOutputTypeCountDeviceArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationCountOutputTypeCountDeviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DeviceWhereInput
   }
 
@@ -1148,7 +1149,7 @@ export namespace Prisma {
     Device: number
   }
 
-  export type DivisionCountOutputTypeSelect<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Device?: boolean | DivisionCountOutputTypeCountDeviceArgs
   }
 
@@ -1157,7 +1158,7 @@ export namespace Prisma {
   /**
    * DivisionCountOutputType without action
    */
-  export type DivisionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the DivisionCountOutputType
      */
@@ -1168,7 +1169,7 @@ export namespace Prisma {
   /**
    * DivisionCountOutputType without action
    */
-  export type DivisionCountOutputTypeCountDeviceArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionCountOutputTypeCountDeviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DeviceWhereInput
   }
 
@@ -1241,7 +1242,7 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type GeneralAggregateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type GeneralAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which general to aggregate.
      */
@@ -1313,7 +1314,7 @@ export namespace Prisma {
 
 
 
-  export type generalGroupByArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: generalWhereInput
     orderBy?: generalOrderByWithAggregationInput | generalOrderByWithAggregationInput[]
     by: GeneralScalarFieldEnum[] | GeneralScalarFieldEnum
@@ -1352,7 +1353,7 @@ export namespace Prisma {
     >
 
 
-  export type generalSelect<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type generalSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     type?: boolean
     value?: boolean
@@ -1365,10 +1366,10 @@ export namespace Prisma {
   }
 
 
-  export type $generalPayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type $generalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "general"
     objects: {}
-    scalars: $Extensions.GetResult<{
+    scalars: $Extensions.GetPayloadResult<{
       id: number
       type: string
       value: Prisma.JsonValue | null
@@ -1379,12 +1380,12 @@ export namespace Prisma {
 
   type generalGetPayload<S extends boolean | null | undefined | generalDefaultArgs> = $Result.GetResult<Prisma.$generalPayload, S>
 
-  type generalCountArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = 
+  type generalCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
     Omit<generalFindManyArgs, 'select' | 'include'> & {
       select?: GeneralCountAggregateInputType | true
     }
 
-  export interface generalDelegate<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> {
+  export interface generalDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
     [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['general'], meta: { name: 'general' } }
     /**
      * Find zero or one General that matches the filter.
@@ -1734,7 +1735,7 @@ export namespace Prisma {
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__generalClient<T, Null = never, ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__generalClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
 
@@ -1777,7 +1778,7 @@ export namespace Prisma {
   /**
    * general findUnique
    */
-  export type generalFindUniqueArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1792,7 +1793,7 @@ export namespace Prisma {
   /**
    * general findUniqueOrThrow
    */
-  export type generalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1807,7 +1808,7 @@ export namespace Prisma {
   /**
    * general findFirst
    */
-  export type generalFindFirstArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1852,7 +1853,7 @@ export namespace Prisma {
   /**
    * general findFirstOrThrow
    */
-  export type generalFindFirstOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1897,7 +1898,7 @@ export namespace Prisma {
   /**
    * general findMany
    */
-  export type generalFindManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1937,7 +1938,7 @@ export namespace Prisma {
   /**
    * general create
    */
-  export type generalCreateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1952,7 +1953,7 @@ export namespace Prisma {
   /**
    * general createMany
    */
-  export type generalCreateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to create many generals.
      */
@@ -1964,7 +1965,7 @@ export namespace Prisma {
   /**
    * general update
    */
-  export type generalUpdateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1983,7 +1984,7 @@ export namespace Prisma {
   /**
    * general updateMany
    */
-  export type generalUpdateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to update generals.
      */
@@ -1998,7 +1999,7 @@ export namespace Prisma {
   /**
    * general upsert
    */
-  export type generalUpsertArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -2021,7 +2022,7 @@ export namespace Prisma {
   /**
    * general delete
    */
-  export type generalDeleteArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -2036,7 +2037,7 @@ export namespace Prisma {
   /**
    * general deleteMany
    */
-  export type generalDeleteManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which generals to delete
      */
@@ -2047,7 +2048,7 @@ export namespace Prisma {
   /**
    * general without action
    */
-  export type generalDefaultArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -2117,7 +2118,7 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type StationAggregateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which Station to aggregate.
      */
@@ -2189,7 +2190,7 @@ export namespace Prisma {
 
 
 
-  export type StationGroupByArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: StationWhereInput
     orderBy?: StationOrderByWithAggregationInput | StationOrderByWithAggregationInput[]
     by: StationScalarFieldEnum[] | StationScalarFieldEnum
@@ -2227,7 +2228,7 @@ export namespace Prisma {
     >
 
 
-  export type StationSelect<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type StationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     Division?: boolean | Station$DivisionArgs<ExtArgs>
@@ -2240,20 +2241,20 @@ export namespace Prisma {
     name?: boolean
   }
 
-  export type StationInclude<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Division?: boolean | Station$DivisionArgs<ExtArgs>
     Device?: boolean | Station$DeviceArgs<ExtArgs>
     _count?: boolean | StationCountOutputTypeDefaultArgs<ExtArgs>
   }
 
 
-  export type $StationPayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type $StationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Station"
     objects: {
       Division: Prisma.$DivisionPayload<ExtArgs>[]
       Device: Prisma.$DevicePayload<ExtArgs>[]
     }
-    scalars: $Extensions.GetResult<{
+    scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
     }, ExtArgs["result"]["station"]>
@@ -2263,12 +2264,12 @@ export namespace Prisma {
 
   type StationGetPayload<S extends boolean | null | undefined | StationDefaultArgs> = $Result.GetResult<Prisma.$StationPayload, S>
 
-  type StationCountArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = 
+  type StationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
     Omit<StationFindManyArgs, 'select' | 'include'> & {
       select?: StationCountAggregateInputType | true
     }
 
-  export interface StationDelegate<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> {
+  export interface StationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
     [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Station'], meta: { name: 'Station' } }
     /**
      * Find zero or one Station that matches the filter.
@@ -2618,7 +2619,7 @@ export namespace Prisma {
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__StationClient<T, Null = never, ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__StationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
     Division<T extends Station$DivisionArgs<ExtArgs> = {}>(args?: Subset<T, Station$DivisionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DivisionPayload<ExtArgs>, T, 'findMany'> | Null>;
@@ -2663,7 +2664,7 @@ export namespace Prisma {
   /**
    * Station findUnique
    */
-  export type StationFindUniqueArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Station
      */
@@ -2682,7 +2683,7 @@ export namespace Prisma {
   /**
    * Station findUniqueOrThrow
    */
-  export type StationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Station
      */
@@ -2701,7 +2702,7 @@ export namespace Prisma {
   /**
    * Station findFirst
    */
-  export type StationFindFirstArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Station
      */
@@ -2750,7 +2751,7 @@ export namespace Prisma {
   /**
    * Station findFirstOrThrow
    */
-  export type StationFindFirstOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Station
      */
@@ -2799,7 +2800,7 @@ export namespace Prisma {
   /**
    * Station findMany
    */
-  export type StationFindManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Station
      */
@@ -2843,7 +2844,7 @@ export namespace Prisma {
   /**
    * Station create
    */
-  export type StationCreateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Station
      */
@@ -2862,7 +2863,7 @@ export namespace Prisma {
   /**
    * Station createMany
    */
-  export type StationCreateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to create many Stations.
      */
@@ -2874,7 +2875,7 @@ export namespace Prisma {
   /**
    * Station update
    */
-  export type StationUpdateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Station
      */
@@ -2897,7 +2898,7 @@ export namespace Prisma {
   /**
    * Station updateMany
    */
-  export type StationUpdateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to update Stations.
      */
@@ -2912,7 +2913,7 @@ export namespace Prisma {
   /**
    * Station upsert
    */
-  export type StationUpsertArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Station
      */
@@ -2939,7 +2940,7 @@ export namespace Prisma {
   /**
    * Station delete
    */
-  export type StationDeleteArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Station
      */
@@ -2958,7 +2959,7 @@ export namespace Prisma {
   /**
    * Station deleteMany
    */
-  export type StationDeleteManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which Stations to delete
      */
@@ -2969,7 +2970,7 @@ export namespace Prisma {
   /**
    * Station.Division
    */
-  export type Station$DivisionArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type Station$DivisionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Division
      */
@@ -2990,7 +2991,7 @@ export namespace Prisma {
   /**
    * Station.Device
    */
-  export type Station$DeviceArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type Station$DeviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Device
      */
@@ -3011,7 +3012,7 @@ export namespace Prisma {
   /**
    * Station without action
    */
-  export type StationDefaultArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type StationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Station
      */
@@ -3095,7 +3096,7 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type DivisionAggregateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which Division to aggregate.
      */
@@ -3167,7 +3168,7 @@ export namespace Prisma {
 
 
 
-  export type DivisionGroupByArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DivisionWhereInput
     orderBy?: DivisionOrderByWithAggregationInput | DivisionOrderByWithAggregationInput[]
     by: DivisionScalarFieldEnum[] | DivisionScalarFieldEnum
@@ -3206,7 +3207,7 @@ export namespace Prisma {
     >
 
 
-  export type DivisionSelect<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DivisionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     stationId?: boolean
     name?: boolean
@@ -3221,20 +3222,20 @@ export namespace Prisma {
     name?: boolean
   }
 
-  export type DivisionInclude<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Station?: boolean | StationDefaultArgs<ExtArgs>
     Device?: boolean | Division$DeviceArgs<ExtArgs>
     _count?: boolean | DivisionCountOutputTypeDefaultArgs<ExtArgs>
   }
 
 
-  export type $DivisionPayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type $DivisionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Division"
     objects: {
       Station: Prisma.$StationPayload<ExtArgs>
       Device: Prisma.$DevicePayload<ExtArgs>[]
     }
-    scalars: $Extensions.GetResult<{
+    scalars: $Extensions.GetPayloadResult<{
       id: number
       stationId: number
       name: string
@@ -3245,12 +3246,12 @@ export namespace Prisma {
 
   type DivisionGetPayload<S extends boolean | null | undefined | DivisionDefaultArgs> = $Result.GetResult<Prisma.$DivisionPayload, S>
 
-  type DivisionCountArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = 
+  type DivisionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
     Omit<DivisionFindManyArgs, 'select' | 'include'> & {
       select?: DivisionCountAggregateInputType | true
     }
 
-  export interface DivisionDelegate<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> {
+  export interface DivisionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
     [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Division'], meta: { name: 'Division' } }
     /**
      * Find zero or one Division that matches the filter.
@@ -3600,7 +3601,7 @@ export namespace Prisma {
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__DivisionClient<T, Null = never, ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__DivisionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
     Station<T extends StationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StationDefaultArgs<ExtArgs>>): Prisma__StationClient<$Result.GetResult<Prisma.$StationPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
@@ -3646,7 +3647,7 @@ export namespace Prisma {
   /**
    * Division findUnique
    */
-  export type DivisionFindUniqueArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Division
      */
@@ -3665,7 +3666,7 @@ export namespace Prisma {
   /**
    * Division findUniqueOrThrow
    */
-  export type DivisionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Division
      */
@@ -3684,7 +3685,7 @@ export namespace Prisma {
   /**
    * Division findFirst
    */
-  export type DivisionFindFirstArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Division
      */
@@ -3733,7 +3734,7 @@ export namespace Prisma {
   /**
    * Division findFirstOrThrow
    */
-  export type DivisionFindFirstOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Division
      */
@@ -3782,7 +3783,7 @@ export namespace Prisma {
   /**
    * Division findMany
    */
-  export type DivisionFindManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Division
      */
@@ -3826,7 +3827,7 @@ export namespace Prisma {
   /**
    * Division create
    */
-  export type DivisionCreateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Division
      */
@@ -3845,7 +3846,7 @@ export namespace Prisma {
   /**
    * Division createMany
    */
-  export type DivisionCreateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to create many Divisions.
      */
@@ -3857,7 +3858,7 @@ export namespace Prisma {
   /**
    * Division update
    */
-  export type DivisionUpdateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Division
      */
@@ -3880,7 +3881,7 @@ export namespace Prisma {
   /**
    * Division updateMany
    */
-  export type DivisionUpdateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to update Divisions.
      */
@@ -3895,7 +3896,7 @@ export namespace Prisma {
   /**
    * Division upsert
    */
-  export type DivisionUpsertArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Division
      */
@@ -3922,7 +3923,7 @@ export namespace Prisma {
   /**
    * Division delete
    */
-  export type DivisionDeleteArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Division
      */
@@ -3941,7 +3942,7 @@ export namespace Prisma {
   /**
    * Division deleteMany
    */
-  export type DivisionDeleteManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which Divisions to delete
      */
@@ -3952,7 +3953,7 @@ export namespace Prisma {
   /**
    * Division.Device
    */
-  export type Division$DeviceArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type Division$DeviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Device
      */
@@ -3973,7 +3974,7 @@ export namespace Prisma {
   /**
    * Division without action
    */
-  export type DivisionDefaultArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DivisionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Division
      */
@@ -4073,7 +4074,7 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type DeviceAggregateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which Device to aggregate.
      */
@@ -4145,7 +4146,7 @@ export namespace Prisma {
 
 
 
-  export type DeviceGroupByArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DeviceWhereInput
     orderBy?: DeviceOrderByWithAggregationInput | DeviceOrderByWithAggregationInput[]
     by: DeviceScalarFieldEnum[] | DeviceScalarFieldEnum
@@ -4186,7 +4187,7 @@ export namespace Prisma {
     >
 
 
-  export type DeviceSelect<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DeviceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     xmlId?: boolean
     name?: boolean
@@ -4204,19 +4205,19 @@ export namespace Prisma {
     divisionId?: boolean
   }
 
-  export type DeviceInclude<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Station?: boolean | StationDefaultArgs<ExtArgs>
     division?: boolean | DivisionDefaultArgs<ExtArgs>
   }
 
 
-  export type $DevicePayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type $DevicePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Device"
     objects: {
       Station: Prisma.$StationPayload<ExtArgs>
       division: Prisma.$DivisionPayload<ExtArgs>
     }
-    scalars: $Extensions.GetResult<{
+    scalars: $Extensions.GetPayloadResult<{
       id: number
       xmlId: string
       name: string
@@ -4229,12 +4230,12 @@ export namespace Prisma {
 
   type DeviceGetPayload<S extends boolean | null | undefined | DeviceDefaultArgs> = $Result.GetResult<Prisma.$DevicePayload, S>
 
-  type DeviceCountArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = 
+  type DeviceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
     Omit<DeviceFindManyArgs, 'select' | 'include'> & {
       select?: DeviceCountAggregateInputType | true
     }
 
-  export interface DeviceDelegate<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> {
+  export interface DeviceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
     [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Device'], meta: { name: 'Device' } }
     /**
      * Find zero or one Device that matches the filter.
@@ -4584,7 +4585,7 @@ export namespace Prisma {
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__DeviceClient<T, Null = never, ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__DeviceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
     Station<T extends StationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StationDefaultArgs<ExtArgs>>): Prisma__StationClient<$Result.GetResult<Prisma.$StationPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
@@ -4632,7 +4633,7 @@ export namespace Prisma {
   /**
    * Device findUnique
    */
-  export type DeviceFindUniqueArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Device
      */
@@ -4651,7 +4652,7 @@ export namespace Prisma {
   /**
    * Device findUniqueOrThrow
    */
-  export type DeviceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Device
      */
@@ -4670,7 +4671,7 @@ export namespace Prisma {
   /**
    * Device findFirst
    */
-  export type DeviceFindFirstArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Device
      */
@@ -4719,7 +4720,7 @@ export namespace Prisma {
   /**
    * Device findFirstOrThrow
    */
-  export type DeviceFindFirstOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Device
      */
@@ -4768,7 +4769,7 @@ export namespace Prisma {
   /**
    * Device findMany
    */
-  export type DeviceFindManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Device
      */
@@ -4812,7 +4813,7 @@ export namespace Prisma {
   /**
    * Device create
    */
-  export type DeviceCreateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Device
      */
@@ -4831,7 +4832,7 @@ export namespace Prisma {
   /**
    * Device createMany
    */
-  export type DeviceCreateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to create many Devices.
      */
@@ -4843,7 +4844,7 @@ export namespace Prisma {
   /**
    * Device update
    */
-  export type DeviceUpdateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Device
      */
@@ -4866,7 +4867,7 @@ export namespace Prisma {
   /**
    * Device updateMany
    */
-  export type DeviceUpdateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to update Devices.
      */
@@ -4881,7 +4882,7 @@ export namespace Prisma {
   /**
    * Device upsert
    */
-  export type DeviceUpsertArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Device
      */
@@ -4908,7 +4909,7 @@ export namespace Prisma {
   /**
    * Device delete
    */
-  export type DeviceDeleteArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Device
      */
@@ -4927,7 +4928,7 @@ export namespace Prisma {
   /**
    * Device deleteMany
    */
-  export type DeviceDeleteManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which Devices to delete
      */
@@ -4938,7 +4939,7 @@ export namespace Prisma {
   /**
    * Device without action
    */
-  export type DeviceDefaultArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type DeviceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Device
      */
@@ -6336,21 +6337,29 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
+     * @deprecated Use StationCountOutputTypeDefaultArgs instead
+     */
+    export type StationCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = StationCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use DivisionCountOutputTypeDefaultArgs instead
+     */
+    export type DivisionCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DivisionCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use generalDefaultArgs instead
      */
-    export type generalArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = generalDefaultArgs<ExtArgs>
+    export type generalArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = generalDefaultArgs<ExtArgs>
     /**
      * @deprecated Use StationDefaultArgs instead
      */
-    export type StationArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = StationDefaultArgs<ExtArgs>
+    export type StationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = StationDefaultArgs<ExtArgs>
     /**
      * @deprecated Use DivisionDefaultArgs instead
      */
-    export type DivisionArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = DivisionDefaultArgs<ExtArgs>
+    export type DivisionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DivisionDefaultArgs<ExtArgs>
     /**
      * @deprecated Use DeviceDefaultArgs instead
      */
-    export type DeviceArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = DeviceDefaultArgs<ExtArgs>
+    export type DeviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DeviceDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

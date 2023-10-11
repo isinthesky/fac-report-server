@@ -36,7 +36,7 @@ export type general = $Result.DefaultSelection<Prisma.$generalPayload>
 export class PrismaClient<
   T extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
   U = 'log' extends keyof T ? T['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<T['log']> : never : never,
-  ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs
+  ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs
 > {
   [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['other'] }
 
@@ -207,8 +207,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.1.1
-   * Query Engine version: 6a3747c37ff169c90047725a05a6ef02e32ac97e
+   * Prisma Client JS version: 5.4.1
+   * Query Engine version: 2f302df92bd8945e20ad4595a73def5b96afa54f
    */
   export type PrismaVersion = {
     client: string
@@ -631,11 +631,11 @@ export namespace Prisma {
   }
 
 
-  interface TypeMapCb extends $Utils.Fn<{extArgs: $Extensions.Args}, $Utils.Record<string, any>> {
+  interface TypeMapCb extends $Utils.Fn<{extArgs: $Extensions.InternalArgs}, $Utils.Record<string, any>> {
     returns: Prisma.TypeMap<this['params']['extArgs']>
   }
 
-  export type TypeMap<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
       modelProps: 'general'
       txIsolationLevel: Prisma.TransactionIsolationLevel
@@ -734,18 +734,19 @@ export namespace Prisma {
   export const defineExtension: $Extensions.ExtendsHook<'define', Prisma.TypeMapCb, $Extensions.DefaultArgs>
   export type DefaultPrismaClient = PrismaClient
   export type ErrorFormat = 'pretty' | 'colorless' | 'minimal'
-
   export interface PrismaClientOptions {
     /**
      * Overwrites the datasource url from your schema.prisma file
      */
     datasources?: Datasources
-
+    /**
+     * Overwrites the datasource url from your schema.prisma file
+     */
+    datasourceUrl?: string
     /**
      * @default "colorless"
      */
     errorFormat?: ErrorFormat
-
     /**
      * @example
      * ```
@@ -754,15 +755,15 @@ export namespace Prisma {
      * 
      * // Emit as events
      * log: [
-     *  { emit: 'stdout', level: 'query' },
-     *  { emit: 'stdout', level: 'info' },
-     *  { emit: 'stdout', level: 'warn' }
-     *  { emit: 'stdout', level: 'error' }
+     *   { emit: 'stdout', level: 'query' },
+     *   { emit: 'stdout', level: 'info' },
+     *   { emit: 'stdout', level: 'warn' }
+     *   { emit: 'stdout', level: 'error' }
      * ]
      * ```
      * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/logging#the-log-option).
      */
-    log?: Array<LogLevel | LogDefinition>
+    log?: (LogLevel | LogDefinition)[]
   }
 
   /* Types for Logging */
@@ -930,7 +931,7 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type GeneralAggregateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type GeneralAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which general to aggregate.
      */
@@ -1002,7 +1003,7 @@ export namespace Prisma {
 
 
 
-  export type generalGroupByArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: generalWhereInput
     orderBy?: generalOrderByWithAggregationInput | generalOrderByWithAggregationInput[]
     by: GeneralScalarFieldEnum[] | GeneralScalarFieldEnum
@@ -1041,7 +1042,7 @@ export namespace Prisma {
     >
 
 
-  export type generalSelect<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type generalSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     rows?: boolean
     columns?: boolean
@@ -1054,10 +1055,10 @@ export namespace Prisma {
   }
 
 
-  export type $generalPayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type $generalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "general"
     objects: {}
-    scalars: $Extensions.GetResult<{
+    scalars: $Extensions.GetPayloadResult<{
       id: number
       rows: number
       columns: number
@@ -1068,12 +1069,12 @@ export namespace Prisma {
 
   type generalGetPayload<S extends boolean | null | undefined | generalDefaultArgs> = $Result.GetResult<Prisma.$generalPayload, S>
 
-  type generalCountArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = 
+  type generalCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
     Omit<generalFindManyArgs, 'select' | 'include'> & {
       select?: GeneralCountAggregateInputType | true
     }
 
-  export interface generalDelegate<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> {
+  export interface generalDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
     [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['general'], meta: { name: 'general' } }
     /**
      * Find zero or one General that matches the filter.
@@ -1423,7 +1424,7 @@ export namespace Prisma {
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__generalClient<T, Null = never, ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__generalClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
 
@@ -1466,7 +1467,7 @@ export namespace Prisma {
   /**
    * general findUnique
    */
-  export type generalFindUniqueArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1481,7 +1482,7 @@ export namespace Prisma {
   /**
    * general findUniqueOrThrow
    */
-  export type generalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1496,7 +1497,7 @@ export namespace Prisma {
   /**
    * general findFirst
    */
-  export type generalFindFirstArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1541,7 +1542,7 @@ export namespace Prisma {
   /**
    * general findFirstOrThrow
    */
-  export type generalFindFirstOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1586,7 +1587,7 @@ export namespace Prisma {
   /**
    * general findMany
    */
-  export type generalFindManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1626,7 +1627,7 @@ export namespace Prisma {
   /**
    * general create
    */
-  export type generalCreateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1641,7 +1642,7 @@ export namespace Prisma {
   /**
    * general createMany
    */
-  export type generalCreateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to create many generals.
      */
@@ -1653,7 +1654,7 @@ export namespace Prisma {
   /**
    * general update
    */
-  export type generalUpdateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1672,7 +1673,7 @@ export namespace Prisma {
   /**
    * general updateMany
    */
-  export type generalUpdateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to update generals.
      */
@@ -1687,7 +1688,7 @@ export namespace Prisma {
   /**
    * general upsert
    */
-  export type generalUpsertArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1710,7 +1711,7 @@ export namespace Prisma {
   /**
    * general delete
    */
-  export type generalDeleteArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -1725,7 +1726,7 @@ export namespace Prisma {
   /**
    * general deleteMany
    */
-  export type generalDeleteManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which generals to delete
      */
@@ -1736,7 +1737,7 @@ export namespace Prisma {
   /**
    * general without action
    */
-  export type generalDefaultArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  export type generalDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the general
      */
@@ -2006,7 +2007,7 @@ export namespace Prisma {
     /**
      * @deprecated Use generalDefaultArgs instead
      */
-    export type generalArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = generalDefaultArgs<ExtArgs>
+    export type generalArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = generalDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

@@ -1,9 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import { PrismaClient as PrismaClientFac } from "../../prisma/src/generated/clientFac";
-import { Device, Division, Station } from "../../prisma/src/generated/clientFac/index.js";
-import { general } from "../../prisma/src/generated/clientBMS/index";
-import { Prisma } from "@prisma/client";
-import { logFindUniqueArgs } from "../../prisma/src/generated/client/index";
 
 const prismaFac = new PrismaClientFac();
 
@@ -101,6 +97,11 @@ const readSettings = async function (req: Request, res: Response, next: NextFunc
 
     select.settings = set.value;
 
+    const device = await prismaFac.general.findUnique({
+      where: { type: "deviceList" },
+    });
+    select.deviceList = device.value;
+
     const device11 = await prismaFac.general.findUnique({
       where: { type: "deviceList11" },
     });
@@ -168,12 +169,12 @@ const updateSettingsDeviceList = async function (
   next: NextFunction
 ) {
   try {
-    const updated = await prismaFac.general.update({
-      where: { type: "deviceList" },
+    console.log("updateSettingsDeviceList", req.body);
+
+    await prismaFac.general.update({
+      where: { type: req.body.tab },
       data: { value: req.body.deviceList },
     });
-
-    console.log("updateSettings", updated);
 
     next();
   } catch (error) {

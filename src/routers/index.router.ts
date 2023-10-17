@@ -14,6 +14,7 @@ import {
   updateSettingsDeviceList,
   deleteSettings,
 } from "../controllers/facDB.controller.js";
+import { getDeviceLog } from "../controllers/bmsDB.controller.js";
 
 const router = express.Router();
 
@@ -74,5 +75,14 @@ router.put(
     return res.status(200).json({ ok: true });
   }
 );
+
+router.get(
+  "/readDeviceLog/:deviceId/:timestamp",
+  getDeviceLog, 
+  (req: Request, res: Response): Response => {
+    return res.status(200).json({ ok: true, deviceLog: req.deviceLog  });
+    // return res.status(200).json({ ok: true, deviceLog: req.deviceLog });
+  }
+)
 
 export { router as default };

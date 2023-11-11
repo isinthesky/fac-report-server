@@ -17,7 +17,7 @@ const utilsLoader = function (app: Application): void {
 
   app.use(
     cors({
-      origin: "http://localhost:3000",
+      origin: ["http://localhost:3000", "http://isinthesky.iptime.org:3000"],
     })
   );
 

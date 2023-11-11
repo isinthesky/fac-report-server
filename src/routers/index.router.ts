@@ -11,8 +11,9 @@ import {
   readSettings,
   createSettings,
   updateSettingsColRow,
-  updateSettingsDeviceList,
+  updateSettingsUnit,
   deleteSettings,
+  updateSettingsApproves,
 } from "../controllers/facDB.controller.js";
 import { getDeviceLog } from "../controllers/bmsDB.controller.js";
 
@@ -32,22 +33,27 @@ router.post(
 );
 
 router.get(
-  "/getDeviceInfo",
+  "/deviceInfo",
   readDeviceDB,
   (req: Request, res: Response): Response => {
     return res.status(200).json({ ok: true, deviceInfo: req.deviceSet });
   }
 );
 
-// router.get("/getDivisions",)
-
-router.get("/getSettings", readSettings, (req: Request, res: Response): Response => {
+router.get("/settings", readSettings, (req: Request, res: Response): Response => {
   return res.status(200).json({ ok: true, settings: req.settings });
 });
 
 router.post(
   "/createSettings",
   createSettings,
+  (req: Request, res: Response): Response => {
+    return res.status(200).json({ ok: true });
+  }
+);
+
+router.post(
+  "/resetXml",
   getXmlFiles,
   getXml2DeviceList,
   resetDeviceDB,
@@ -69,19 +75,28 @@ router.put(
 );
 
 router.put(
-  "/updateSettingsDeviceList",
-  updateSettingsDeviceList,
+  "/updateSettingsUnit",
+  updateSettingsUnit,
   (req: Request, res: Response): Response => {
     return res.status(200).json({ ok: true });
   }
 );
+
+
+router.put(
+  "/updateSettingsApprove",
+  updateSettingsApproves,
+  (req: Request, res: Response): Response => {
+    return res.status(200).json({ ok: true });
+  }
+);
+
 
 router.get(
   "/readDeviceLog/:deviceId/:timestamp",
   getDeviceLog, 
   (req: Request, res: Response): Response => {
     return res.status(200).json({ ok: true, deviceLog: req.deviceLog  });
-    // return res.status(200).json({ ok: true, deviceLog: req.deviceLog });
   }
 )
 

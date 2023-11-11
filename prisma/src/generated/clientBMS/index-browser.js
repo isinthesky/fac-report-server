@@ -107,10 +107,11 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.GeneralScalarFieldEnum = {
-  id: 'id',
-  rows: 'rows',
-  columns: 'columns'
+exports.Prisma.Point_history_230901ScalarFieldEnum = {
+  path_id: 'path_id',
+  issued_date: 'issued_date',
+  connection_status: 'connection_status',
+  changed_value: 'changed_value'
 };
 
 exports.Prisma.SortOrder = {
@@ -118,9 +119,14 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
 
 exports.Prisma.ModelName = {
-  general: 'general'
+  point_history_230901: 'point_history_230901'
 };
 
 /**

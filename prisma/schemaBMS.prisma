@@ -11,9 +11,9 @@ datasource db {
   url      = env("BMS30_DATABASE_URL")
 }
 
-
-model general {
-  id      Int        @id @default(autoincrement())
-  rows    Int
-  columns Int
+model point_history_230901 {
+  path_id             Int   @id 
+  issued_date         Int
+  connection_status   Int
+  changed_value       String
 }

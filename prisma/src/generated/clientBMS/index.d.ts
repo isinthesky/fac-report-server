@@ -14,10 +14,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model general
+ * Model point_history_230901
  * 
  */
-export type general = $Result.DefaultSelection<Prisma.$generalPayload>
+export type point_history_230901 = $Result.DefaultSelection<Prisma.$point_history_230901Payload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -26,8 +26,8 @@ export type general = $Result.DefaultSelection<Prisma.$generalPayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Generals
- * const generals = await prisma.general.findMany()
+ * // Fetch zero or more Point_history_230901s
+ * const point_history_230901s = await prisma.point_history_230901.findMany()
  * ```
  *
  * 
@@ -47,8 +47,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Generals
-   * const generals = await prisma.general.findMany()
+   * // Fetch zero or more Point_history_230901s
+   * const point_history_230901s = await prisma.point_history_230901.findMany()
    * ```
    *
    * 
@@ -142,14 +142,14 @@ export class PrismaClient<
   $extends: $Extensions.ExtendsHook<'extends', Prisma.TypeMapCb, ExtArgs>
 
       /**
-   * `prisma.general`: Exposes CRUD operations for the **general** model.
+   * `prisma.point_history_230901`: Exposes CRUD operations for the **point_history_230901** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Generals
-    * const generals = await prisma.general.findMany()
+    * // Fetch zero or more Point_history_230901s
+    * const point_history_230901s = await prisma.point_history_230901.findMany()
     * ```
     */
-  get general(): Prisma.generalDelegate<ExtArgs>;
+  get point_history_230901(): Prisma.point_history_230901Delegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -620,7 +620,7 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    general: 'general'
+    point_history_230901: 'point_history_230901'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -637,73 +637,73 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'general'
+      modelProps: 'point_history_230901'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
-      general: {
-        payload: Prisma.$generalPayload<ExtArgs>
-        fields: Prisma.generalFieldRefs
+      point_history_230901: {
+        payload: Prisma.$point_history_230901Payload<ExtArgs>
+        fields: Prisma.point_history_230901FieldRefs
         operations: {
           findUnique: {
-            args: Prisma.generalFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$generalPayload> | null
+            args: Prisma.point_history_230901FindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$point_history_230901Payload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.generalFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$generalPayload>
+            args: Prisma.point_history_230901FindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$point_history_230901Payload>
           }
           findFirst: {
-            args: Prisma.generalFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$generalPayload> | null
+            args: Prisma.point_history_230901FindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$point_history_230901Payload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.generalFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$generalPayload>
+            args: Prisma.point_history_230901FindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$point_history_230901Payload>
           }
           findMany: {
-            args: Prisma.generalFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$generalPayload>[]
+            args: Prisma.point_history_230901FindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$point_history_230901Payload>[]
           }
           create: {
-            args: Prisma.generalCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$generalPayload>
+            args: Prisma.point_history_230901CreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$point_history_230901Payload>
           }
           createMany: {
-            args: Prisma.generalCreateManyArgs<ExtArgs>,
+            args: Prisma.point_history_230901CreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.generalDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$generalPayload>
+            args: Prisma.point_history_230901DeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$point_history_230901Payload>
           }
           update: {
-            args: Prisma.generalUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$generalPayload>
+            args: Prisma.point_history_230901UpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$point_history_230901Payload>
           }
           deleteMany: {
-            args: Prisma.generalDeleteManyArgs<ExtArgs>,
+            args: Prisma.point_history_230901DeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.generalUpdateManyArgs<ExtArgs>,
+            args: Prisma.point_history_230901UpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.generalUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$generalPayload>
+            args: Prisma.point_history_230901UpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$point_history_230901Payload>
           }
           aggregate: {
-            args: Prisma.GeneralAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateGeneral>
+            args: Prisma.Point_history_230901AggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregatePoint_history_230901>
           }
           groupBy: {
-            args: Prisma.generalGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<GeneralGroupByOutputType>[]
+            args: Prisma.point_history_230901GroupByArgs<ExtArgs>,
+            result: $Utils.Optional<Point_history_230901GroupByOutputType>[]
           }
           count: {
-            args: Prisma.generalCountArgs<ExtArgs>,
-            result: $Utils.Optional<GeneralCountAggregateOutputType> | number
+            args: Prisma.point_history_230901CountArgs<ExtArgs>,
+            result: $Utils.Optional<Point_history_230901CountAggregateOutputType> | number
           }
         }
       }
@@ -857,365 +857,375 @@ export namespace Prisma {
    */
 
   /**
-   * Model general
+   * Model point_history_230901
    */
 
-  export type AggregateGeneral = {
-    _count: GeneralCountAggregateOutputType | null
-    _avg: GeneralAvgAggregateOutputType | null
-    _sum: GeneralSumAggregateOutputType | null
-    _min: GeneralMinAggregateOutputType | null
-    _max: GeneralMaxAggregateOutputType | null
+  export type AggregatePoint_history_230901 = {
+    _count: Point_history_230901CountAggregateOutputType | null
+    _avg: Point_history_230901AvgAggregateOutputType | null
+    _sum: Point_history_230901SumAggregateOutputType | null
+    _min: Point_history_230901MinAggregateOutputType | null
+    _max: Point_history_230901MaxAggregateOutputType | null
   }
 
-  export type GeneralAvgAggregateOutputType = {
-    id: number | null
-    rows: number | null
-    columns: number | null
+  export type Point_history_230901AvgAggregateOutputType = {
+    path_id: number | null
+    issued_date: number | null
+    connection_status: number | null
   }
 
-  export type GeneralSumAggregateOutputType = {
-    id: number | null
-    rows: number | null
-    columns: number | null
+  export type Point_history_230901SumAggregateOutputType = {
+    path_id: number | null
+    issued_date: number | null
+    connection_status: number | null
   }
 
-  export type GeneralMinAggregateOutputType = {
-    id: number | null
-    rows: number | null
-    columns: number | null
+  export type Point_history_230901MinAggregateOutputType = {
+    path_id: number | null
+    issued_date: number | null
+    connection_status: number | null
+    changed_value: string | null
   }
 
-  export type GeneralMaxAggregateOutputType = {
-    id: number | null
-    rows: number | null
-    columns: number | null
+  export type Point_history_230901MaxAggregateOutputType = {
+    path_id: number | null
+    issued_date: number | null
+    connection_status: number | null
+    changed_value: string | null
   }
 
-  export type GeneralCountAggregateOutputType = {
-    id: number
-    rows: number
-    columns: number
+  export type Point_history_230901CountAggregateOutputType = {
+    path_id: number
+    issued_date: number
+    connection_status: number
+    changed_value: number
     _all: number
   }
 
 
-  export type GeneralAvgAggregateInputType = {
-    id?: true
-    rows?: true
-    columns?: true
+  export type Point_history_230901AvgAggregateInputType = {
+    path_id?: true
+    issued_date?: true
+    connection_status?: true
   }
 
-  export type GeneralSumAggregateInputType = {
-    id?: true
-    rows?: true
-    columns?: true
+  export type Point_history_230901SumAggregateInputType = {
+    path_id?: true
+    issued_date?: true
+    connection_status?: true
   }
 
-  export type GeneralMinAggregateInputType = {
-    id?: true
-    rows?: true
-    columns?: true
+  export type Point_history_230901MinAggregateInputType = {
+    path_id?: true
+    issued_date?: true
+    connection_status?: true
+    changed_value?: true
   }
 
-  export type GeneralMaxAggregateInputType = {
-    id?: true
-    rows?: true
-    columns?: true
+  export type Point_history_230901MaxAggregateInputType = {
+    path_id?: true
+    issued_date?: true
+    connection_status?: true
+    changed_value?: true
   }
 
-  export type GeneralCountAggregateInputType = {
-    id?: true
-    rows?: true
-    columns?: true
+  export type Point_history_230901CountAggregateInputType = {
+    path_id?: true
+    issued_date?: true
+    connection_status?: true
+    changed_value?: true
     _all?: true
   }
 
-  export type GeneralAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Point_history_230901AggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which general to aggregate.
+     * Filter which point_history_230901 to aggregate.
      */
-    where?: generalWhereInput
+    where?: point_history_230901WhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of generals to fetch.
+     * Determine the order of point_history_230901s to fetch.
      */
-    orderBy?: generalOrderByWithRelationInput | generalOrderByWithRelationInput[]
+    orderBy?: point_history_230901OrderByWithRelationInput | point_history_230901OrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: generalWhereUniqueInput
+    cursor?: point_history_230901WhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` generals from the position of the cursor.
+     * Take `±n` point_history_230901s from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` generals.
+     * Skip the first `n` point_history_230901s.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned generals
+     * Count returned point_history_230901s
     **/
-    _count?: true | GeneralCountAggregateInputType
+    _count?: true | Point_history_230901CountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: GeneralAvgAggregateInputType
+    _avg?: Point_history_230901AvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: GeneralSumAggregateInputType
+    _sum?: Point_history_230901SumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: GeneralMinAggregateInputType
+    _min?: Point_history_230901MinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: GeneralMaxAggregateInputType
+    _max?: Point_history_230901MaxAggregateInputType
   }
 
-  export type GetGeneralAggregateType<T extends GeneralAggregateArgs> = {
-        [P in keyof T & keyof AggregateGeneral]: P extends '_count' | 'count'
+  export type GetPoint_history_230901AggregateType<T extends Point_history_230901AggregateArgs> = {
+        [P in keyof T & keyof AggregatePoint_history_230901]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateGeneral[P]>
-      : GetScalarType<T[P], AggregateGeneral[P]>
+        : GetScalarType<T[P], AggregatePoint_history_230901[P]>
+      : GetScalarType<T[P], AggregatePoint_history_230901[P]>
   }
 
 
 
 
-  export type generalGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: generalWhereInput
-    orderBy?: generalOrderByWithAggregationInput | generalOrderByWithAggregationInput[]
-    by: GeneralScalarFieldEnum[] | GeneralScalarFieldEnum
-    having?: generalScalarWhereWithAggregatesInput
+  export type point_history_230901GroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: point_history_230901WhereInput
+    orderBy?: point_history_230901OrderByWithAggregationInput | point_history_230901OrderByWithAggregationInput[]
+    by: Point_history_230901ScalarFieldEnum[] | Point_history_230901ScalarFieldEnum
+    having?: point_history_230901ScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: GeneralCountAggregateInputType | true
-    _avg?: GeneralAvgAggregateInputType
-    _sum?: GeneralSumAggregateInputType
-    _min?: GeneralMinAggregateInputType
-    _max?: GeneralMaxAggregateInputType
+    _count?: Point_history_230901CountAggregateInputType | true
+    _avg?: Point_history_230901AvgAggregateInputType
+    _sum?: Point_history_230901SumAggregateInputType
+    _min?: Point_history_230901MinAggregateInputType
+    _max?: Point_history_230901MaxAggregateInputType
   }
 
-  export type GeneralGroupByOutputType = {
-    id: number
-    rows: number
-    columns: number
-    _count: GeneralCountAggregateOutputType | null
-    _avg: GeneralAvgAggregateOutputType | null
-    _sum: GeneralSumAggregateOutputType | null
-    _min: GeneralMinAggregateOutputType | null
-    _max: GeneralMaxAggregateOutputType | null
+  export type Point_history_230901GroupByOutputType = {
+    path_id: number
+    issued_date: number
+    connection_status: number
+    changed_value: string
+    _count: Point_history_230901CountAggregateOutputType | null
+    _avg: Point_history_230901AvgAggregateOutputType | null
+    _sum: Point_history_230901SumAggregateOutputType | null
+    _min: Point_history_230901MinAggregateOutputType | null
+    _max: Point_history_230901MaxAggregateOutputType | null
   }
 
-  type GetGeneralGroupByPayload<T extends generalGroupByArgs> = Prisma.PrismaPromise<
+  type GetPoint_history_230901GroupByPayload<T extends point_history_230901GroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<GeneralGroupByOutputType, T['by']> &
+      PickEnumerable<Point_history_230901GroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof GeneralGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof Point_history_230901GroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], GeneralGroupByOutputType[P]>
-            : GetScalarType<T[P], GeneralGroupByOutputType[P]>
+              : GetScalarType<T[P], Point_history_230901GroupByOutputType[P]>
+            : GetScalarType<T[P], Point_history_230901GroupByOutputType[P]>
         }
       >
     >
 
 
-  export type generalSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    rows?: boolean
-    columns?: boolean
-  }, ExtArgs["result"]["general"]>
+  export type point_history_230901Select<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    path_id?: boolean
+    issued_date?: boolean
+    connection_status?: boolean
+    changed_value?: boolean
+  }, ExtArgs["result"]["point_history_230901"]>
 
-  export type generalSelectScalar = {
-    id?: boolean
-    rows?: boolean
-    columns?: boolean
+  export type point_history_230901SelectScalar = {
+    path_id?: boolean
+    issued_date?: boolean
+    connection_status?: boolean
+    changed_value?: boolean
   }
 
 
-  export type $generalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "general"
+  export type $point_history_230901Payload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "point_history_230901"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      id: number
-      rows: number
-      columns: number
-    }, ExtArgs["result"]["general"]>
+      path_id: number
+      issued_date: number
+      connection_status: number
+      changed_value: string
+    }, ExtArgs["result"]["point_history_230901"]>
     composites: {}
   }
 
 
-  type generalGetPayload<S extends boolean | null | undefined | generalDefaultArgs> = $Result.GetResult<Prisma.$generalPayload, S>
+  type point_history_230901GetPayload<S extends boolean | null | undefined | point_history_230901DefaultArgs> = $Result.GetResult<Prisma.$point_history_230901Payload, S>
 
-  type generalCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<generalFindManyArgs, 'select' | 'include'> & {
-      select?: GeneralCountAggregateInputType | true
+  type point_history_230901CountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<point_history_230901FindManyArgs, 'select' | 'include'> & {
+      select?: Point_history_230901CountAggregateInputType | true
     }
 
-  export interface generalDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['general'], meta: { name: 'general' } }
+  export interface point_history_230901Delegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['point_history_230901'], meta: { name: 'point_history_230901' } }
     /**
-     * Find zero or one General that matches the filter.
-     * @param {generalFindUniqueArgs} args - Arguments to find a General
+     * Find zero or one Point_history_230901 that matches the filter.
+     * @param {point_history_230901FindUniqueArgs} args - Arguments to find a Point_history_230901
      * @example
-     * // Get one General
-     * const general = await prisma.general.findUnique({
+     * // Get one Point_history_230901
+     * const point_history_230901 = await prisma.point_history_230901.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends generalFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, generalFindUniqueArgs<ExtArgs>>
-    ): Prisma__generalClient<$Result.GetResult<Prisma.$generalPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends point_history_230901FindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, point_history_230901FindUniqueArgs<ExtArgs>>
+    ): Prisma__point_history_230901Client<$Result.GetResult<Prisma.$point_history_230901Payload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one General that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one Point_history_230901 that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {generalFindUniqueOrThrowArgs} args - Arguments to find a General
+     * @param {point_history_230901FindUniqueOrThrowArgs} args - Arguments to find a Point_history_230901
      * @example
-     * // Get one General
-     * const general = await prisma.general.findUniqueOrThrow({
+     * // Get one Point_history_230901
+     * const point_history_230901 = await prisma.point_history_230901.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends generalFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, generalFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__generalClient<$Result.GetResult<Prisma.$generalPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends point_history_230901FindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, point_history_230901FindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__point_history_230901Client<$Result.GetResult<Prisma.$point_history_230901Payload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first General that matches the filter.
+     * Find the first Point_history_230901 that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {generalFindFirstArgs} args - Arguments to find a General
+     * @param {point_history_230901FindFirstArgs} args - Arguments to find a Point_history_230901
      * @example
-     * // Get one General
-     * const general = await prisma.general.findFirst({
+     * // Get one Point_history_230901
+     * const point_history_230901 = await prisma.point_history_230901.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends generalFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, generalFindFirstArgs<ExtArgs>>
-    ): Prisma__generalClient<$Result.GetResult<Prisma.$generalPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends point_history_230901FindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, point_history_230901FindFirstArgs<ExtArgs>>
+    ): Prisma__point_history_230901Client<$Result.GetResult<Prisma.$point_history_230901Payload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first General that matches the filter or
+     * Find the first Point_history_230901 that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {generalFindFirstOrThrowArgs} args - Arguments to find a General
+     * @param {point_history_230901FindFirstOrThrowArgs} args - Arguments to find a Point_history_230901
      * @example
-     * // Get one General
-     * const general = await prisma.general.findFirstOrThrow({
+     * // Get one Point_history_230901
+     * const point_history_230901 = await prisma.point_history_230901.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends generalFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, generalFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__generalClient<$Result.GetResult<Prisma.$generalPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends point_history_230901FindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, point_history_230901FindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__point_history_230901Client<$Result.GetResult<Prisma.$point_history_230901Payload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more Generals that matches the filter.
+     * Find zero or more Point_history_230901s that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {generalFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {point_history_230901FindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Generals
-     * const generals = await prisma.general.findMany()
+     * // Get all Point_history_230901s
+     * const point_history_230901s = await prisma.point_history_230901.findMany()
      * 
-     * // Get first 10 Generals
-     * const generals = await prisma.general.findMany({ take: 10 })
+     * // Get first 10 Point_history_230901s
+     * const point_history_230901s = await prisma.point_history_230901.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const generalWithIdOnly = await prisma.general.findMany({ select: { id: true } })
+     * // Only select the `path_id`
+     * const point_history_230901WithPath_idOnly = await prisma.point_history_230901.findMany({ select: { path_id: true } })
      * 
     **/
-    findMany<T extends generalFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, generalFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$generalPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends point_history_230901FindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, point_history_230901FindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$point_history_230901Payload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a General.
-     * @param {generalCreateArgs} args - Arguments to create a General.
+     * Create a Point_history_230901.
+     * @param {point_history_230901CreateArgs} args - Arguments to create a Point_history_230901.
      * @example
-     * // Create one General
-     * const General = await prisma.general.create({
+     * // Create one Point_history_230901
+     * const Point_history_230901 = await prisma.point_history_230901.create({
      *   data: {
-     *     // ... data to create a General
+     *     // ... data to create a Point_history_230901
      *   }
      * })
      * 
     **/
-    create<T extends generalCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, generalCreateArgs<ExtArgs>>
-    ): Prisma__generalClient<$Result.GetResult<Prisma.$generalPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends point_history_230901CreateArgs<ExtArgs>>(
+      args: SelectSubset<T, point_history_230901CreateArgs<ExtArgs>>
+    ): Prisma__point_history_230901Client<$Result.GetResult<Prisma.$point_history_230901Payload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many Generals.
-     *     @param {generalCreateManyArgs} args - Arguments to create many Generals.
+     * Create many Point_history_230901s.
+     *     @param {point_history_230901CreateManyArgs} args - Arguments to create many Point_history_230901s.
      *     @example
-     *     // Create many Generals
-     *     const general = await prisma.general.createMany({
+     *     // Create many Point_history_230901s
+     *     const point_history_230901 = await prisma.point_history_230901.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends generalCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, generalCreateManyArgs<ExtArgs>>
+    createMany<T extends point_history_230901CreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, point_history_230901CreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a General.
-     * @param {generalDeleteArgs} args - Arguments to delete one General.
+     * Delete a Point_history_230901.
+     * @param {point_history_230901DeleteArgs} args - Arguments to delete one Point_history_230901.
      * @example
-     * // Delete one General
-     * const General = await prisma.general.delete({
+     * // Delete one Point_history_230901
+     * const Point_history_230901 = await prisma.point_history_230901.delete({
      *   where: {
-     *     // ... filter to delete one General
+     *     // ... filter to delete one Point_history_230901
      *   }
      * })
      * 
     **/
-    delete<T extends generalDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, generalDeleteArgs<ExtArgs>>
-    ): Prisma__generalClient<$Result.GetResult<Prisma.$generalPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends point_history_230901DeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, point_history_230901DeleteArgs<ExtArgs>>
+    ): Prisma__point_history_230901Client<$Result.GetResult<Prisma.$point_history_230901Payload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one General.
-     * @param {generalUpdateArgs} args - Arguments to update one General.
+     * Update one Point_history_230901.
+     * @param {point_history_230901UpdateArgs} args - Arguments to update one Point_history_230901.
      * @example
-     * // Update one General
-     * const general = await prisma.general.update({
+     * // Update one Point_history_230901
+     * const point_history_230901 = await prisma.point_history_230901.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1225,34 +1235,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends generalUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, generalUpdateArgs<ExtArgs>>
-    ): Prisma__generalClient<$Result.GetResult<Prisma.$generalPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends point_history_230901UpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, point_history_230901UpdateArgs<ExtArgs>>
+    ): Prisma__point_history_230901Client<$Result.GetResult<Prisma.$point_history_230901Payload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more Generals.
-     * @param {generalDeleteManyArgs} args - Arguments to filter Generals to delete.
+     * Delete zero or more Point_history_230901s.
+     * @param {point_history_230901DeleteManyArgs} args - Arguments to filter Point_history_230901s to delete.
      * @example
-     * // Delete a few Generals
-     * const { count } = await prisma.general.deleteMany({
+     * // Delete a few Point_history_230901s
+     * const { count } = await prisma.point_history_230901.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends generalDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, generalDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends point_history_230901DeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, point_history_230901DeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Generals.
+     * Update zero or more Point_history_230901s.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {generalUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {point_history_230901UpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Generals
-     * const general = await prisma.general.updateMany({
+     * // Update many Point_history_230901s
+     * const point_history_230901 = await prisma.point_history_230901.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1262,59 +1272,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends generalUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, generalUpdateManyArgs<ExtArgs>>
+    updateMany<T extends point_history_230901UpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, point_history_230901UpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one General.
-     * @param {generalUpsertArgs} args - Arguments to update or create a General.
+     * Create or update one Point_history_230901.
+     * @param {point_history_230901UpsertArgs} args - Arguments to update or create a Point_history_230901.
      * @example
-     * // Update or create a General
-     * const general = await prisma.general.upsert({
+     * // Update or create a Point_history_230901
+     * const point_history_230901 = await prisma.point_history_230901.upsert({
      *   create: {
-     *     // ... data to create a General
+     *     // ... data to create a Point_history_230901
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the General we want to update
+     *     // ... the filter for the Point_history_230901 we want to update
      *   }
      * })
     **/
-    upsert<T extends generalUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, generalUpsertArgs<ExtArgs>>
-    ): Prisma__generalClient<$Result.GetResult<Prisma.$generalPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends point_history_230901UpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, point_history_230901UpsertArgs<ExtArgs>>
+    ): Prisma__point_history_230901Client<$Result.GetResult<Prisma.$point_history_230901Payload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Count the number of Generals.
+     * Count the number of Point_history_230901s.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {generalCountArgs} args - Arguments to filter Generals to count.
+     * @param {point_history_230901CountArgs} args - Arguments to filter Point_history_230901s to count.
      * @example
-     * // Count the number of Generals
-     * const count = await prisma.general.count({
+     * // Count the number of Point_history_230901s
+     * const count = await prisma.point_history_230901.count({
      *   where: {
-     *     // ... the filter for the Generals we want to count
+     *     // ... the filter for the Point_history_230901s we want to count
      *   }
      * })
     **/
-    count<T extends generalCountArgs>(
-      args?: Subset<T, generalCountArgs>,
+    count<T extends point_history_230901CountArgs>(
+      args?: Subset<T, point_history_230901CountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], GeneralCountAggregateOutputType>
+          : GetScalarType<T['select'], Point_history_230901CountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a General.
+     * Allows you to perform aggregations operations on a Point_history_230901.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GeneralAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {Point_history_230901AggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1334,13 +1344,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends GeneralAggregateArgs>(args: Subset<T, GeneralAggregateArgs>): Prisma.PrismaPromise<GetGeneralAggregateType<T>>
+    aggregate<T extends Point_history_230901AggregateArgs>(args: Subset<T, Point_history_230901AggregateArgs>): Prisma.PrismaPromise<GetPoint_history_230901AggregateType<T>>
 
     /**
-     * Group by General.
+     * Group by Point_history_230901.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {generalGroupByArgs} args - Group by arguments.
+     * @param {point_history_230901GroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1355,14 +1365,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends generalGroupByArgs,
+      T extends point_history_230901GroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: generalGroupByArgs['orderBy'] }
-        : { orderBy?: generalGroupByArgs['orderBy'] },
+        ? { orderBy: point_history_230901GroupByArgs['orderBy'] }
+        : { orderBy?: point_history_230901GroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1411,20 +1421,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, generalGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGeneralGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, point_history_230901GroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPoint_history_230901GroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the general model
+   * Fields of the point_history_230901 model
    */
-  readonly fields: generalFieldRefs;
+  readonly fields: point_history_230901FieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for general.
+   * The delegate class that acts as a "Promise-like" for point_history_230901.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__generalClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__point_history_230901Client<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
 
@@ -1453,295 +1463,296 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the general model
+   * Fields of the point_history_230901 model
    */ 
-  interface generalFieldRefs {
-    readonly id: FieldRef<"general", 'Int'>
-    readonly rows: FieldRef<"general", 'Int'>
-    readonly columns: FieldRef<"general", 'Int'>
+  interface point_history_230901FieldRefs {
+    readonly path_id: FieldRef<"point_history_230901", 'Int'>
+    readonly issued_date: FieldRef<"point_history_230901", 'Int'>
+    readonly connection_status: FieldRef<"point_history_230901", 'Int'>
+    readonly changed_value: FieldRef<"point_history_230901", 'String'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * general findUnique
+   * point_history_230901 findUnique
    */
-  export type generalFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type point_history_230901FindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the general
+     * Select specific fields to fetch from the point_history_230901
      */
-    select?: generalSelect<ExtArgs> | null
+    select?: point_history_230901Select<ExtArgs> | null
     /**
-     * Filter, which general to fetch.
+     * Filter, which point_history_230901 to fetch.
      */
-    where: generalWhereUniqueInput
+    where: point_history_230901WhereUniqueInput
   }
 
 
   /**
-   * general findUniqueOrThrow
+   * point_history_230901 findUniqueOrThrow
    */
-  export type generalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type point_history_230901FindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the general
+     * Select specific fields to fetch from the point_history_230901
      */
-    select?: generalSelect<ExtArgs> | null
+    select?: point_history_230901Select<ExtArgs> | null
     /**
-     * Filter, which general to fetch.
+     * Filter, which point_history_230901 to fetch.
      */
-    where: generalWhereUniqueInput
+    where: point_history_230901WhereUniqueInput
   }
 
 
   /**
-   * general findFirst
+   * point_history_230901 findFirst
    */
-  export type generalFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type point_history_230901FindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the general
+     * Select specific fields to fetch from the point_history_230901
      */
-    select?: generalSelect<ExtArgs> | null
+    select?: point_history_230901Select<ExtArgs> | null
     /**
-     * Filter, which general to fetch.
+     * Filter, which point_history_230901 to fetch.
      */
-    where?: generalWhereInput
+    where?: point_history_230901WhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of generals to fetch.
+     * Determine the order of point_history_230901s to fetch.
      */
-    orderBy?: generalOrderByWithRelationInput | generalOrderByWithRelationInput[]
+    orderBy?: point_history_230901OrderByWithRelationInput | point_history_230901OrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for generals.
+     * Sets the position for searching for point_history_230901s.
      */
-    cursor?: generalWhereUniqueInput
+    cursor?: point_history_230901WhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` generals from the position of the cursor.
+     * Take `±n` point_history_230901s from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` generals.
+     * Skip the first `n` point_history_230901s.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of generals.
+     * Filter by unique combinations of point_history_230901s.
      */
-    distinct?: GeneralScalarFieldEnum | GeneralScalarFieldEnum[]
+    distinct?: Point_history_230901ScalarFieldEnum | Point_history_230901ScalarFieldEnum[]
   }
 
 
   /**
-   * general findFirstOrThrow
+   * point_history_230901 findFirstOrThrow
    */
-  export type generalFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type point_history_230901FindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the general
+     * Select specific fields to fetch from the point_history_230901
      */
-    select?: generalSelect<ExtArgs> | null
+    select?: point_history_230901Select<ExtArgs> | null
     /**
-     * Filter, which general to fetch.
+     * Filter, which point_history_230901 to fetch.
      */
-    where?: generalWhereInput
+    where?: point_history_230901WhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of generals to fetch.
+     * Determine the order of point_history_230901s to fetch.
      */
-    orderBy?: generalOrderByWithRelationInput | generalOrderByWithRelationInput[]
+    orderBy?: point_history_230901OrderByWithRelationInput | point_history_230901OrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for generals.
+     * Sets the position for searching for point_history_230901s.
      */
-    cursor?: generalWhereUniqueInput
+    cursor?: point_history_230901WhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` generals from the position of the cursor.
+     * Take `±n` point_history_230901s from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` generals.
+     * Skip the first `n` point_history_230901s.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of generals.
+     * Filter by unique combinations of point_history_230901s.
      */
-    distinct?: GeneralScalarFieldEnum | GeneralScalarFieldEnum[]
+    distinct?: Point_history_230901ScalarFieldEnum | Point_history_230901ScalarFieldEnum[]
   }
 
 
   /**
-   * general findMany
+   * point_history_230901 findMany
    */
-  export type generalFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type point_history_230901FindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the general
+     * Select specific fields to fetch from the point_history_230901
      */
-    select?: generalSelect<ExtArgs> | null
+    select?: point_history_230901Select<ExtArgs> | null
     /**
-     * Filter, which generals to fetch.
+     * Filter, which point_history_230901s to fetch.
      */
-    where?: generalWhereInput
+    where?: point_history_230901WhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of generals to fetch.
+     * Determine the order of point_history_230901s to fetch.
      */
-    orderBy?: generalOrderByWithRelationInput | generalOrderByWithRelationInput[]
+    orderBy?: point_history_230901OrderByWithRelationInput | point_history_230901OrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing generals.
+     * Sets the position for listing point_history_230901s.
      */
-    cursor?: generalWhereUniqueInput
+    cursor?: point_history_230901WhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` generals from the position of the cursor.
+     * Take `±n` point_history_230901s from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` generals.
+     * Skip the first `n` point_history_230901s.
      */
     skip?: number
-    distinct?: GeneralScalarFieldEnum | GeneralScalarFieldEnum[]
+    distinct?: Point_history_230901ScalarFieldEnum | Point_history_230901ScalarFieldEnum[]
   }
 
 
   /**
-   * general create
+   * point_history_230901 create
    */
-  export type generalCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type point_history_230901CreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the general
+     * Select specific fields to fetch from the point_history_230901
      */
-    select?: generalSelect<ExtArgs> | null
+    select?: point_history_230901Select<ExtArgs> | null
     /**
-     * The data needed to create a general.
+     * The data needed to create a point_history_230901.
      */
-    data: XOR<generalCreateInput, generalUncheckedCreateInput>
+    data: XOR<point_history_230901CreateInput, point_history_230901UncheckedCreateInput>
   }
 
 
   /**
-   * general createMany
+   * point_history_230901 createMany
    */
-  export type generalCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type point_history_230901CreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many generals.
+     * The data used to create many point_history_230901s.
      */
-    data: generalCreateManyInput | generalCreateManyInput[]
+    data: point_history_230901CreateManyInput | point_history_230901CreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * general update
+   * point_history_230901 update
    */
-  export type generalUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type point_history_230901UpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the general
+     * Select specific fields to fetch from the point_history_230901
      */
-    select?: generalSelect<ExtArgs> | null
+    select?: point_history_230901Select<ExtArgs> | null
     /**
-     * The data needed to update a general.
+     * The data needed to update a point_history_230901.
      */
-    data: XOR<generalUpdateInput, generalUncheckedUpdateInput>
+    data: XOR<point_history_230901UpdateInput, point_history_230901UncheckedUpdateInput>
     /**
-     * Choose, which general to update.
+     * Choose, which point_history_230901 to update.
      */
-    where: generalWhereUniqueInput
+    where: point_history_230901WhereUniqueInput
   }
 
 
   /**
-   * general updateMany
+   * point_history_230901 updateMany
    */
-  export type generalUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type point_history_230901UpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update generals.
+     * The data used to update point_history_230901s.
      */
-    data: XOR<generalUpdateManyMutationInput, generalUncheckedUpdateManyInput>
+    data: XOR<point_history_230901UpdateManyMutationInput, point_history_230901UncheckedUpdateManyInput>
     /**
-     * Filter which generals to update
+     * Filter which point_history_230901s to update
      */
-    where?: generalWhereInput
+    where?: point_history_230901WhereInput
   }
 
 
   /**
-   * general upsert
+   * point_history_230901 upsert
    */
-  export type generalUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type point_history_230901UpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the general
+     * Select specific fields to fetch from the point_history_230901
      */
-    select?: generalSelect<ExtArgs> | null
+    select?: point_history_230901Select<ExtArgs> | null
     /**
-     * The filter to search for the general to update in case it exists.
+     * The filter to search for the point_history_230901 to update in case it exists.
      */
-    where: generalWhereUniqueInput
+    where: point_history_230901WhereUniqueInput
     /**
-     * In case the general found by the `where` argument doesn't exist, create a new general with this data.
+     * In case the point_history_230901 found by the `where` argument doesn't exist, create a new point_history_230901 with this data.
      */
-    create: XOR<generalCreateInput, generalUncheckedCreateInput>
+    create: XOR<point_history_230901CreateInput, point_history_230901UncheckedCreateInput>
     /**
-     * In case the general was found with the provided `where` argument, update it with this data.
+     * In case the point_history_230901 was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<generalUpdateInput, generalUncheckedUpdateInput>
+    update: XOR<point_history_230901UpdateInput, point_history_230901UncheckedUpdateInput>
   }
 
 
   /**
-   * general delete
+   * point_history_230901 delete
    */
-  export type generalDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type point_history_230901DeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the general
+     * Select specific fields to fetch from the point_history_230901
      */
-    select?: generalSelect<ExtArgs> | null
+    select?: point_history_230901Select<ExtArgs> | null
     /**
-     * Filter which general to delete.
+     * Filter which point_history_230901 to delete.
      */
-    where: generalWhereUniqueInput
+    where: point_history_230901WhereUniqueInput
   }
 
 
   /**
-   * general deleteMany
+   * point_history_230901 deleteMany
    */
-  export type generalDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type point_history_230901DeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which generals to delete
+     * Filter which point_history_230901s to delete
      */
-    where?: generalWhereInput
+    where?: point_history_230901WhereInput
   }
 
 
   /**
-   * general without action
+   * point_history_230901 without action
    */
-  export type generalDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type point_history_230901DefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the general
+     * Select specific fields to fetch from the point_history_230901
      */
-    select?: generalSelect<ExtArgs> | null
+    select?: point_history_230901Select<ExtArgs> | null
   }
 
 
@@ -1760,13 +1771,14 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const GeneralScalarFieldEnum: {
-    id: 'id',
-    rows: 'rows',
-    columns: 'columns'
+  export const Point_history_230901ScalarFieldEnum: {
+    path_id: 'path_id',
+    issued_date: 'issued_date',
+    connection_status: 'connection_status',
+    changed_value: 'changed_value'
   };
 
-  export type GeneralScalarFieldEnum = (typeof GeneralScalarFieldEnum)[keyof typeof GeneralScalarFieldEnum]
+  export type Point_history_230901ScalarFieldEnum = (typeof Point_history_230901ScalarFieldEnum)[keyof typeof Point_history_230901ScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -1775,6 +1787,14 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const QueryMode: {
+    default: 'default',
+    insensitive: 'insensitive'
+  };
+
+  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
   /**
@@ -1797,6 +1817,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'String'
+   */
+  export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+  /**
+   * Reference to a field of type 'String[]'
+   */
+  export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1813,87 +1847,102 @@ export namespace Prisma {
    */
 
 
-  export type generalWhereInput = {
-    AND?: generalWhereInput | generalWhereInput[]
-    OR?: generalWhereInput[]
-    NOT?: generalWhereInput | generalWhereInput[]
-    id?: IntFilter<"general"> | number
-    rows?: IntFilter<"general"> | number
-    columns?: IntFilter<"general"> | number
+  export type point_history_230901WhereInput = {
+    AND?: point_history_230901WhereInput | point_history_230901WhereInput[]
+    OR?: point_history_230901WhereInput[]
+    NOT?: point_history_230901WhereInput | point_history_230901WhereInput[]
+    path_id?: IntFilter<"point_history_230901"> | number
+    issued_date?: IntFilter<"point_history_230901"> | number
+    connection_status?: IntFilter<"point_history_230901"> | number
+    changed_value?: StringFilter<"point_history_230901"> | string
   }
 
-  export type generalOrderByWithRelationInput = {
-    id?: SortOrder
-    rows?: SortOrder
-    columns?: SortOrder
+  export type point_history_230901OrderByWithRelationInput = {
+    path_id?: SortOrder
+    issued_date?: SortOrder
+    connection_status?: SortOrder
+    changed_value?: SortOrder
   }
 
-  export type generalWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: generalWhereInput | generalWhereInput[]
-    OR?: generalWhereInput[]
-    NOT?: generalWhereInput | generalWhereInput[]
-    rows?: IntFilter<"general"> | number
-    columns?: IntFilter<"general"> | number
-  }, "id">
+  export type point_history_230901WhereUniqueInput = Prisma.AtLeast<{
+    path_id?: number
+    AND?: point_history_230901WhereInput | point_history_230901WhereInput[]
+    OR?: point_history_230901WhereInput[]
+    NOT?: point_history_230901WhereInput | point_history_230901WhereInput[]
+    issued_date?: IntFilter<"point_history_230901"> | number
+    connection_status?: IntFilter<"point_history_230901"> | number
+    changed_value?: StringFilter<"point_history_230901"> | string
+  }, "path_id">
 
-  export type generalOrderByWithAggregationInput = {
-    id?: SortOrder
-    rows?: SortOrder
-    columns?: SortOrder
-    _count?: generalCountOrderByAggregateInput
-    _avg?: generalAvgOrderByAggregateInput
-    _max?: generalMaxOrderByAggregateInput
-    _min?: generalMinOrderByAggregateInput
-    _sum?: generalSumOrderByAggregateInput
+  export type point_history_230901OrderByWithAggregationInput = {
+    path_id?: SortOrder
+    issued_date?: SortOrder
+    connection_status?: SortOrder
+    changed_value?: SortOrder
+    _count?: point_history_230901CountOrderByAggregateInput
+    _avg?: point_history_230901AvgOrderByAggregateInput
+    _max?: point_history_230901MaxOrderByAggregateInput
+    _min?: point_history_230901MinOrderByAggregateInput
+    _sum?: point_history_230901SumOrderByAggregateInput
   }
 
-  export type generalScalarWhereWithAggregatesInput = {
-    AND?: generalScalarWhereWithAggregatesInput | generalScalarWhereWithAggregatesInput[]
-    OR?: generalScalarWhereWithAggregatesInput[]
-    NOT?: generalScalarWhereWithAggregatesInput | generalScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"general"> | number
-    rows?: IntWithAggregatesFilter<"general"> | number
-    columns?: IntWithAggregatesFilter<"general"> | number
+  export type point_history_230901ScalarWhereWithAggregatesInput = {
+    AND?: point_history_230901ScalarWhereWithAggregatesInput | point_history_230901ScalarWhereWithAggregatesInput[]
+    OR?: point_history_230901ScalarWhereWithAggregatesInput[]
+    NOT?: point_history_230901ScalarWhereWithAggregatesInput | point_history_230901ScalarWhereWithAggregatesInput[]
+    path_id?: IntWithAggregatesFilter<"point_history_230901"> | number
+    issued_date?: IntWithAggregatesFilter<"point_history_230901"> | number
+    connection_status?: IntWithAggregatesFilter<"point_history_230901"> | number
+    changed_value?: StringWithAggregatesFilter<"point_history_230901"> | string
   }
 
-  export type generalCreateInput = {
-    rows: number
-    columns: number
+  export type point_history_230901CreateInput = {
+    path_id: number
+    issued_date: number
+    connection_status: number
+    changed_value: string
   }
 
-  export type generalUncheckedCreateInput = {
-    id?: number
-    rows: number
-    columns: number
+  export type point_history_230901UncheckedCreateInput = {
+    path_id: number
+    issued_date: number
+    connection_status: number
+    changed_value: string
   }
 
-  export type generalUpdateInput = {
-    rows?: IntFieldUpdateOperationsInput | number
-    columns?: IntFieldUpdateOperationsInput | number
+  export type point_history_230901UpdateInput = {
+    path_id?: IntFieldUpdateOperationsInput | number
+    issued_date?: IntFieldUpdateOperationsInput | number
+    connection_status?: IntFieldUpdateOperationsInput | number
+    changed_value?: StringFieldUpdateOperationsInput | string
   }
 
-  export type generalUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    rows?: IntFieldUpdateOperationsInput | number
-    columns?: IntFieldUpdateOperationsInput | number
+  export type point_history_230901UncheckedUpdateInput = {
+    path_id?: IntFieldUpdateOperationsInput | number
+    issued_date?: IntFieldUpdateOperationsInput | number
+    connection_status?: IntFieldUpdateOperationsInput | number
+    changed_value?: StringFieldUpdateOperationsInput | string
   }
 
-  export type generalCreateManyInput = {
-    id?: number
-    rows: number
-    columns: number
+  export type point_history_230901CreateManyInput = {
+    path_id: number
+    issued_date: number
+    connection_status: number
+    changed_value: string
   }
 
-  export type generalUpdateManyMutationInput = {
-    rows?: IntFieldUpdateOperationsInput | number
-    columns?: IntFieldUpdateOperationsInput | number
+  export type point_history_230901UpdateManyMutationInput = {
+    path_id?: IntFieldUpdateOperationsInput | number
+    issued_date?: IntFieldUpdateOperationsInput | number
+    connection_status?: IntFieldUpdateOperationsInput | number
+    changed_value?: StringFieldUpdateOperationsInput | string
   }
 
-  export type generalUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    rows?: IntFieldUpdateOperationsInput | number
-    columns?: IntFieldUpdateOperationsInput | number
+  export type point_history_230901UncheckedUpdateManyInput = {
+    path_id?: IntFieldUpdateOperationsInput | number
+    issued_date?: IntFieldUpdateOperationsInput | number
+    connection_status?: IntFieldUpdateOperationsInput | number
+    changed_value?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -1907,34 +1956,52 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type generalCountOrderByAggregateInput = {
-    id?: SortOrder
-    rows?: SortOrder
-    columns?: SortOrder
+  export type StringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type generalAvgOrderByAggregateInput = {
-    id?: SortOrder
-    rows?: SortOrder
-    columns?: SortOrder
+  export type point_history_230901CountOrderByAggregateInput = {
+    path_id?: SortOrder
+    issued_date?: SortOrder
+    connection_status?: SortOrder
+    changed_value?: SortOrder
   }
 
-  export type generalMaxOrderByAggregateInput = {
-    id?: SortOrder
-    rows?: SortOrder
-    columns?: SortOrder
+  export type point_history_230901AvgOrderByAggregateInput = {
+    path_id?: SortOrder
+    issued_date?: SortOrder
+    connection_status?: SortOrder
   }
 
-  export type generalMinOrderByAggregateInput = {
-    id?: SortOrder
-    rows?: SortOrder
-    columns?: SortOrder
+  export type point_history_230901MaxOrderByAggregateInput = {
+    path_id?: SortOrder
+    issued_date?: SortOrder
+    connection_status?: SortOrder
+    changed_value?: SortOrder
   }
 
-  export type generalSumOrderByAggregateInput = {
-    id?: SortOrder
-    rows?: SortOrder
-    columns?: SortOrder
+  export type point_history_230901MinOrderByAggregateInput = {
+    path_id?: SortOrder
+    issued_date?: SortOrder
+    connection_status?: SortOrder
+    changed_value?: SortOrder
+  }
+
+  export type point_history_230901SumOrderByAggregateInput = {
+    path_id?: SortOrder
+    issued_date?: SortOrder
+    connection_status?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -1953,12 +2020,34 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -1970,6 +2059,20 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedStringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -1999,15 +2102,32 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
 
 
   /**
    * Aliases for legacy arg types
    */
     /**
-     * @deprecated Use generalDefaultArgs instead
+     * @deprecated Use point_history_230901DefaultArgs instead
      */
-    export type generalArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = generalDefaultArgs<ExtArgs>
+    export type point_history_230901Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = point_history_230901DefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

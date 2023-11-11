@@ -45,13 +45,6 @@ const getXmlFiles = async function (req: Request, res: Response, next: NextFunct
     const getSubPathsAndFileNames = (dir: string): Array<[string, string, string]> => {
       const result: Array<[string, string, string]> = [];
 
-      // test ///////////////
-      const __dirname = dirname(fileURLToPath(import.meta.url));
-      path.join(__dirname, "../public");
-      ////////////////////////
-
-      // console.log("dir", path.join(dir));
-
       // Read the directory
       const items = fs.readdirSync(path.join(dir));
 

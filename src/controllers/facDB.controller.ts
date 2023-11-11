@@ -97,33 +97,30 @@ const readSettings = async function (req: Request, res: Response, next: NextFunc
 
     select.settings = set.value;
 
-    const device = await prismaFac.general.findUnique({
-      where: { type: "deviceList" },
+    const tab = await prismaFac.general.findUnique({
+      where: { type: "tabSetting" },
     });
-    select.deviceList = device.value;
 
-    const device11 = await prismaFac.general.findUnique({
-      where: { type: "deviceList11" },
+    select.tabSettings = tab.value;
+
+    const approves = await prismaFac.general.findUnique({
+      where: { type: "approves" },
     });
-    select.deviceList11 = device11.value;
 
+    select.approves = approves.value;
 
-    const device12 = await prismaFac.general.findUnique({
-      where: { type: "deviceList12" },
-    });
-    select.deviceList12 = device12.value;
+    for (let i = 1; i <= select.tabSettings.length; i += 1 ) {
+      const key = `tabPageInfo${i}`;
+      const set = await prismaFac.general.findUnique({
+        where: { type: key },
+      });
 
+      console.log("readSettings", key, set)
+      set.value["id"] = set.id;
+      select[key] = set.value;
+    }
 
-    const device21 = await prismaFac.general.findUnique({
-      where: { type: "deviceList21" },
-    });
-    select.deviceList21 = device21.value;
-
-
-    const device22 = await prismaFac.general.findUnique({
-      where: { type: "deviceList22" },
-    });
-    select.deviceList22 = device22.value;
+    console.log("select", select);
     
     req.settings = select;
 
@@ -135,9 +132,23 @@ const readSettings = async function (req: Request, res: Response, next: NextFunc
 
 const createSettings = async function (req: Request, res: Response, next: NextFunction) {
   try {
-    await prismaFac.general.create({
-      data: req.body,
-    });
+    const key = await prismaFac.general.findFirst({where: {type: req.body.type}})
+    console.log("create setting", key)
+
+    if (key) {
+      console.log("update", req.body)
+      await prismaFac.general.update({
+        where: { type: req.body.type },
+        data: { value: req.body.value },
+      });
+    }
+    else {
+      console.log("create", req.body)
+      await prismaFac.general.create({
+        data: req.body,
+      });
+    }
+
     next();
   } catch (error) {
     next();
@@ -163,17 +174,36 @@ const updateSettingsColRow = async function (
   }
 };
 
-const updateSettingsDeviceList = async function (
+const updateSettingsUnit = async function (
   req: Request,
   res: Response,
   next: NextFunction
 ) {
   try {
-    console.log("updateSettingsDeviceList", req.body);
+    console.log("updateSettingsUnit", req.body);
 
     await prismaFac.general.update({
-      where: { type: req.body.tab },
-      data: { value: req.body.deviceList },
+      where: { type: req.body.name },
+      data: { value: req.body.object },
+    });
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+
+const updateSettingsApproves = async function (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    console.log("updateSettingsApproves", req.body);
+
+    await prismaFac.general.update({
+      where: { type: "approves" },
+      data: { value: req.body.datas },
     });
 
     next();
@@ -185,9 +215,7 @@ const updateSettingsDeviceList = async function (
 const deleteSettings = async function (req: Request, res: Response, next: NextFunction) {
   try {
     const settings = await prismaFac.general.deleteMany();
-
     console.log("deleteSettings", settings);
-
     next();
   } catch (error) {
     next(error);
@@ -200,6 +228,7 @@ export {
   readSettings,
   createSettings,
   updateSettingsColRow,
-  updateSettingsDeviceList,
+  updateSettingsUnit,
+  updateSettingsApproves,
   deleteSettings,
 };

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import ftp from "basic-ftp";
+import * as ftp from "basic-ftp";
 import X2JS from "x2js";
-import fs from "fs";
+import * as fs from "fs";
 import { FTP_HOST, FTP_PASSWORD, FTP_USER, XML_DST_PATH, XML_SRC_PATH } from "../env.js";
 
 const client = new ftp.Client();

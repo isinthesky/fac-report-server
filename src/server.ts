@@ -1,4 +1,4 @@
-import express from "express";
+import express, { NextFunction, Request, Response }  from "express";
 import path, { dirname } from "path";
 import dotenv from "dotenv";
 
@@ -21,6 +21,21 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 utilsLoader(app);
 routersLoader(app);
+
+
+app.use(function (err: Error, req: Request, res: Response, next: NextFunction) {
+  // res.locals.message = err;
+  // res.locals.error = req.app.get("env") === "development" ? err : {};
+
+  console.log("ERR: ", err);
+
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
+  res.status(500);
+  res.render("error", { error: err });
+
+  // return res.status(500).json({ ok: false });
+});
 
 async function main() {
   console.info("main");

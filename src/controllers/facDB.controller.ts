@@ -1,50 +1,45 @@
 import { Request, Response, NextFunction } from "express";
 import { PrismaClient as PrismaClientFac } from "../../prisma/src/generated/clientFac";
+import { CustomRequest } from "../static/interfaces.js";
 
 const prismaFac = new PrismaClientFac();
 
-const resetDeviceDB = async function (req: Request, res: Response, next: NextFunction) {
+const resetDeviceDB = async function (req: CustomRequest, res: Response, next: NextFunction) {
   try {
     const dbStations = req.xmlStations;
     const dbDivisions = await Promise.all(
-      req.xmlDivisions.map((path) => {
+      req.xmlDivisions.map((path: string) => {
         const item = path.split(",");
         return { station: item[0], name: item[1] };
       })
     );
-
     const dbDevices = req.xmlDevices;
 
-    await prismaFac.Device.deleteMany({});
-    await prismaFac.Division.deleteMany({});
-    await prismaFac.Station.deleteMany({});
+    await Promise.all([
+      prismaFac.Device.deleteMany({}),
+      prismaFac.Division.deleteMany({}),
+      prismaFac.Station.deleteMany({})
+    ]);
 
-    await prismaFac.Station.createMany({
-      data: await Promise.all(
-        Array.from(dbStations).map((item) => {
-          return { name: item };
-        })
-      ),
-    });
+    // Station 데이터 생성
+    const stationsData = Array.from(dbStations).map(item => ({ name: item }));
+    await prismaFac.Station.createMany({ data: stationsData });
 
-    const dbStation = await prismaFac.Station.findMany({});
-
+    // Station 데이터 조회 및 매핑
+    const arrStation = await prismaFac.Station.findMany({});
+    
     const stationMap = new Map();
-    for (const data of dbStation) {
+    for (const data of arrStation) {
       stationMap.set(data.name, data.id);
     }
+    
+    const divisionsData = Array.from(dbDivisions).map(item => ({
+      stationId: stationMap.get(item.station),
+      name: item.name
+    }));
+    await prismaFac.Division.createMany({ data: divisionsData });
 
-    await prismaFac.Division.createMany({
-      data: await Promise.all(
-        Array.from(dbDivisions).map(async (item) => {
-          return {
-            stationId: stationMap.get(item.station),
-            name: item.name,
-          };
-        })
-      ),
-    });
-
+    // Device 데이터 생성
     const listDevice = [];
 
     for (const div of dbDevices) {
@@ -64,9 +59,7 @@ const resetDeviceDB = async function (req: Request, res: Response, next: NextFun
       }
     }
 
-    await prismaFac.Device.createMany({
-      data: listDevice,
-    });
+    await prismaFac.Device.createMany({ data: listDevice });
 
     next();
   } catch (error) {
@@ -174,13 +167,13 @@ const updateSettingsColRow = async function (
   }
 };
 
-const updateSettingsUnit = async function (
+const updateSettingsTabPage = async function (
   req: Request,
   res: Response,
   next: NextFunction
 ) {
   try {
-    console.log("updateSettingsUnit", req.body);
+    console.log("updateSettingsTabPage", req.body);
 
     await prismaFac.general.update({
       where: { type: req.body.name },
@@ -228,7 +221,7 @@ export {
   readSettings,
   createSettings,
   updateSettingsColRow,
-  updateSettingsUnit,
+  updateSettingsTabPage,
   updateSettingsApproves,
   deleteSettings,
 };

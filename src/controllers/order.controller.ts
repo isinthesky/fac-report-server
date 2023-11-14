@@ -15,6 +15,7 @@ const prismaFac = new PrismaClientFac({
 });
 
 import { TEST_A_Table, TEST_B_Table, XML_DST_PATH } from "../env.js";
+import { ExtendedRequest } from "../static/interfaces.js";
 
 const getDateLog = async function (req: Request, res: Response, next: NextFunction) {
   try {
@@ -70,7 +71,7 @@ const getXmlFiles = async function (req: Request, res: Response, next: NextFunct
 };
 
 const getXml2DeviceList = async function (
-  req: Request,
+  req: ExtendedRequest,
   res: Response,
   next: NextFunction
 ) {

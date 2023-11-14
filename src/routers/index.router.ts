@@ -11,7 +11,7 @@ import {
   readSettings,
   createSettings,
   updateSettingsColRow,
-  updateSettingsUnit,
+  updateSettingsTabPage,
   deleteSettings,
   updateSettingsApproves,
 } from "../controllers/facDB.controller.js";
@@ -75,8 +75,8 @@ router.put(
 );
 
 router.put(
-  "/updateSettingsUnit",
-  updateSettingsUnit,
+  "/updateSettingsTabPage",
+  updateSettingsTabPage,
   (req: Request, res: Response): Response => {
     return res.status(200).json({ ok: true });
   }

@@ -12,6 +12,8 @@ dotenv.config();
 const app = express();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+console.log("path", path.join(__dirname, "../views"));
 app.set("views", path.join(__dirname, "../views"));
 app.set("view engine", "ejs");
 
@@ -24,17 +26,12 @@ routersLoader(app);
 
 
 app.use(function (err: Error, req: Request, res: Response, next: NextFunction) {
-  // res.locals.message = err;
-  // res.locals.error = req.app.get("env") === "development" ? err : {};
-
   console.log("ERR: ", err);
 
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
   res.status(500);
   res.render("error", { error: err });
-
-  // return res.status(500).json({ ok: false });
 });
 
 async function main() {

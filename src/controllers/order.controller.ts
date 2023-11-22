@@ -14,7 +14,7 @@ const prismaFac = new PrismaClientFac({
   log: ["query", "info", "warn", "error"],
 });
 
-import { TEST_A_Table, TEST_B_Table, XML_DST_PATH } from "../env.js";
+import { TEST_A_Table, TEST_B_Table, XML_DST_PATH, XML_PATH_POS_DIVISION, XML_PATH_POS_STATION } from "../env.js";
 import { ExtendedRequest } from "../static/interfaces.js";
 
 const getDateLog = async function (req: Request, res: Response, next: NextFunction) {
@@ -127,10 +127,10 @@ const getXml2DeviceList = async function (
     for (const xml of req.xmlFiles) {
       const path = String(xml[0]).split("/");
 
-      if (path[4]) {
-        xmlStations.push(path[3]); // station
-        xmlDivisions.push(path[3] + "," + path[4]);
-        const resDevice = await appendDevicesFunc(path[3], path[4], xml[2]);
+      if (path[XML_PATH_POS_STATION]) {
+        xmlStations.push(path[XML_PATH_POS_STATION]); // station
+        xmlDivisions.push(path[XML_PATH_POS_STATION] + "," + path[XML_PATH_POS_DIVISION]);
+        const resDevice = await appendDevicesFunc(path[XML_PATH_POS_STATION], path[XML_PATH_POS_DIVISION], xml[2]);
 
         // console.log("appendDevicesFunc", resDevice);
         if (resDevice != false) {

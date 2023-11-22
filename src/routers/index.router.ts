@@ -6,15 +6,14 @@ import {
 } from "../controllers/order.controller.js";
 import { downloadXml } from "../controllers/ftp.controller.js";
 import {
-  readDeviceDB,
   resetDeviceDB,
   readSettings,
   createSettings,
   updateSettingsColRow,
-  updateSettingsTabPage,
   deleteSettings,
   updateSettingsApproves,
-} from "../controllers/facDB.controller.js";
+} from "../controllers/reportSetting.controller.js";
+
 import { getDeviceLog } from "../controllers/bmsDB.controller.js";
 
 const router = express.Router();
@@ -32,17 +31,11 @@ router.post(
   }
 );
 
-router.get(
-  "/deviceInfo",
-  readDeviceDB,
-  (req: Request, res: Response): Response => {
-    return res.status(200).json({ ok: true, deviceInfo: req.deviceSet });
-  }
-);
 
 router.get("/settings", readSettings, (req: Request, res: Response): Response => {
   return res.status(200).json({ ok: true, settings: req.settings });
 });
+
 
 router.post(
   "/createSettings",
@@ -74,14 +67,6 @@ router.put(
   }
 );
 
-router.put(
-  "/updateSettingsTabPage",
-  updateSettingsTabPage,
-  (req: Request, res: Response): Response => {
-    return res.status(200).json({ ok: true });
-  }
-);
-
 
 router.put(
   "/updateSettingsApprove",
@@ -90,14 +75,5 @@ router.put(
     return res.status(200).json({ ok: true });
   }
 );
-
-
-router.get(
-  "/readDeviceLog/:deviceId/:timestamp",
-  getDeviceLog, 
-  (req: Request, res: Response): Response => {
-    return res.status(200).json({ ok: true, deviceLog: req.deviceLog  });
-  }
-)
 
 export { router as default };

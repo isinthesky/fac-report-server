@@ -82,5 +82,6 @@ export {
     updateSettingsTabPage,
     updateUnitGroupList,
     getUnitGroupList,
+    readDeviceDB
   };
   

@@ -1,7 +1,7 @@
 
 import express, { Request, Response } from "express"; // 추가
-import { readDeviceDB } from "../controllers/reportSetting.controller.js";
-import {  getUnitGroupList, 
+import {  readDeviceDB,
+          getUnitGroupList, 
           updateUnitGroupList, 
           updateSettingsTabPage } from "../controllers/reportDevice.controller.js";
 import { getDeviceLog } from "../controllers/bmsDB.controller.js";

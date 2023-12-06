@@ -3,6 +3,7 @@ export interface Device {
   div: string;
   xmlID: string;
   name: string;
+  type: number;
 }
 
 

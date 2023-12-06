@@ -25,7 +25,7 @@ const updateSettingsTabPage = async function (
     next: NextFunction
   ) {
     try {
-      console.log("updateSettingsTabPage", req.body);
+      // console.log("updateSettingsTabPage", req.body);
   
       await prismaFac.general.update({
         where: { type: req.body.name },
@@ -45,7 +45,7 @@ const updateSettingsTabPage = async function (
     next: NextFunction
   ) {
     try {
-      console.log("updateSettingsTabPage", req.body);
+      // console.log("updateSettingsTabPage", req.body);
   
       await prismaFac.general.update({
         where: { type: "unitGroup" },
@@ -69,6 +69,8 @@ const updateSettingsTabPage = async function (
       req.unitGroup = await prismaFac.general.findUnique({
         where: { type: "unitGroup" },
       });
+
+      // console.log("res getUnitGroupList", req.unitGroup);
 
       next();
     } catch (error) {

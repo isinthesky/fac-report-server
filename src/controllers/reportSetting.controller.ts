@@ -6,6 +6,14 @@ const prismaFac = new PrismaClientFac();
 
 const resetDeviceDB = async function (req: CustomRequest, res: Response, next: NextFunction) {
   try {
+    await Promise.all([
+      prismaFac.Device.deleteMany({}),
+      prismaFac.Division.deleteMany({}),
+      prismaFac.Station.deleteMany({})
+    ]);
+
+    console.log("req.xmlDivisions", req.xmlDivisions)
+    
     const dbStations = req.xmlStations;
     const dbDivisions = await Promise.all(
       req.xmlDivisions.map((path: string) => {
@@ -15,11 +23,7 @@ const resetDeviceDB = async function (req: CustomRequest, res: Response, next: N
     );
     const dbDevices = req.xmlDevices;
 
-    await Promise.all([
-      prismaFac.Device.deleteMany({}),
-      prismaFac.Division.deleteMany({}),
-      prismaFac.Station.deleteMany({})
-    ]);
+
 
     // Station 데이터 생성
     const stationsData = Array.from(dbStations).map(item => ({ name: item }));
@@ -55,6 +59,7 @@ const resetDeviceDB = async function (req: CustomRequest, res: Response, next: N
           divisionId: dbDiv.id,
           xmlId: item.xmlID,
           name: item.name,
+          type: item.type,
         });
       }
     }
@@ -95,12 +100,12 @@ const readSettings = async function (req: Request, res: Response, next: NextFunc
         where: { type: key },
       });
 
-      console.log("readSettings", key, set)
+      // console.log("readSettings", key, set)
       set.value["id"] = set.id;
       select[key] = set.value;
     }
 
-    console.log("select", select);
+    // console.log("select", select);
     
     req.settings = select;
 
@@ -113,7 +118,7 @@ const readSettings = async function (req: Request, res: Response, next: NextFunc
 const createSettings = async function (req: Request, res: Response, next: NextFunction) {
   try {
     const key = await prismaFac.general.findFirst({where: {type: req.body.type}})
-    console.log("create setting", key)
+    // console.log("create setting", key)
 
     if (key) {
       console.log("update", req.body)
@@ -146,7 +151,7 @@ const updateSettingsColRow = async function (
       data: { value: { row: req.body.row, column: req.body.column } },
     });
 
-    console.log("updateSettings", updated);
+    // console.log("updateSettings", updated);
 
     next();
   } catch (error) {
@@ -176,7 +181,7 @@ const updateSettingsApproves = async function (
 const deleteSettings = async function (req: Request, res: Response, next: NextFunction) {
   try {
     const settings = await prismaFac.general.deleteMany();
-    console.log("deleteSettings", settings);
+    // console.log("deleteSettings", settings);
     next();
   } catch (error) {
     next(error);

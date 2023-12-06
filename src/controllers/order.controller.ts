@@ -14,7 +14,7 @@ const prismaFac = new PrismaClientFac({
   log: ["query", "info", "warn", "error"],
 });
 
-import { TEST_A_Table, TEST_B_Table, XML_DST_PATH, XML_PATH_POS_DIVISION, XML_PATH_POS_STATION } from "../env.js";
+import { TEST_B_Table, XML_DST_PATH, XML_PATH_POS_STATION, XML_PATH_POS_DIVISION } from "../env.js";
 import { ExtendedRequest } from "../static/interfaces.js";
 
 const getDateLog = async function (req: Request, res: Response, next: NextFunction) {
@@ -23,17 +23,9 @@ const getDateLog = async function (req: Request, res: Response, next: NextFuncti
 
     const Data = await prismaBMS.$queryRaw`SELECT count(*) FROM ${TEST_B_Table}`;
 
-    console.log("bms query: ", Data);
+    // console.log("bms query: ", Data);
 
     await prismaBMS.$disconnect();
-
-    console.log("connect", await prismaFac.$connect());
-
-    const Data2 = await prismaFac.$queryRaw`SELECT count(*) FROM "test01"`;
-
-    console.log("fac query: ", Data2);
-
-    await prismaFac.$disconnect();
 
     next();
   } catch (error) {
@@ -58,6 +50,8 @@ const getXmlFiles = async function (req: Request, res: Response, next: NextFunct
           result.push(...getSubPathsAndFileNames(fullPath));
         }
       }
+
+      console.log("result", result)
 
       return result;
     };
@@ -89,6 +83,7 @@ const getXml2DeviceList = async function (
               id: lpt.$.id,
               nm: lpt.$.nm,
               xmlid: lpt.$.xmlid,
+              type: lpt.$.ty?Number(lpt.$.ty):0,
             });
           }
         }
@@ -113,7 +108,7 @@ const getXml2DeviceList = async function (
       if (result != false) {
         return await Promise.all(
           result.map((item) => {
-            return { stn: station, div: division, name: item.nm, xmlID: item.id };
+            return { stn: station, div: division, name: item.nm, xmlID: item.id, type: item.type };
           })
         );
       }
@@ -127,20 +122,28 @@ const getXml2DeviceList = async function (
     for (const xml of req.xmlFiles) {
       const path = String(xml[0]).split("/");
 
-      if (path[XML_PATH_POS_STATION]) {
-        xmlStations.push(path[XML_PATH_POS_STATION]); // station
-        xmlDivisions.push(path[XML_PATH_POS_STATION] + "," + path[XML_PATH_POS_DIVISION]);
-        const resDevice = await appendDevicesFunc(path[XML_PATH_POS_STATION], path[XML_PATH_POS_DIVISION], xml[2]);
+      if (path[Number(XML_PATH_POS_STATION)]) {
+        xmlStations.push(path[Number(XML_PATH_POS_STATION)]); // station
 
-        // console.log("appendDevicesFunc", resDevice);
+        if (path[Number(XML_PATH_POS_DIVISION)]) {
+          xmlDivisions.push(`${path[Number(XML_PATH_POS_STATION)]}` + "," + `${path[Number(XML_PATH_POS_DIVISION)]}`);
+        }
+
+        const resDevice = await appendDevicesFunc(path[Number(XML_PATH_POS_STATION)], path[Number(XML_PATH_POS_DIVISION)], xml[2]);
+
         if (resDevice != false) {
           req.xmlDevices.push(resDevice);
         }
       }
     }
 
+    console.log("xmlDivisions",xmlDivisions, Number(XML_PATH_POS_STATION), Number(XML_PATH_POS_DIVISION),  req.xmlFiles[1][2])
+
+    req.xmlDivisions = Array.from(new Set(xmlDivisions)).filter((item) => item);
     req.xmlStations = Array.from(new Set(xmlStations));
-    req.xmlDivisions = Array.from(new Set(xmlDivisions));
+
+    console.log("xmlStations",req.xmlDivisions, Number(XML_PATH_POS_STATION))
+    
 
     next();
   } catch (error) {

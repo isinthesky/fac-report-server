@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../public")));
 
 utilsLoader(app);
-routersLoader(app);
+routersLoader(app); 
 
 
 app.use(function (err: Error, req: Request, res: Response, next: NextFunction) {

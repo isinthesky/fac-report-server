@@ -17,9 +17,14 @@ const utilsLoader = function (app: Application): void {
 
   app.use(
     cors({
-      origin: ["http://localhost:3000", "http://isinthesky.iptime.org:3000"],
+      origin: [ "http://localhost:3000", 
+                "http://localhost:3001",
+                "http://isinthesky.iptime.org:3000",
+                "http://isinthesky.iptime.org:3001",
+                "http://isinthesky.iptime.org:3002"],
     })
   );
+
 
   app.use(helmet());
   app.use(morgan("dev"));

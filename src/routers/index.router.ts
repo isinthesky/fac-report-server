@@ -14,8 +14,6 @@ import {
   updateSettingsApproves,
 } from "../controllers/reportSetting.controller.js";
 
-import { getDeviceLog } from "../controllers/bmsDB.controller.js";
-
 const router = express.Router();
 
 router.get("/report", (req: Request, res: Response): Response => {
@@ -25,7 +23,7 @@ router.get("/report", (req: Request, res: Response): Response => {
 router.post(
   "/report",
   getDateLog,
-  // downloadXml,
+  downloadXml,
   (req: Request, res: Response): Response => {
     return res.status(200).json({ ok: true });
   }

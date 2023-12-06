@@ -18,4 +18,4 @@ export const TEST_B_Table = process.env.TEST_B_Table;
 // export const XML_PATH_POS_DIVISION = process.env.XML_PATH_WINDOWS_POS_DIVISION;
 
 export const XML_PATH_POS_STATION = process.env.XML_PATH_MAC_POS_STATION;
-export const XML_PATH_POS_DIVISION = process.env.XML_PATH_MAC_POS_DIVICE;
+export const XML_PATH_POS_DIVISION = process.env.XML_PATH_MAC_POS_DIVISION;

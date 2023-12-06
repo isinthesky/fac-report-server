@@ -4001,12 +4001,14 @@ export namespace Prisma {
 
   export type DeviceAvgAggregateOutputType = {
     id: number | null
+    type: number | null
     stationId: number | null
     divisionId: number | null
   }
 
   export type DeviceSumAggregateOutputType = {
     id: number | null
+    type: number | null
     stationId: number | null
     divisionId: number | null
   }
@@ -4015,6 +4017,7 @@ export namespace Prisma {
     id: number | null
     xmlId: string | null
     name: string | null
+    type: number | null
     stationId: number | null
     divisionId: number | null
   }
@@ -4023,6 +4026,7 @@ export namespace Prisma {
     id: number | null
     xmlId: string | null
     name: string | null
+    type: number | null
     stationId: number | null
     divisionId: number | null
   }
@@ -4031,6 +4035,7 @@ export namespace Prisma {
     id: number
     xmlId: number
     name: number
+    type: number
     stationId: number
     divisionId: number
     _all: number
@@ -4039,12 +4044,14 @@ export namespace Prisma {
 
   export type DeviceAvgAggregateInputType = {
     id?: true
+    type?: true
     stationId?: true
     divisionId?: true
   }
 
   export type DeviceSumAggregateInputType = {
     id?: true
+    type?: true
     stationId?: true
     divisionId?: true
   }
@@ -4053,6 +4060,7 @@ export namespace Prisma {
     id?: true
     xmlId?: true
     name?: true
+    type?: true
     stationId?: true
     divisionId?: true
   }
@@ -4061,6 +4069,7 @@ export namespace Prisma {
     id?: true
     xmlId?: true
     name?: true
+    type?: true
     stationId?: true
     divisionId?: true
   }
@@ -4069,6 +4078,7 @@ export namespace Prisma {
     id?: true
     xmlId?: true
     name?: true
+    type?: true
     stationId?: true
     divisionId?: true
     _all?: true
@@ -4164,6 +4174,7 @@ export namespace Prisma {
     id: number
     xmlId: string
     name: string
+    type: number
     stationId: number
     divisionId: number
     _count: DeviceCountAggregateOutputType | null
@@ -4191,6 +4202,7 @@ export namespace Prisma {
     id?: boolean
     xmlId?: boolean
     name?: boolean
+    type?: boolean
     stationId?: boolean
     divisionId?: boolean
     Station?: boolean | StationDefaultArgs<ExtArgs>
@@ -4201,6 +4213,7 @@ export namespace Prisma {
     id?: boolean
     xmlId?: boolean
     name?: boolean
+    type?: boolean
     stationId?: boolean
     divisionId?: boolean
   }
@@ -4221,6 +4234,7 @@ export namespace Prisma {
       id: number
       xmlId: string
       name: string
+      type: number
       stationId: number
       divisionId: number
     }, ExtArgs["result"]["device"]>
@@ -4623,6 +4637,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Device", 'Int'>
     readonly xmlId: FieldRef<"Device", 'String'>
     readonly name: FieldRef<"Device", 'String'>
+    readonly type: FieldRef<"Device", 'Int'>
     readonly stationId: FieldRef<"Device", 'Int'>
     readonly divisionId: FieldRef<"Device", 'Int'>
   }
@@ -4996,6 +5011,7 @@ export namespace Prisma {
     id: 'id',
     xmlId: 'xmlId',
     name: 'name',
+    type: 'type',
     stationId: 'stationId',
     divisionId: 'divisionId'
   };
@@ -5247,6 +5263,7 @@ export namespace Prisma {
     id?: IntFilter<"Device"> | number
     xmlId?: StringFilter<"Device"> | string
     name?: StringFilter<"Device"> | string
+    type?: IntFilter<"Device"> | number
     stationId?: IntFilter<"Device"> | number
     divisionId?: IntFilter<"Device"> | number
     Station?: XOR<StationRelationFilter, StationWhereInput>
@@ -5257,6 +5274,7 @@ export namespace Prisma {
     id?: SortOrder
     xmlId?: SortOrder
     name?: SortOrder
+    type?: SortOrder
     stationId?: SortOrder
     divisionId?: SortOrder
     Station?: StationOrderByWithRelationInput
@@ -5270,6 +5288,7 @@ export namespace Prisma {
     OR?: DeviceWhereInput[]
     NOT?: DeviceWhereInput | DeviceWhereInput[]
     name?: StringFilter<"Device"> | string
+    type?: IntFilter<"Device"> | number
     stationId?: IntFilter<"Device"> | number
     divisionId?: IntFilter<"Device"> | number
     Station?: XOR<StationRelationFilter, StationWhereInput>
@@ -5280,6 +5299,7 @@ export namespace Prisma {
     id?: SortOrder
     xmlId?: SortOrder
     name?: SortOrder
+    type?: SortOrder
     stationId?: SortOrder
     divisionId?: SortOrder
     _count?: DeviceCountOrderByAggregateInput
@@ -5296,6 +5316,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Device"> | number
     xmlId?: StringWithAggregatesFilter<"Device"> | string
     name?: StringWithAggregatesFilter<"Device"> | string
+    type?: IntWithAggregatesFilter<"Device"> | number
     stationId?: IntWithAggregatesFilter<"Device"> | number
     divisionId?: IntWithAggregatesFilter<"Device"> | number
   }
@@ -5424,6 +5445,7 @@ export namespace Prisma {
   export type DeviceCreateInput = {
     xmlId: string
     name: string
+    type: number
     Station: StationCreateNestedOneWithoutDeviceInput
     division: DivisionCreateNestedOneWithoutDeviceInput
   }
@@ -5432,6 +5454,7 @@ export namespace Prisma {
     id?: number
     xmlId: string
     name: string
+    type: number
     stationId: number
     divisionId: number
   }
@@ -5439,6 +5462,7 @@ export namespace Prisma {
   export type DeviceUpdateInput = {
     xmlId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
     Station?: StationUpdateOneRequiredWithoutDeviceNestedInput
     division?: DivisionUpdateOneRequiredWithoutDeviceNestedInput
   }
@@ -5447,6 +5471,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     xmlId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
     stationId?: IntFieldUpdateOperationsInput | number
     divisionId?: IntFieldUpdateOperationsInput | number
   }
@@ -5455,6 +5480,7 @@ export namespace Prisma {
     id?: number
     xmlId: string
     name: string
+    type: number
     stationId: number
     divisionId: number
   }
@@ -5462,12 +5488,14 @@ export namespace Prisma {
   export type DeviceUpdateManyMutationInput = {
     xmlId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
   }
 
   export type DeviceUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     xmlId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
     stationId?: IntFieldUpdateOperationsInput | number
     divisionId?: IntFieldUpdateOperationsInput | number
   }
@@ -5693,12 +5721,14 @@ export namespace Prisma {
     id?: SortOrder
     xmlId?: SortOrder
     name?: SortOrder
+    type?: SortOrder
     stationId?: SortOrder
     divisionId?: SortOrder
   }
 
   export type DeviceAvgOrderByAggregateInput = {
     id?: SortOrder
+    type?: SortOrder
     stationId?: SortOrder
     divisionId?: SortOrder
   }
@@ -5707,6 +5737,7 @@ export namespace Prisma {
     id?: SortOrder
     xmlId?: SortOrder
     name?: SortOrder
+    type?: SortOrder
     stationId?: SortOrder
     divisionId?: SortOrder
   }
@@ -5715,12 +5746,14 @@ export namespace Prisma {
     id?: SortOrder
     xmlId?: SortOrder
     name?: SortOrder
+    type?: SortOrder
     stationId?: SortOrder
     divisionId?: SortOrder
   }
 
   export type DeviceSumOrderByAggregateInput = {
     id?: SortOrder
+    type?: SortOrder
     stationId?: SortOrder
     divisionId?: SortOrder
   }
@@ -6031,6 +6064,7 @@ export namespace Prisma {
   export type DeviceCreateWithoutStationInput = {
     xmlId: string
     name: string
+    type: number
     division: DivisionCreateNestedOneWithoutDeviceInput
   }
 
@@ -6038,6 +6072,7 @@ export namespace Prisma {
     id?: number
     xmlId: string
     name: string
+    type: number
     divisionId: number
   }
 
@@ -6099,6 +6134,7 @@ export namespace Prisma {
     id?: IntFilter<"Device"> | number
     xmlId?: StringFilter<"Device"> | string
     name?: StringFilter<"Device"> | string
+    type?: IntFilter<"Device"> | number
     stationId?: IntFilter<"Device"> | number
     divisionId?: IntFilter<"Device"> | number
   }
@@ -6122,6 +6158,7 @@ export namespace Prisma {
   export type DeviceCreateWithoutDivisionInput = {
     xmlId: string
     name: string
+    type: number
     Station: StationCreateNestedOneWithoutDeviceInput
   }
 
@@ -6129,6 +6166,7 @@ export namespace Prisma {
     id?: number
     xmlId: string
     name: string
+    type: number
     stationId: number
   }
 
@@ -6265,6 +6303,7 @@ export namespace Prisma {
     id?: number
     xmlId: string
     name: string
+    type: number
     divisionId: number
   }
 
@@ -6287,6 +6326,7 @@ export namespace Prisma {
   export type DeviceUpdateWithoutStationInput = {
     xmlId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
     division?: DivisionUpdateOneRequiredWithoutDeviceNestedInput
   }
 
@@ -6294,6 +6334,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     xmlId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
     divisionId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -6301,6 +6342,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     xmlId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
     divisionId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -6308,12 +6350,14 @@ export namespace Prisma {
     id?: number
     xmlId: string
     name: string
+    type: number
     stationId: number
   }
 
   export type DeviceUpdateWithoutDivisionInput = {
     xmlId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
     Station?: StationUpdateOneRequiredWithoutDeviceNestedInput
   }
 
@@ -6321,6 +6365,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     xmlId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
     stationId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -6328,6 +6373,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     xmlId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    type?: IntFieldUpdateOperationsInput | number
     stationId?: IntFieldUpdateOperationsInput | number
   }
 

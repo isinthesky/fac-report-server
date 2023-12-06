@@ -128,6 +128,7 @@ exports.Prisma.DeviceScalarFieldEnum = {
   id: 'id',
   xmlId: 'xmlId',
   name: 'name',
+  type: 'type',
   stationId: 'stationId',
   divisionId: 'divisionId'
 };

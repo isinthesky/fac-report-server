@@ -27,7 +27,7 @@ router.put(
   
 
 router.put(
-  "/UnitGroupList",
+  "/unitGroupList",
   updateUnitGroupList,
   (req: Request, res: Response): Response => {
     return res.status(200).json({ ok: true });
@@ -38,7 +38,7 @@ router.put(
 router.get("/unitGroupList",
   getUnitGroupList,
   (req: Request, res: Response): Response => {
-    return res.status(200).json({ ok: true, deviceInfo: req.unitGroup.value });
+    return res.status(200).json({ ok: true, data: req.unitGroup.value });
   }
 )
 
@@ -47,7 +47,7 @@ router.get(
   "/readDeviceLog/:deviceId/:timestamp",
   getDeviceLog, 
   (req: Request, res: Response): Response => {
-    return res.status(200).json({ ok: true, deviceLog: req.deviceLog  });
+    return res.status(200).json({ ok: true, data: req.deviceLog  });
   }
 )
 

@@ -16,10 +16,8 @@ export const TEST_B_Table = process.env.TEST_B_Table;
 
 export const XML_SRC_PATH = process.env.XML_SRC_PATH;
 
-// export const XML_DST_PATH = process.env.XML_PATH_WINDOWS_DST_PATH;
-// export const XML_PATH_POS_STATION = process.env.XML_PATH_WINDOWS_POS_STATION;
-// export const XML_PATH_POS_DIVISION = process.env.XML_PATH_WINDOWS_POS_DIVISION;
+export const ENV_ISMAC = (process.env.SERVER_APP_OS === "mac") ? true : false
 
-export const XML_DST_PATH = process.env.XML_PATH_MAC_DST_PATH;
-export const XML_PATH_POS_STATION = process.env.XML_PATH_MAC_POS_STATION;
-export const XML_PATH_POS_DIVISION = process.env.XML_PATH_MAC_POS_DIVISION;
+export const XML_DST_PATH = ENV_ISMAC ? process.env.XML_PATH_MAC_DST_PATH : process.env.XML_PATH_WINDOWS_DST_PATH;
+export const XML_PATH_POS_STATION = ENV_ISMAC ? process.env.XML_PATH_MAC_POS_STATION : process.env.XML_PATH_WINDOWS_POS_STATION;
+export const XML_PATH_POS_DIVISION = ENV_ISMAC ? process.env.XML_PATH_MAC_POS_DIVISION : process.env.XML_PATH_WINDOWS_POS_DIVISION;

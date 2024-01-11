@@ -14,8 +14,9 @@ const prismaFac = new PrismaClientFac({
   log: ["query", "info", "warn", "error"],
 });
 
-import { TEST_B_Table, XML_DST_PATH, XML_PATH_POS_STATION, XML_PATH_POS_DIVISION } from "../env.js";
+import { TEST_B_Table, XML_DST_PATH, XML_PATH_POS_STATION, XML_PATH_POS_DIVISION, ENV_ISMAC } from "../env.js";
 import { ExtendedRequest } from "../static/interfaces.js";
+import { Console } from "console";
 
 const getDateLog = async function (req: Request, res: Response, next: NextFunction) {
   try {
@@ -120,13 +121,18 @@ const getXml2DeviceList = async function (
     req.xmlDevices = [];
 
     for (const xml of req.xmlFiles) {
-      const path = String(xml[0]).split("/");
+      
+      const path = (ENV_ISMAC === true) ? String(xml[0]).split("/") : String(xml[0]).split("\\");
+
+      console.log("xml path", path)
 
       if (path[Number(XML_PATH_POS_STATION)]) {
         xmlStations.push(path[Number(XML_PATH_POS_STATION)]); // station
 
         if (path[Number(XML_PATH_POS_DIVISION)]) {
-          xmlDivisions.push(`${path[Number(XML_PATH_POS_STATION)]}` + "," + `${path[Number(XML_PATH_POS_DIVISION)]}`);
+          if (path[Number(XML_PATH_POS_DIVISION)].substring(0,2) === "OF") {
+            xmlDivisions.push(`${path[Number(XML_PATH_POS_STATION)]}` + "," + `${path[Number(XML_PATH_POS_DIVISION)]}`);
+          }
         }
 
         const resDevice = await appendDevicesFunc(path[Number(XML_PATH_POS_STATION)], path[Number(XML_PATH_POS_DIVISION)], xml[2]);
@@ -137,10 +143,12 @@ const getXml2DeviceList = async function (
       }
     }
 
-    console.log("xmlDivisions",xmlDivisions, Number(XML_PATH_POS_STATION), Number(XML_PATH_POS_DIVISION),  req.xmlFiles[1][2])
+    console.log("xmlDivisions",xmlDivisions, Number(XML_PATH_POS_STATION), Number(XML_PATH_POS_DIVISION))
 
     req.xmlDivisions = Array.from(new Set(xmlDivisions)).filter((item) => item);
     req.xmlStations = Array.from(new Set(xmlStations));
+
+
 
     console.log("xmlStations",req.xmlDivisions, Number(XML_PATH_POS_STATION))
     

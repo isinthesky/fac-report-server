@@ -23,8 +23,6 @@ const resetDeviceDB = async function (req: CustomRequest, res: Response, next: N
     );
     const dbDevices = req.xmlDevices;
 
-
-
     // Station 데이터 생성
     const stationsData = Array.from(dbStations).map(item => ({ name: item }));
     await prismaFac.Station.createMany({ data: stationsData });

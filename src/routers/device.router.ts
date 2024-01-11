@@ -47,7 +47,7 @@ router.get(
   "/readDeviceLog/:deviceId/:timestamp",
   getDeviceLog, 
   (req: Request, res: Response): Response => {
-    return res.status(200).json({ ok: true, data: req.deviceLog  });
+    return res.status(200).json({ ok: true, data: req.deviceLog });
   }
 )
 

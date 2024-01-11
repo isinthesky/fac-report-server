@@ -64,13 +64,13 @@ const updateSettingsTabPage = async function (
     next: NextFunction
   ) {
     try {
-      console.log("getUnitGroupList", req.body);
+      // console.log("getUnitGroupList", req.body);
   
       req.unitGroup = await prismaFac.general.findUnique({
         where: { type: "unitGroup" },
       });
 
-      // console.log("res getUnitGroupList", req.unitGroup);
+      console.log("res getUnitGroupList", req.unitGroup);
 
       next();
     } catch (error) {

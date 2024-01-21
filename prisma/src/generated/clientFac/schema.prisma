@@ -39,6 +39,7 @@ model Device {
   type              Int
   stationId         Int
   divisionId        Int
-  Station           Station     @relation(fields: [stationId], references: [id])
+  pathId            Int
+  station           Station     @relation(fields: [stationId], references: [id])
   division          Division    @relation(fields: [divisionId], references: [id])
 }

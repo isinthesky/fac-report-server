@@ -1,31 +1,23 @@
 import { Request, Response, NextFunction } from "express";
 import { PrismaClient as PrismaClientBMS } from "../../prisma/src/generated/clientBMS";
-import { PrismaClient as PrismaClientFac } from "../../prisma/src/generated/clientFac";
 import fs from "fs";
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
+import path from "path";
 import { parseStringPromise } from "xml2js";
+import { SERVER_TABLE_NAME } from "../env.ts";
 
 const prismaBMS = new PrismaClientBMS({
   log: ["query", "info", "warn", "error"],
 });
 
-const prismaFac = new PrismaClientFac({
-  log: ["query", "info", "warn", "error"],
-});
-
-import { TEST_B_Table, XML_DST_PATH, XML_PATH_POS_STATION, XML_PATH_POS_DIVISION, ENV_ISMAC } from "../env.js";
+import { XML_DST_PATH, XML_PATH_POS_STATION, XML_PATH_POS_DIVISION, ENV_ISMAC } from "../env.js";
 import { ExtendedRequest } from "../static/interfaces.js";
-import { Console } from "console";
 
 const getDateLog = async function (req: Request, res: Response, next: NextFunction) {
   try {
     console.log("connect", await prismaBMS.$connect());
 
-    const Data = await prismaBMS.$queryRaw`SELECT count(*) FROM ${TEST_B_Table}`;
-
-    // console.log("bms query: ", Data);
-
+    const Data = await prismaBMS.$queryRaw`SELECT count(*) FROM ${SERVER_TABLE_NAME}`;
+    
     await prismaBMS.$disconnect();
 
     next();
@@ -148,11 +140,8 @@ const getXml2DeviceList = async function (
     req.xmlDivisions = Array.from(new Set(xmlDivisions)).filter((item) => item);
     req.xmlStations = Array.from(new Set(xmlStations));
 
-
-
     console.log("xmlStations",req.xmlDivisions, Number(XML_PATH_POS_STATION))
     
-
     next();
   } catch (error) {
     next(error);

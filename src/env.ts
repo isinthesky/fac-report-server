@@ -9,10 +9,9 @@ export const FTP_HOST = process.env.FTP_HOST;
 export const FTP_USER = process.env.FTP_USER;
 export const FTP_PASSWORD = process.env.FTP_PASSWORD;
 
-export const TEST_A_Table = process.env.TEST_A_Table;
-export const TEST_B_Table = process.env.TEST_B_Table;
-
-
+export const SERVER_TABLE_POINT = process.env.BMS_TABLE_POINT;
+export const SERVER_TABLE_NAME = process.env.BMS_TABLE_PREFIX;
+export const SERVER_SELECT_QUERY = process.env.BMS_SELECT_QUERY;
 
 export const XML_SRC_PATH = process.env.XML_SRC_PATH;
 

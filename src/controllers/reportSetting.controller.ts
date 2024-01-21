@@ -1,16 +1,16 @@
 import { Request, Response, NextFunction } from "express";
 import { PrismaClient as PrismaClientFac } from "../../prisma/src/generated/clientFac/index.js";
 import { CustomRequest } from "../static/interfaces.js";
+import { getPathId } from "../static/functions.js";
 
 const prismaFac = new PrismaClientFac();
 
 const resetDeviceDB = async function (req: CustomRequest, res: Response, next: NextFunction) {
   try {
-    await Promise.all([
-      prismaFac.Device.deleteMany({}),
-      prismaFac.Division.deleteMany({}),
-      prismaFac.Station.deleteMany({})
-    ]);
+
+    await prismaFac.Device.deleteMany();
+    await prismaFac.Division.deleteMany();
+    await prismaFac.Station.deleteMany();
 
     console.log("req.xmlDivisions", req.xmlDivisions)
     
@@ -58,6 +58,7 @@ const resetDeviceDB = async function (req: CustomRequest, res: Response, next: N
           xmlId: item.xmlID,
           name: item.name,
           type: item.type,
+          pathId: await getPathId(item.stn, item.div, item.xmlID),
         });
       }
     }
@@ -98,12 +99,10 @@ const readSettings = async function (req: Request, res: Response, next: NextFunc
         where: { type: key },
       });
 
-      // console.log("readSettings", key, set)
       set.value["id"] = set.id;
       select[key] = set.value;
     }
 
-    // console.log("select", select);
     
     req.settings = select;
 
@@ -144,12 +143,11 @@ const updateSettingsColRow = async function (
   next: NextFunction
 ) {
   try {
-    const updated = await prismaFac.general.update({
+    await prismaFac.general.update({
       where: { type: "settings" },
       data: { value: { row: req.body.row, column: req.body.column } },
     });
 
-    // console.log("updateSettings", updated);
 
     next();
   } catch (error) {

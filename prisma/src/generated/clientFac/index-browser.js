@@ -16,12 +16,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 5.4.1
- * Query Engine version: 2f302df92bd8945e20ad4595a73def5b96afa54f
+ * Prisma Client JS version: 5.8.1
+ * Query Engine version: 78caf6feeaed953168c64e15a249c3e9a033ebe2
  */
 Prisma.prismaVersion = {
-  client: "5.4.1",
-  engine: "2f302df92bd8945e20ad4595a73def5b96afa54f"
+  client: "5.8.1",
+  engine: "78caf6feeaed953168c64e15a249c3e9a033ebe2"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -130,7 +130,8 @@ exports.Prisma.DeviceScalarFieldEnum = {
   name: 'name',
   type: 'type',
   stationId: 'stationId',
-  divisionId: 'divisionId'
+  divisionId: 'divisionId',
+  pathId: 'pathId'
 };
 
 exports.Prisma.SortOrder = {

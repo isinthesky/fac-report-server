@@ -1,16 +1,13 @@
 import { Request, Response, NextFunction } from "express";
-import { PrismaClient as PrismaClientBMS } from "../../prisma/src/generated/clientBMS";
+import { parseStringPromise } from "xml2js";
+import { PrismaClient } from '../../prisma/src/generated/clientBMS'
+import { SERVER_TABLE_NAME, XML_DST_PATH, XML_PATH_POS_STATION, XML_PATH_POS_DIVISION, ENV_ISMAC } from "../env.js";
+import { ExtendedRequest } from "../static/interfaces.js";
 import fs from "fs";
 import path from "path";
-import { parseStringPromise } from "xml2js";
-import { SERVER_TABLE_NAME } from "../env.ts";
 
-const prismaBMS = new PrismaClientBMS({
-  log: ["query", "info", "warn", "error"],
-});
+const prismaBMS = new PrismaClient()
 
-import { XML_DST_PATH, XML_PATH_POS_STATION, XML_PATH_POS_DIVISION, ENV_ISMAC } from "../env.js";
-import { ExtendedRequest } from "../static/interfaces.js";
 
 const getDateLog = async function (req: Request, res: Response, next: NextFunction) {
   try {
@@ -43,8 +40,6 @@ const getXmlFiles = async function (req: Request, res: Response, next: NextFunct
           result.push(...getSubPathsAndFileNames(fullPath));
         }
       }
-
-      console.log("result", result)
 
       return result;
     };
@@ -113,10 +108,8 @@ const getXml2DeviceList = async function (
     req.xmlDevices = [];
 
     for (const xml of req.xmlFiles) {
-      
-      const path = (ENV_ISMAC === true) ? String(xml[0]).split("/") : String(xml[0]).split("\\");
 
-      console.log("xml path", path)
+      const path = (ENV_ISMAC === true) ? String(xml[0]).split("/") : String(xml[0]).split("\\");
 
       if (path[Number(XML_PATH_POS_STATION)]) {
         xmlStations.push(path[Number(XML_PATH_POS_STATION)]); // station
@@ -141,7 +134,7 @@ const getXml2DeviceList = async function (
     req.xmlStations = Array.from(new Set(xmlStations));
 
     console.log("xmlStations",req.xmlDivisions, Number(XML_PATH_POS_STATION))
-    
+
     next();
   } catch (error) {
     next(error);

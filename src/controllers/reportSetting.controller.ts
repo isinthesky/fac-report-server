@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express";
-import { PrismaClient as PrismaClientFac } from "../../prisma/src/generated/clientFac/index.js";
 import { CustomRequest } from "../static/interfaces.js";
+import { PrismaClient } from '../../prisma/src/generated/clientFac';
 import { getPathId } from "../static/functions.js";
 
-const prismaFac = new PrismaClientFac();
+const prismaFac = new PrismaClient();
 
 const resetDeviceDB = async function (req: CustomRequest, res: Response, next: NextFunction) {
   try {
@@ -12,8 +12,6 @@ const resetDeviceDB = async function (req: CustomRequest, res: Response, next: N
     await prismaFac.Division.deleteMany();
     await prismaFac.Station.deleteMany();
 
-    console.log("req.xmlDivisions", req.xmlDivisions)
-    
     const dbStations = req.xmlStations;
     const dbDivisions = await Promise.all(
       req.xmlDivisions.map((path: string) => {
@@ -29,16 +27,17 @@ const resetDeviceDB = async function (req: CustomRequest, res: Response, next: N
 
     // Station 데이터 조회 및 매핑
     const arrStation = await prismaFac.Station.findMany({});
-    
+
     const stationMap = new Map();
     for (const data of arrStation) {
       stationMap.set(data.name, data.id);
     }
-    
+
     const divisionsData = Array.from(dbDivisions).map(item => ({
       stationId: stationMap.get(item.station),
       name: item.name
     }));
+
     await prismaFac.Division.createMany({ data: divisionsData });
 
     // Device 데이터 생성
@@ -58,7 +57,7 @@ const resetDeviceDB = async function (req: CustomRequest, res: Response, next: N
           xmlId: item.xmlID,
           name: item.name,
           type: item.type,
-          pathId: await getPathId(item.stn, item.div, item.xmlID),
+          pathId: await getPathId(item.stn, item.div, item.xmlID)
         });
       }
     }
@@ -99,10 +98,12 @@ const readSettings = async function (req: Request, res: Response, next: NextFunc
         where: { type: key },
       });
 
+      // console.log("readSettings", key, set)
       set.value["id"] = set.id;
       select[key] = set.value;
     }
 
+    // console.log("select", select);
     
     req.settings = select;
 
@@ -118,7 +119,6 @@ const createSettings = async function (req: Request, res: Response, next: NextFu
     // console.log("create setting", key)
 
     if (key) {
-      console.log("update", req.body)
       await prismaFac.general.update({
         where: { type: req.body.type },
         data: { value: req.body.value },
@@ -143,11 +143,12 @@ const updateSettingsColRow = async function (
   next: NextFunction
 ) {
   try {
-    await prismaFac.general.update({
+    const updated = await prismaFac.general.update({
       where: { type: "settings" },
       data: { value: { row: req.body.row, column: req.body.column } },
     });
 
+    // console.log("updateSettings", updated);
 
     next();
   } catch (error) {

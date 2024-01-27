@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from "express";
-import { PrismaClient as PrismaClientBMS } from "../../prisma/src/generated/clientBMS";
+import { PrismaClient } from '../../prisma/src/generated/clientBMS'
 import { SERVER_TABLE_NAME, SERVER_SELECT_QUERY } from "../env.ts";
 
-const clientBMS = new PrismaClientBMS();
+const prismaBMS = new PrismaClient()
 
 const getDeviceLog = async function (req: Request, res: Response, next: NextFunction) {
     try {
@@ -11,7 +11,7 @@ const getDeviceLog = async function (req: Request, res: Response, next: NextFunc
       const dbTable = `${SERVER_TABLE_NAME}${formattedDate}`;
 
       const query = `${SERVER_SELECT_QUERY} ${dbTable} WHERE path_id = ${Number(req.params.deviceId)}`;
-      const result = await clientBMS.$queryRawUnsafe(query);
+      const result = await prismaBMS.$queryRawUnsafe(query);
 
       const logResult: Record<number, string> = {};
 
@@ -19,9 +19,7 @@ const getDeviceLog = async function (req: Request, res: Response, next: NextFunc
         const key = Number(item.issued_date);
         logResult[key] = item.changed_value;
       }
-  
       req.deviceLog = logResult;
-  
       next();
     } catch (error) {
       console.error("Database query error:", error);

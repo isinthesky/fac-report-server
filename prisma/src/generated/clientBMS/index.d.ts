@@ -207,7 +207,7 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.4.1
+   * Prisma Client JS version: 5.7.0
    * Query Engine version: 2f302df92bd8945e20ad4595a73def5b96afa54f
    */
   export type PrismaVersion = {
@@ -1080,7 +1080,7 @@ export namespace Prisma {
   type point_history_230901GetPayload<S extends boolean | null | undefined | point_history_230901DefaultArgs> = $Result.GetResult<Prisma.$point_history_230901Payload, S>
 
   type point_history_230901CountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<point_history_230901FindManyArgs, 'select' | 'include'> & {
+    Omit<point_history_230901FindManyArgs, 'select' | 'include' | 'distinct' > & {
       select?: Point_history_230901CountAggregateInputType | true
     }
 

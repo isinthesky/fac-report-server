@@ -31,12 +31,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 5.8.1
- * Query Engine version: 78caf6feeaed953168c64e15a249c3e9a033ebe2
+ * Prisma Client JS version: 5.7.0
+ * Query Engine version: 2f302df92bd8945e20ad4595a73def5b96afa54f
  */
 Prisma.prismaVersion = {
-  client: "5.8.1",
-  engine: "78caf6feeaed953168c64e15a249c3e9a033ebe2"
+  client: "5.7.0",
+  engine: "2f302df92bd8945e20ad4595a73def5b96afa54f"
 }
 
 Prisma.PrismaClientKnownRequestError = PrismaClientKnownRequestError;
@@ -159,7 +159,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/isinthesky/Documents/LGeTech/fac-report-server/prisma/src/generated/clientFac",
+      "value": "C:\\lgetech\\fac-report-server\\prisma\\src\\generated\\clientFac",
       "fromEnvVar": null
     },
     "config": {
@@ -168,7 +168,7 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "darwin-arm64",
+        "value": "windows",
         "native": true
       }
     ],
@@ -180,12 +180,13 @@ const config = {
     "schemaEnvPath": "../../../../.env"
   },
   "relativePath": "../../..",
-  "clientVersion": "5.8.1",
-  "engineVersion": "78caf6feeaed953168c64e15a249c3e9a033ebe2",
+  "clientVersion": "5.7.0",
+  "engineVersion": "2f302df92bd8945e20ad4595a73def5b96afa54f",
   "datasourceNames": [
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -194,8 +195,9 @@ const config = {
       }
     }
   },
-  "inlineSchema": "Ly8gVGhpcyBpcyB5b3VyIFByaXNtYSBzY2hlbWEgZmlsZSwKLy8gbGVhcm4gbW9yZSBhYm91dCBpdCBpbiB0aGUgZG9jczogaHR0cHM6Ly9wcmlzLmx5L2QvcHJpc21hLXNjaGVtYQoKZ2VuZXJhdG9yIGNsaWVudCB7CiAgcHJvdmlkZXIgPSAicHJpc21hLWNsaWVudC1qcyIKICBvdXRwdXQgPSAiLi9zcmMvZ2VuZXJhdGVkL2NsaWVudEZhYyIKfQoKZGF0YXNvdXJjZSBkYiB7CiAgcHJvdmlkZXIgPSAicG9zdGdyZXNxbCIKICB1cmwgICAgICA9IGVudigiRkFDX1JFUE9SVDExX0RBVEFCQVNFX1VSTCIpCn0KCm1vZGVsIGdlbmVyYWwgewogIGlkICAgICAgICAgICAgICAgIEludCAgICAgICAgIEBpZCBAZGVmYXVsdChhdXRvaW5jcmVtZW50KCkpCiAgdHlwZSAgICAgICAgICAgICAgU3RyaW5nICAgICAgQHVuaXF1ZQogIHZhbHVlICAgICAgICAgICAgIEpzb24/Cn0KCm1vZGVsIFN0YXRpb24gewogIGlkICAgICAgICAgICAgICAgIEludCAgICAgICAgIEBpZCBAZGVmYXVsdChhdXRvaW5jcmVtZW50KCkpCiAgbmFtZSAgICAgICAgICAgICAgU3RyaW5nICAgICAgQHVuaXF1ZQogIERpdmlzaW9uICAgICAgICAgIERpdmlzaW9uW10KICBEZXZpY2UgICAgICAgICAgICBEZXZpY2VbXQp9Cgptb2RlbCBEaXZpc2lvbiB7CiAgaWQgICAgICAgICAgICAgICAgSW50ICAgICAgICAgQGlkIEBkZWZhdWx0KGF1dG9pbmNyZW1lbnQoKSkKICBzdGF0aW9uSWQgICAgICAgICBJbnQKICBuYW1lICAgICAgICAgICAgICBTdHJpbmcKICBTdGF0aW9uICAgICAgICAgICBTdGF0aW9uICAgICBAcmVsYXRpb24oZmllbGRzOiBbc3RhdGlvbklkXSwgcmVmZXJlbmNlczogW2lkXSkKICBEZXZpY2UgICAgICAgICAgICBEZXZpY2VbXQp9Cgptb2RlbCBEZXZpY2UgewogIGlkICAgICAgICAgICAgICAgIEludCAgICAgICAgIEBpZCBAZGVmYXVsdChhdXRvaW5jcmVtZW50KCkpCiAgeG1sSWQgICAgICAgICAgICAgU3RyaW5nICAgICAgQHVuaXF1ZQogIG5hbWUgICAgICAgICAgICAgIFN0cmluZwogIHR5cGUgICAgICAgICAgICAgIEludAogIHN0YXRpb25JZCAgICAgICAgIEludAogIGRpdmlzaW9uSWQgICAgICAgIEludAogIHBhdGhJZCAgICAgICAgICAgIEludAogIHN0YXRpb24gICAgICAgICAgIFN0YXRpb24gICAgIEByZWxhdGlvbihmaWVsZHM6IFtzdGF0aW9uSWRdLCByZWZlcmVuY2VzOiBbaWRdKQogIGRpdmlzaW9uICAgICAgICAgIERpdmlzaW9uICAgIEByZWxhdGlvbihmaWVsZHM6IFtkaXZpc2lvbklkXSwgcmVmZXJlbmNlczogW2lkXSkKfQo=",
-  "inlineSchemaHash": "02528c7003eb1c4fa2a2bd458451f6482a02a5648a7cd2557a36d60ee55f6e82"
+  "inlineSchema": "Ly8gVGhpcyBpcyB5b3VyIFByaXNtYSBzY2hlbWEgZmlsZSwNCi8vIGxlYXJuIG1vcmUgYWJvdXQgaXQgaW4gdGhlIGRvY3M6IGh0dHBzOi8vcHJpcy5seS9kL3ByaXNtYS1zY2hlbWENCg0KZ2VuZXJhdG9yIGNsaWVudCB7DQogIHByb3ZpZGVyID0gInByaXNtYS1jbGllbnQtanMiDQogIG91dHB1dCA9ICIuL3NyYy9nZW5lcmF0ZWQvY2xpZW50RmFjIg0KfQ0KDQpkYXRhc291cmNlIGRiIHsNCiAgcHJvdmlkZXIgPSAicG9zdGdyZXNxbCINCiAgdXJsICAgICAgPSBlbnYoIkZBQ19SRVBPUlQxMV9EQVRBQkFTRV9VUkwiKQ0KfQ0KDQptb2RlbCBnZW5lcmFsIHsNCiAgaWQgICAgICAgICAgICAgICAgSW50ICAgICAgICAgQGlkIEBkZWZhdWx0KGF1dG9pbmNyZW1lbnQoKSkNCiAgdHlwZSAgICAgICAgICAgICAgU3RyaW5nICAgICAgQHVuaXF1ZQ0KICB2YWx1ZSAgICAgICAgICAgICBKc29uPw0KfQ0KDQptb2RlbCBTdGF0aW9uIHsNCiAgaWQgICAgICAgICAgICAgICAgSW50ICAgICAgICAgQGlkIEBkZWZhdWx0KGF1dG9pbmNyZW1lbnQoKSkNCiAgbmFtZSAgICAgICAgICAgICAgU3RyaW5nICAgICAgQHVuaXF1ZQ0KICBEaXZpc2lvbiAgICAgICAgICBEaXZpc2lvbltdDQogIERldmljZSAgICAgICAgICAgIERldmljZVtdDQp9DQoNCm1vZGVsIERpdmlzaW9uIHsNCiAgaWQgICAgICAgICAgICAgICAgSW50ICAgICAgICAgQGlkIEBkZWZhdWx0KGF1dG9pbmNyZW1lbnQoKSkNCiAgc3RhdGlvbklkICAgICAgICAgSW50DQogIG5hbWUgICAgICAgICAgICAgIFN0cmluZw0KICBTdGF0aW9uICAgICAgICAgICBTdGF0aW9uICAgICBAcmVsYXRpb24oZmllbGRzOiBbc3RhdGlvbklkXSwgcmVmZXJlbmNlczogW2lkXSkNCiAgRGV2aWNlICAgICAgICAgICAgRGV2aWNlW10NCn0NCg0KbW9kZWwgRGV2aWNlIHsNCiAgaWQgICAgICAgICAgICAgICAgSW50ICAgICAgICAgQGlkIEBkZWZhdWx0KGF1dG9pbmNyZW1lbnQoKSkNCiAgeG1sSWQgICAgICAgICAgICAgU3RyaW5nICAgICAgQHVuaXF1ZQ0KICBuYW1lICAgICAgICAgICAgICBTdHJpbmcNCiAgdHlwZSAgICAgICAgICAgICAgSW50DQogIHN0YXRpb25JZCAgICAgICAgIEludA0KICBkaXZpc2lvbklkICAgICAgICBJbnQNCiAgcGF0aElkICAgICAgICAgICAgSW50DQogIHN0YXRpb24gICAgICAgICAgIFN0YXRpb24gICAgIEByZWxhdGlvbihmaWVsZHM6IFtzdGF0aW9uSWRdLCByZWZlcmVuY2VzOiBbaWRdKQ0KICBkaXZpc2lvbiAgICAgICAgICBEaXZpc2lvbiAgICBAcmVsYXRpb24oZmllbGRzOiBbZGl2aXNpb25JZF0sIHJlZmVyZW5jZXM6IFtpZF0pDQp9DQo=",
+  "inlineSchemaHash": "a2a63f1e565310f28b13360106f0411d8be0b92fdbde80960b7f6a4bcd0fcbfb",
+  "noEngine": false
 }
 
 const fs = require('fs')
@@ -232,8 +234,8 @@ exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
-path.join(__dirname, "libquery_engine-darwin-arm64.dylib.node");
-path.join(process.cwd(), "prisma/src/generated/clientFac/libquery_engine-darwin-arm64.dylib.node")
+path.join(__dirname, "query_engine-windows.dll.node");
+path.join(process.cwd(), "prisma/src/generated/clientFac/query_engine-windows.dll.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "prisma/src/generated/clientFac/schema.prisma")

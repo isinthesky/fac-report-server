@@ -252,8 +252,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.8.1
-   * Query Engine version: 78caf6feeaed953168c64e15a249c3e9a033ebe2
+   * Prisma Client JS version: 5.7.0
+   * Query Engine version: 2f302df92bd8945e20ad4595a73def5b96afa54f
    */
   export type PrismaVersion = {
     client: string
@@ -1381,7 +1381,7 @@ export namespace Prisma {
   type generalGetPayload<S extends boolean | null | undefined | generalDefaultArgs> = $Result.GetResult<Prisma.$generalPayload, S>
 
   type generalCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<generalFindManyArgs, 'select' | 'include' | 'distinct'> & {
+    Omit<generalFindManyArgs, 'select' | 'include' | 'distinct' > & {
       select?: GeneralCountAggregateInputType | true
     }
 
@@ -2265,7 +2265,7 @@ export namespace Prisma {
   type StationGetPayload<S extends boolean | null | undefined | StationDefaultArgs> = $Result.GetResult<Prisma.$StationPayload, S>
 
   type StationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<StationFindManyArgs, 'select' | 'include' | 'distinct'> & {
+    Omit<StationFindManyArgs, 'select' | 'include' | 'distinct' > & {
       select?: StationCountAggregateInputType | true
     }
 
@@ -3247,7 +3247,7 @@ export namespace Prisma {
   type DivisionGetPayload<S extends boolean | null | undefined | DivisionDefaultArgs> = $Result.GetResult<Prisma.$DivisionPayload, S>
 
   type DivisionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<DivisionFindManyArgs, 'select' | 'include' | 'distinct'> & {
+    Omit<DivisionFindManyArgs, 'select' | 'include' | 'distinct' > & {
       select?: DivisionCountAggregateInputType | true
     }
 
@@ -4259,7 +4259,7 @@ export namespace Prisma {
   type DeviceGetPayload<S extends boolean | null | undefined | DeviceDefaultArgs> = $Result.GetResult<Prisma.$DevicePayload, S>
 
   type DeviceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<DeviceFindManyArgs, 'select' | 'include' | 'distinct'> & {
+    Omit<DeviceFindManyArgs, 'select' | 'include' | 'distinct' > & {
       select?: DeviceCountAggregateInputType | true
     }
 

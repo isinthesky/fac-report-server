@@ -21,6 +21,7 @@ const {
   warnOnce,
   defineDmmfProperty,
   Public,
+  detectRuntime,
 } = require('./runtime/library')
 
 
@@ -30,11 +31,11 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 5.4.1
+ * Prisma Client JS version: 5.7.0
  * Query Engine version: 2f302df92bd8945e20ad4595a73def5b96afa54f
  */
 Prisma.prismaVersion = {
-  client: "5.4.1",
+  client: "5.7.0",
   engine: "2f302df92bd8945e20ad4595a73def5b96afa54f"
 }
 
@@ -119,7 +120,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/isinthesky/Documents/LGeTech/fac-report-server/prisma/src/generated/clientBMS",
+      "value": "C:\\lgetech\\fac-report-server\\prisma\\src\\generated\\clientBMS",
       "fromEnvVar": null
     },
     "config": {
@@ -128,7 +129,7 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "darwin-arm64",
+        "value": "windows",
         "native": true
       }
     ],
@@ -140,7 +141,7 @@ const config = {
     "schemaEnvPath": "../../../../.env"
   },
   "relativePath": "../../..",
-  "clientVersion": "5.4.1",
+  "clientVersion": "5.7.0",
   "engineVersion": "2f302df92bd8945e20ad4595a73def5b96afa54f",
   "datasourceNames": [
     "db"
@@ -155,8 +156,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "Ly8gVGhpcyBpcyB5b3VyIFByaXNtYSBzY2hlbWEgZmlsZSwKLy8gbGVhcm4gbW9yZSBhYm91dCBpdCBpbiB0aGUgZG9jczogaHR0cHM6Ly9wcmlzLmx5L2QvcHJpc21hLXNjaGVtYQoKZ2VuZXJhdG9yIGNsaWVudCB7CiAgcHJvdmlkZXIgPSAicHJpc21hLWNsaWVudC1qcyIKICBvdXRwdXQgPSAiLi9zcmMvZ2VuZXJhdGVkL2NsaWVudEJNUyIKfQoKZGF0YXNvdXJjZSBkYiB7CiAgcHJvdmlkZXIgPSAicG9zdGdyZXNxbCIKICB1cmwgICAgICA9IGVudigiQk1TMzBfREFUQUJBU0VfVVJMIikKfQoKbW9kZWwgcG9pbnRfaGlzdG9yeV8yMzA5MDEgewogIHBhdGhfaWQgICAgICAgICAgICAgSW50ICAgQGlkIAogIGlzc3VlZF9kYXRlICAgICAgICAgSW50CiAgY29ubmVjdGlvbl9zdGF0dXMgICBJbnQKICBjaGFuZ2VkX3ZhbHVlICAgICAgIFN0cmluZwp9Cg==",
-  "inlineSchemaHash": "918bd404886a8ace95ecb22e76c6dd0c68bd7cce2200d9ee89d5727da8a26cb8",
+  "inlineSchema": "Ly8gVGhpcyBpcyB5b3VyIFByaXNtYSBzY2hlbWEgZmlsZSwNCi8vIGxlYXJuIG1vcmUgYWJvdXQgaXQgaW4gdGhlIGRvY3M6IGh0dHBzOi8vcHJpcy5seS9kL3ByaXNtYS1zY2hlbWENCg0KZ2VuZXJhdG9yIGNsaWVudCB7DQogIHByb3ZpZGVyID0gInByaXNtYS1jbGllbnQtanMiDQogIG91dHB1dCA9ICIuL3NyYy9nZW5lcmF0ZWQvY2xpZW50Qk1TIg0KfQ0KDQpkYXRhc291cmNlIGRiIHsNCiAgcHJvdmlkZXIgPSAicG9zdGdyZXNxbCINCiAgdXJsICAgICAgPSBlbnYoIkJNUzMwX0RBVEFCQVNFX1VSTCIpDQp9DQoNCm1vZGVsIHBvaW50X2hpc3RvcnlfMjMwOTAxIHsNCiAgcGF0aF9pZCAgICAgICAgICAgICBJbnQgICBAaWQgDQogIGlzc3VlZF9kYXRlICAgICAgICAgSW50DQogIGNvbm5lY3Rpb25fc3RhdHVzICAgSW50DQogIGNoYW5nZWRfdmFsdWUgICAgICAgU3RyaW5nDQp9DQo=",
+  "inlineSchemaHash": "eab2227ba64414358c7d82ed0eb56443b8ca62e2881480ad8d4273d284e28193",
   "noEngine": false
 }
 
@@ -179,7 +180,7 @@ if (!fs.existsSync(path.join(__dirname, 'schema.prisma'))) {
 
 config.runtimeDataModel = JSON.parse("{\"models\":{\"point_history_230901\":{\"dbName\":null,\"fields\":[{\"name\":\"path_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Int\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"issued_date\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Int\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"connection_status\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Int\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"changed_value\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[],\"uniqueIndexes\":[],\"isGenerated\":false}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
-
+config.getQueryEngineWasmModule = undefined
 
 
 const { warnEnvConflicts } = require('./runtime/library')
@@ -194,8 +195,8 @@ exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
-path.join(__dirname, "libquery_engine-darwin-arm64.dylib.node");
-path.join(process.cwd(), "prisma/src/generated/clientBMS/libquery_engine-darwin-arm64.dylib.node")
+path.join(__dirname, "query_engine-windows.dll.node");
+path.join(process.cwd(), "prisma/src/generated/clientBMS/query_engine-windows.dll.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "prisma/src/generated/clientBMS/schema.prisma")

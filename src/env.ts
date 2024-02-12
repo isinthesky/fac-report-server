@@ -9,13 +9,15 @@ export const FTP_HOST = process.env.FTP_HOST;
 export const FTP_USER = process.env.FTP_USER;
 export const FTP_PASSWORD = process.env.FTP_PASSWORD;
 
+export const ENV_ISMAC = (process.env.SERVER_APP_OS === "mac") ? true : false
+export const SERVER_CORS = process.env.SERVER_CORS
+
 export const SERVER_TABLE_POINT = process.env.BMS_TABLE_POINT;
 export const SERVER_TABLE_NAME = process.env.BMS_TABLE_PREFIX;
 export const SERVER_SELECT_QUERY = process.env.BMS_SELECT_QUERY;
 
 export const XML_SRC_PATH = process.env.XML_SRC_PATH;
 
-export const ENV_ISMAC = (process.env.SERVER_APP_OS === "mac") ? true : false
 
 export const XML_DST_PATH = ENV_ISMAC ? process.env.XML_PATH_MAC_DST_PATH : process.env.XML_PATH_WINDOWS_DST_PATH;
 export const XML_PATH_POS_STATION = ENV_ISMAC ? process.env.XML_PATH_MAC_POS_STATION : process.env.XML_PATH_WINDOWS_POS_STATION;

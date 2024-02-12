@@ -17,7 +17,7 @@ const utilsLoader = function (app: Application): void {
 
   app.use(
     cors({
-      origin: SERVER_CORS,
+      origin: JSON.parse(SERVER_CORS),
     })
   );
 
